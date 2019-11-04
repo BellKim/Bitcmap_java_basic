@@ -1,7 +1,7 @@
 package day01;
 //반복문
 //for loop
-public class ex06 {
+public class Ex06 {
 
 	public static void main(String[] args) {
 		//for loop: 명혹하게 끝이 있을때 사용.
