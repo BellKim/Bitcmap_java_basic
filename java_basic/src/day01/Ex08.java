@@ -199,10 +199,6 @@ public class Ex08 {
 			}
 			System.out.println(stringBuilder.toString());
 		}
-<<<<<<< HEAD
-=======
-//System.out.println("ss");
->>>>>>> origin/class01
 		for (int i = 2; i < 5; i++) {
 			StringBuilder stringBuilder = new StringBuilder();
 			for (int j = 0; j <i ; j++) {
@@ -221,12 +217,5 @@ public class Ex08 {
 		}
 		for (int i = 0; i < 9; i++)System.out.print("*");
 		System.out.println();
-<<<<<<< HEAD
 	}// end of main
-=======
-		
-
-	}// end of main
-
->>>>>>> origin/class01
 }// end of class
