@@ -39,10 +39,18 @@ public class Ex02 {
 //		8bit 는 8자리 2진법 표현방식
 		byte myByte = 3;		//00000011
 		byte myByte2 = 4;		//00000100
+		byte myByte3 = -10;		//1111 0110
+		
 		System.out.println(" & 연산  =  " + (myByte & myByte2)); //0
 		System.out.println(" || or 연산  =  " + (myByte | myByte2)); //7
 		System.out.println(" ^  xor 연산  =  " + (myByte ^ myByte2)); //2진법으로 변환 후 두 숫자의 같은 자리 값이 다르면 1
 		System.out.println(" ~ 부정 연산  =  " + (~myByte)); // 1111011 = -4
+		System.out.println("<< 시프트연산 "  +  (myByte<<2)); //	00000011 -> 00001100
+		System.out.println(">> 시프트연산 "  +  (myByte>>2)); //	00000011 -> 00000000
+		
+		System.out.println(">> 시프트연산 "  +  (myByte3>>2)); 	//1111 1101
+		System.out.println(">> 시프트연산 "  +  (myByte3>>>2)); 	//0011 1101
+		
 		
 		//컴퓨터에선 2진법 숫자의 제일 앞자리는 부호를 뜻한다.
 		//또한 숫자체계가 직선이 아닌 원형 체계이기 때무에 
@@ -58,10 +66,36 @@ public class Ex02 {
 		System.out.println("바이트 129 = " + (byte)129);
 		
 		
-		
-		
 		//비교 : 크거나 작거나 같은 비교
+		//		>  >=  <  <= != 총 6가지 개념.
+		
+//		클래스의 비교
+		 String string1 = "abc";
+		 String string2 = new String("abc");
+		 String string3 = "abc";
+		 //if compare value, data is all same. but == 연산자 is not true
+		 System.out.println(string1 == string2); // f
+		 System.out.println(string2 == string3); // f
+		 System.out.println(string1 == string3); // t
+		 //1과 3은 주소값으 그대로 들어가있는형태. 
+		 //문자열의 값을 비교하는것이 아니라 스트링 1,2,3의 주소값을 비교하는것. 
+//		 임시변수의 주소값을 가르키는 1,3은 같다고 나오지만 다른주소값이 있는 2 는 다르다고 나올것.
+		 
+		 System.out.println(string1.equals(string2));// T  해당 주소에 위치해 있는 값의 비교를 하기위한 함수. equals()
+		 
+		 
+		 
+		 
+		
+		
+		
 		//증감 : ++ -- 
+		int myNumber = 5;
+		System.out.println(myNumber++);//실행되고 증가, 되므로 출력시 5, 
+		System.out.println(myNumber);//증가되서 6
+		System.out.println(++myNumber); //증가되고 출력하므로 6+1 = 7
+		System.out.println(myNumber);		//출력하면 7
+		
 		
 		
 		int number1 = 5;
