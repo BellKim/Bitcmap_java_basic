@@ -28,7 +28,7 @@ public class Ex01 {
 			}
 		}
 		
-		int j = 0;
+		int j = 5;
 		do {
 			System.out.println(j);
 			j--;
