@@ -88,6 +88,18 @@ public class Student {
 	}
 	// 코드의 재사용성이 없어짐. (서울고등학교 한정으로 사용가능한 코드)
 
+	public void goToSchool(String schoolName) {
+		System.out.println(schoolName + " 고등학교로 갑니다.");
+	}
+	
+	public int add(int a, int b) {
+		return a + b;
+	}
+	public double add(double a, double b) {
+		return a + b;
+	}//add는 각각 오버로딩(overload) 되어있다. 
+	//오버로드의 구별법은 파라미터의 타입에라서 구별이된다.(int, double, string.....)
+
 //	pojo?
 
 //	메소드 선언방법:
@@ -153,4 +165,20 @@ public class Student {
 		this.jumin = jumin;
 	}
 
-}
+//	override란?
+//	부모로부터 상속받는 메소드를 자식클래스가 재정의해서 사용하는것.
+
+//	overload란?
+//		같은 이름의 메소드지만 파라미터 내용이 다른 메소드로서 
+//		기능은 비슷하게 돌아간다.
+//		예를들어 생성자 오버로딩이 있다.
+	public String toString() {
+		return "[name:" + name + ", jumin : " + jumin + "]";
+	}/*
+	  * https://hashcode.co.kr/questions/2055/sometype2f92e0f4%EC%99%80-%EA%B0%99%EC%
+	  * 9D%80-%EA%B0%92%EC%9D%B4-%EC%95%84%EB%8B%8C-%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%
+	  * B2%B4%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%
+	  * 8C-%EC%B6%9C%EB%A0%A5%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94
+	  */
+
+}// end of class
