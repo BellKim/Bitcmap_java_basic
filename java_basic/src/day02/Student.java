@@ -1,6 +1,21 @@
 package day02;
 
 public class Student {
+//	접근제한자
+//	접근가능한 범위를 지정한다.
+//	public		:	어디서든지 접근가능(같은프로젝트 내부에서 모두 접근가능)
+//	protected	:	같은패키지 + 상속받는 클래스까지 접근가능.
+//	package		:	같은패키지에서만 접근가능(아무것도 안적어주면package이다.)
+//		=> default = package 와 같은 레벨.
+//	private		:	같은 클래스에서만 접근가능. 
+	//접근제한자가 아닌것은?
+	
+//	private된 필드들은 더이상 외부에서 값을 불러오거나 저장할 수 없다 따라서 method를 통해서 값을 저장하거나 불러오게된다.
+//	그러한 method를 getter/setter라고 부른다.
+//	getter setter들은 get필드이름, set필드이름으로 이름짓는다.
+	
+//	캡슐화 : 필드 하나하나를 캡슐화 해서 외부에서의 개별접근을 막는것. 외부클래스를 통해서 값을 넣고 빼는것을 하는것 
+	
 	public String name;
 	public int age;
 	public int kor;
@@ -43,6 +58,7 @@ public class Student {
 			
 //			type casting 을 이용해서 형변환을 한다.(student)
 			Student s = (Student)o;//여기서의 this는 o
+							//o는 student클래스가 아니라고 생각하기에 student라는 틀을 씌워주는것이다.
 			if(this.jumin.equals(s.jumin)
 					&& this.name.equals(s.name)) {
 				//여기서 this란? 이 메소를 호출할 객체를 말한다. (StudentEx.java에서 선언된 s 나 s2 같은애들)
