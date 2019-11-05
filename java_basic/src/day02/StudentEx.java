@@ -30,7 +30,8 @@ public class StudentEx {
 		System.out.println(s.equals(s2));
 		String str = "abc";
 		System.out.println(s.equals(str));
-		
+
+
 //		s와 s2 는 다른객체이다.
 //		처음생성될때 들어가있는 위치와 값이 다르기 때문.
 //		만약 값들이 db에서 나왔다면, 같은 객체인가 같은객체이다.
@@ -49,9 +50,20 @@ public class StudentEx {
  
  * 
  * */
+		Student s3 = new Student();
+		//set 입력 안하면 null이 출력된다.
+		System.out.println(s3.getName());
+		
+		Student s4 = new Student("김가나", 30, 40, 50,60,"999999-1111111");
+
+		System.out.println(s4.getName());
+		System.out.println(s4.getAge());
+		System.out.println(s4.getKor());
+		System.out.println(s4.getEng());
+		System.out.println(s4.getMath());
+		System.out.println(s4.getJumin());
 		
 
+	}//end of main
 
-	}
-
-}
+}//end of class
