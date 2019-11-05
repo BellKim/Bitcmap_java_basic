@@ -17,12 +17,12 @@ public class Student {
 //	캡슐화 : 필드 하나하나를 캡슐화 해서 외부에서의 개별접근을 막는것. 외부클래스를 통해서 값을 넣고 빼는것을 하는것 
 	
 	
-	public String name;
-	public int age;
-	public int kor;
-	public int eng;
-	public int math;
-	public String jumin;
+	private String name;
+	private int age;
+	private int kor;
+	private int eng;
+	private int math;
+	private String jumin;
 	
 	public String getName() {
 		return name;

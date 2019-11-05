@@ -4,12 +4,12 @@ public class StudentEx {
 
 	public static void main(String[] args) {
 		Student s = new Student();
-		s.name = "김미나";
-		s.age = 17;
-		s.kor = 80;
-		s.eng = 100;
-		s.math = 70;
-		s.jumin="912345-123456";
+		s.setName("김미나");
+		s.setAge(17);
+		s.setKor(80);
+		s.setEng(100);
+		s.setMath(70);
+		s.setJumin("912345-123456");
 		
 		s.study();
 		s.sing();
@@ -17,12 +17,12 @@ public class StudentEx {
 		s.goToSchool();
 		
 		Student s2 = new Student();
-		s2.name = "김미나";
-		s2.age = 20;
-		s2.kor = 75;
-		s2.eng = 90;
-		s2.math = 66;
-		s2.jumin="912345-123456";
+		s2.setName("김미나");
+		s2.setAge(20);
+		s2.setKor(75);
+		s2.setEng(90);
+		s2.setMath(66);
+		s2.setJumin("912345-123456");
 		s2.study();
 		s2.sing();
 		s2.connectToMySql();
