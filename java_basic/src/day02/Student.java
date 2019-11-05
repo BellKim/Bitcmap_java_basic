@@ -70,7 +70,7 @@ public class Student {
 	public void setJumin(String jumin) {
 		this.jumin = jumin;
 	}
-
+//============================================================
 	public void study() {
 		System.out.println("공부합시다!!");
 	}// study.

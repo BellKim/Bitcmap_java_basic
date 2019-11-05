@@ -6,7 +6,7 @@ public class Ex03 {
 		t.setSize(32.0);
 		t.setType("스노우타이어");
 		t.setMetrial("합성고무");
-		Car myCar = new Car(t);
+//		Car myCar = new Car(t);
 		
 		Student s = new Student();
 		System.out.println(s);
