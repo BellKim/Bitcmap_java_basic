@@ -1,10 +1,10 @@
-package dto;
+package assignment;
 //학생관리 프로그램을 작성하시오.
 //필드: 관리번호, 이름, 전공, 국어, 영어, 수학 점수들
 //메소드는 알어서 분리하고
 //cinema 처럼 분리해서 만들어주세요.
 //목표 : 패키지분리, ArrayList 사용
-public class studentDTO {
+public class assignment_studentDTO {
 	private int studentNo;
 	private String name;
 	private String major;
@@ -52,27 +52,7 @@ public class studentDTO {
 		return "studentDTO [studentNo=" + studentNo + ", name=" + name + ", major=" + major + ", kor=" + kor + ", eng="
 		        + eng + ", math=" + math + "]";
 	}
-
-
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof studentDTO)) {
-			return false;
-		}
-		studentDTO other = (studentDTO) obj;
-		if (studentNo != other.studentNo) {
-			return false;
-		}
-		return true;
-	}
-	//image 참조.
-	
-	
 	
 	
 
-}//end of class
+}

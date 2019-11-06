@@ -1,16 +1,21 @@
 package dto;
+
+import controller.StudentController;
+
 //학생관리 프로그램을 작성하시오.
 //필드: 관리번호, 이름, 전공, 국어, 영어, 수학 점수들
 //메소드는 알어서 분리하고
 //cinema 처럼 분리해서 만들어주세요.
 //목표 : 패키지분리, ArrayList 사용
-public class studentDTO {
+public class StudentDTO {
 	private int studentNo;
 	private String name;
 	private String major;
 	private int kor;
 	private int eng;
 	private int math;
+	
+	//캡슐화를 하기위해 getter setter 정의
 	public int getStudentNo() {
 		return studentNo;
 	}
@@ -54,24 +59,24 @@ public class studentDTO {
 	}
 
 
-	
+ 	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof studentDTO)) {
+		if (!(obj instanceof StudentDTO)) {//인스턴스오브가 아닐때 false.
 			return false;
-		}
-		studentDTO other = (studentDTO) obj;
+		}//메모리에 선언되어있는 객체의 형태를분석해서 이게만약 NULL 이라면 그객체는 FALSE로 처리해라.
+		//student dto 
+		StudentDTO other = (StudentDTO) obj;
 		if (studentNo != other.studentNo) {
 			return false;
 		}
 		return true;
-	}
-	//image 참조.
+	}//image 참조.
 	
-	
+
 	
 	
 
