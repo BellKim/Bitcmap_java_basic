@@ -47,5 +47,42 @@ public class StudentViewer {
 		}else if(choice == 3) {
 			
 		}
+	}
+	private static void add(Scanner scan, StudentController controller) {
+		StudentDTO s = new StudentDTO();
+		scan.nextLine();
+		System.out.print("이름: ");
+		s.setName(scan.nextLine());
+		System.out.print("전공: ");
+		s.setMajor(scan.nextLine());
+		System.out.print("국어: ");
+		s.setKor(scan.nextInt());
+		System.out.print("영어: ");
+		s.setEng(scan.nextInt());
+		System.out.print("수학: ");
+		s.setMath(scan.nextInt());
+		controller.insert(s);
+		showAll(scan, controller);
+	}
+	private static void showOne(Scanner scan, StudentController controller) {
+		System.out.println("개별로 보실 학생의 번호를 입력하세요\n >");
+		int choice = scan.nextInt();
+		StudentDTO s = controller.select(choice);
+		System.out.println("=-===== " + s.getName() + "학생정보 ======= ");
+		System.out.println("이름"+s.getName());
+		System.out.println("학번"+s.getStudentNo());
+		System.out.println("전공"+s.getMajor());
+		System.out.println("국어점수"+s.getKor());
+		System.out.println("영어점수"+s.getEng());
+		System.out.println("수학점수"+s.getMath());
+		
+
+	}
+		
+
 
 }//end of class
+	
+
+	
+	

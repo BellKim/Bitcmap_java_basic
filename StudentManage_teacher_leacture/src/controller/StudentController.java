@@ -50,7 +50,7 @@ public class StudentController {
 	
 	public void insert(StudentDTO studentDTO) {
 		//우선 아이디 가져오기.
-		int id = list.get(list.size()-1).getStudentNo();
+		int id = list.get(list.size()-1).getStudentNo() + 1;
 		studentDTO.setStudentNo(id);
 		list.add(studentDTO);
 	}
