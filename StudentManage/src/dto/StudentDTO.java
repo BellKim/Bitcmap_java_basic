@@ -60,10 +60,10 @@ public class StudentDTO {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof studentDTO)) {
+		if (!(obj instanceof StudentDTO)) {
 			return false;
 		}
-		studentDTO other = (studentDTO) obj;
+		StudentDTO other = (StudentDTO) obj;
 		if (studentNo != other.studentNo) {
 			return false;
 		}
