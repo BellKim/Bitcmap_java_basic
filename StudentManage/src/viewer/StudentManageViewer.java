@@ -34,7 +34,6 @@ public class StudentManageViewer {
 				choice =scanner.nextInt();
 				if(choice == 1) {//학생추가
 					StudentDTO studentDTO = new StudentDTO();
-					scanner.nextLine();
 					System.out.println("학번입력 : ");
 					studentDTO.setStudentNo(scanner.nextInt());
 					scanner.nextLine();
@@ -49,9 +48,10 @@ public class StudentManageViewer {
 					System.out.println("수학점수입력 : ");
 					studentDTO.setMath(scanner.nextInt());
 					studentcontroller.insert(studentDTO);
-					
+					//enxtint 쓸때는 엔터키를 가져가지 않는데 nextline 은 엔터키를 가져가므로 scanner.nextLine(); 을 실행해 줘야한다.
 					
 				}else if(choice == 2) {//학생상세보기
+					System.out.println("학생정보 보기입니다.");
 					
 				}else {
 					System.out.println("잘못입력했습니다. (2depth) ");
