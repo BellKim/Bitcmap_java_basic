@@ -37,18 +37,33 @@ public class CinemaViewer {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(i + "번" + list.get(i));
 		}
-		System.out.println("1. 목록보기   2. 개별보기   3. 돌아가기");
+		System.out.println("1. 목록보기   2. 개별보기   3.영화목록추가  4.돌아가기");
 		int choice = scan.nextInt();
 		if (choice == 1) {
 			showAll(scan, moviecontroller);
 		} else if (choice == 2) {
 			showOne(scan, moviecontroller);
 		} else if (choice == 3) {
+			add(scan, moviecontroller);
+		} else if (choice == 4) {
 
 		} else {
 			System.out.println("노노염");
 		}
 
+	}
+
+	private static void add(Scanner scan, MovieController moviecontroller) {
+		MovieDTO m = new MovieDTO();
+		scan.nextLine();
+		
+		System.out.println("영화명 ");
+		m.setTitle(scan.nextLine());
+		System.out.println("상영시간");
+		m.setLength(scan.nextInt());
+		moviecontroller.insert(m);
+		showAll(scan, moviecontroller);
+		
 	}
 
 	private static void showOne(Scanner scan, MovieController moviecontroller) {
