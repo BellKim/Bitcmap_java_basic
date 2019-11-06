@@ -42,7 +42,6 @@ public class StudentController {
 	
 	
 	public ArrayList<StudentDTO> selectAll(){
-
 		return list;
 	}
 
@@ -59,7 +58,7 @@ public class StudentController {
 	}
 	
 	public void update(StudentDTO studentDTO) {
-
+		list.set(list.indexOf(studentDTO), studentDTO);
 	}
 	
 
