@@ -87,6 +87,12 @@ public class MovieController {
 	public void delete(MovieDTO movieDTO) {
 		list.remove(movieDTO);
 	}
+
+	@Override
+	public String toString() {
+		return "MovieController [list=" + list + ", selectAll()=" + selectAll() + ", getClass()=" + getClass()
+		        + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
 	
 	
 	
