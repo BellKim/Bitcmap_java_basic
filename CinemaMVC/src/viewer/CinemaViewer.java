@@ -30,7 +30,7 @@ public class CinemaViewer {
 
 					for (int i = 0; i < list.size(); i++) {
 						MovieDTO m = list.get(i);
-						System.out.println(i + "번 : " + m.getTitle());
+						System.out.println(i + "번 : " + m.getTitle() + "    영화길이 : " + m.getLength());
 					}
 
 					System.out.println("1. 새로입력    2. 상세보기 ");
@@ -53,6 +53,24 @@ public class CinemaViewer {
 							System.out.println("영화번호 : " + movieDTO.getId());
 							System.out.println("영화제목 : " + movieDTO.getTitle());
 							System.out.println("영화길이 : " + movieDTO.getLength());
+
+							System.out.println("=============================");
+							System.out.println("1. 수정,    2. 삭제");
+							System.out.println(" > ");
+							choice = scanner.nextInt();
+							if(choice == 1) {
+								//수정하는 메소드
+								System.out.printf("제목 : ");
+								scanner.nextLine();
+								movieDTO.setTitle(scanner.nextLine());
+								System.out.println("길이 : ");
+								movieDTO.setLength(scanner.nextInt());
+								moviecontroller.update(movieDTO);
+							}else if(choice == 2 ) {
+								//삭제하는 if
+								moviecontroller.delete(movieDTO);
+								
+							}
 						}
 					}
 				}
@@ -63,3 +81,4 @@ public class CinemaViewer {
 
 	}// end of main
 }// end of calss
+
