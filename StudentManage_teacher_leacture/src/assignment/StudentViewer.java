@@ -75,12 +75,38 @@ public class StudentViewer {
 		System.out.println("국어점수"+s.getKor());
 		System.out.println("영어점수"+s.getEng());
 		System.out.println("수학점수"+s.getMath());
-		
+		System.out.println("========================================");
+		System.out.println("1. 수정    2. 삭제    3. 리스트보기 ");
+		choice = scan.nextInt();
+		if(choice == 1) {
+			update(scan, controller, s);
+		}else if(choice == 2){
+			delete(scan, controller, s);
+		}else if(choice == 3) {
+			showAll(scan, controller);
+		}
 
 	}
 		
 
-
+	private static void update(Scanner scan, StudentController controller, StudentDTO s) {
+		scan.nextLine();
+		System.out.println("이름 : ");
+		s.setName(scan.nextLine());
+		System.out.println("전공 : ");
+		s.setMajor(scan.nextLine());
+		System.out.println("국어점수 : ");
+		s.setKor(scan.nextInt());
+		System.out.println("영어점수 : ");
+		s.setEng(scan.nextInt());
+		System.out.println("수학점수 : ");
+		s.setMath(scan.nextInt());
+		controller.update(s);
+		showAll(scan, controller);
+	}
+	private static void delete(Scanner scan, StudentController controller, StudentDTO s) {
+		showAll(scan, controller);
+	}
 }//end of class
 	
 
