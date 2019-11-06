@@ -4,7 +4,7 @@ package dto;
 //메소드는 알어서 분리하고
 //cinema 처럼 분리해서 만들어주세요.
 //목표 : 패키지분리, ArrayList 사용
-public class studentDTO {
+public class StudentDTO {
 	private int studentNo;
 	private String name;
 	private String major;

@@ -43,7 +43,7 @@ public class MovieController {
 		list.add(m3);
 		
 		
-	}
+	}//end of moviecontroller
 	
 //	selectAll메소드는
 //	DB에서 받아온 것들을 리스트에 담아서
