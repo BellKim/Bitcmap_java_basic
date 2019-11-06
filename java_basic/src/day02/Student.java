@@ -174,11 +174,9 @@ public class Student {
 //		예를들어 생성자 오버로딩이 있다.
 	public String toString() {
 		return "[name:" + name + ", jumin : " + jumin + "]";
-	}/*
-	  * https://hashcode.co.kr/questions/2055/sometype2f92e0f4%EC%99%80-%EA%B0%99%EC%
-	  * 9D%80-%EA%B0%92%EC%9D%B4-%EC%95%84%EB%8B%8C-%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%
-	  * B2%B4%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%
-	  * 8C-%EC%B6%9C%EB%A0%A5%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94
-	  */
+	}
+/*
+https://hashcode.co.kr/questions/2055/sometype2f92e0f4%EC%99%80-%EA%B0%99%EC%9D%80-%EA%B0%92%EC%9D%B4-%EC%95%84%EB%8B%8C-%EC%9E%90%EB%B0%94-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%B6%9C%EB%A0%A5%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94	  
+*/
 
 }// end of class

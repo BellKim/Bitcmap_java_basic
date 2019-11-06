@@ -62,6 +62,8 @@ public class StudentEx {
 		System.out.println(s4.getEng());
 		System.out.println(s4.getMath());
 		System.out.println(s4.getJumin());
+
+		System.out.println(s4);
 		
 
 	}//end of main
