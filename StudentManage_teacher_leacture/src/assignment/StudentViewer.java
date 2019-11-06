@@ -105,6 +105,7 @@ public class StudentViewer {
 		showAll(scan, controller);
 	}
 	private static void delete(Scanner scan, StudentController controller, StudentDTO s) {
+		controller.delete(s);
 		showAll(scan, controller);
 	}
 }//end of class
