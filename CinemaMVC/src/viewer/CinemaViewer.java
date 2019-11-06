@@ -21,7 +21,7 @@ public class CinemaViewer {
 
 			} else if (choice == 1) {
 				System.out.println("영화관리 페이지");
-				System.out.println("1. 목록보기   ");
+				System.out.println("1. 목록보기   2. 목록삭제");
 				System.out.println("> ");
 				choice = scanner.nextInt();
 				if (choice == 1) {
@@ -55,6 +55,9 @@ public class CinemaViewer {
 							System.out.println("영화길이 : " + movieDTO.getLength());
 						}
 					}
+				} else if(choice == 2) {
+					System.out.println("삭제할 인덱스 번호를 입력하세요");
+					
 				}
 			}
 		} // while
