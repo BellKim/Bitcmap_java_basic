@@ -28,6 +28,19 @@ public class Ex01 {
 		s.eat();
 		
 		
+		Korean k = new Korean();
+		Japanese j = new Japanese();
+		Human me = new Japanese();//new Korean();
+		torture(s);
+		
 	}
+	
+	public static void torture(Korean k) {
+		System.out.println("torture");
+		k.play();
+	
+	}
+	
+	 
 
 }

@@ -1,6 +1,6 @@
 package day04_sangsock;
 
-public class Korean {
+public class Korean implements Human{
 
 	String name;
 	String jumin;
@@ -32,6 +32,16 @@ public class Korean {
 	
 	public void eat() {
 		System.out.println("김치를 먹는다........");
+	}
+	
+//	interface 상속을 받으면
+//	해당interface에서 선언된 메소드를  '반드시'
+//	정의해줘야한다.
+	public void speak() {
+		System.out.println("한국말을 합니다.");
+	}
+	public void play() {
+		System.out.println("놀고 있습니다.");
 	}
 
 }
