@@ -2,6 +2,7 @@ package day04.chap03_variousClass;
 
 public class Ex04 {
 	public static void main(String[] args) {
+		
 //		String이란
 //		문자열(문자가 여러개 모여있는것)을 뜻한다.
 //		String과 char의 차이
@@ -63,7 +64,7 @@ public class Ex04 {
 //		matches() 메소드를 사용한다.
 //		패턴은 '정규표현식'(Regular Expression or RegEx)를 사용한다.
 //		숙제 : 정규표현식 조사
-		System.out.println(str2.matches("[a-z]"));
+		System.out.println("5.  "+str2.matches("[a-z]"));
 //		정규표현식을 사용하면 이메일이 유효한 형태인지 확인가능하다.
 		
 //		문자열에서 특정문자열을 다른문자열로 바꿀때
