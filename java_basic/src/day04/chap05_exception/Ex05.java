@@ -1,4 +1,4 @@
-package day04.chap5_exception;
+package day04.chap05_exception;
 ////wrapper class
 //wrapper class란?
 //기본형데이터타입을 클래스처럼 만들어 놓은것을 
