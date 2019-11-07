@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import dto.MovieDTO;
 
-public class MovieController {
+public class MovieController2 {
 	ArrayList<MovieDTO> list;
 	
 //	private ArrayList<MovieDTO> selectAll() {
@@ -19,28 +19,32 @@ public class MovieController {
 //		return Array
 //	} DB있을때 사용하는틀.
 	
-	public MovieController() {
+	public MovieController2() {
 
 		list = new ArrayList<MovieDTO>();
 		MovieDTO m = new MovieDTO();
-		m.setId(10);
+		m.setId(0);
 		m.setLength(122);
 		m.setTitle("라이온의 킹덤");
 		
 		
 		MovieDTO m2 = new MovieDTO();
-		m2.setId(12);
+		m2.setId(1);
 		m2.setLength(110);
 		m2.setTitle("가을의 왕국");
 		
 		MovieDTO m3 = new MovieDTO();
-		m3.setId(24);
+		m3.setId(2);
 		m3.setLength(221);
 		m3.setTitle("피아노의 왕국");
 		
 		list.add(m);
 		list.add(m2);
 		list.add(m3);
+		
+//		if(m.equals(list.get(m2)){
+//			
+//		}
 		
 		
 	}//end of moviecontroller
@@ -52,6 +56,8 @@ public class MovieController {
 //	컨트롤러가 생성되면서 3개의 영화를 리스트에 추가하고
 //	그리스트를 프로그램종료 전까지 계속 사용하면서
 //	유사DB처럼 사용하게 만든다.
+	
+	
 	
 	public ArrayList<MovieDTO> selectAll(){
 //		우리가 만든DB리스트를 메소드가 호출할때 리턴해준다.
@@ -82,6 +88,7 @@ public class MovieController {
 		list.remove(index);
 		list.add(index, movieDTO);
 	}
+
 	
 //	사용자가 선택한 movieDOT 객체를 리스트에서 삭제하는 메소드
 	public void delete(MovieDTO movieDTO) {
