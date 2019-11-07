@@ -111,7 +111,7 @@ public class CinemaViewer2 {
 			m.setTitle(scanner.nextLine());
 			System.out.println("길이 : ");
 			m.setLength(scanner.nextInt());
-			controller.insert(m);
+			controller.insert(m);//viewer 에 있는 insert 가 아닌 controller에 있는 함수가 실행. 
 			showList(scanner, controller);
 		}
 
