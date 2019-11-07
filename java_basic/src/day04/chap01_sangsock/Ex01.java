@@ -1,4 +1,4 @@
-package day04_sangsock;
+package day04.chap01_sangsock;
 
 public class Ex01 {
 	public static void main(String[] args) {

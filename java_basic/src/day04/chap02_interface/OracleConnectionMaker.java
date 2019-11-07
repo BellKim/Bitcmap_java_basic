@@ -1,4 +1,4 @@
-package day04_interface;
+package day04.chap02_interface;
 
 import java.sql.Connection;
 

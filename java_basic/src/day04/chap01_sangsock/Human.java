@@ -1,4 +1,4 @@
-package day04_sangsock;
+package day04.chap01_sangsock;
 //인터페이스?
 //상속을 통해서 메소드를 강제한다.
 //인터페이스 안에서는 메소드를 선언만하고

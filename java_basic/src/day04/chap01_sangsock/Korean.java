@@ -1,4 +1,4 @@
-package day04_sangsock;
+package day04.chap01_sangsock;
 
 public class Korean implements Human{
 

@@ -1,4 +1,4 @@
-package day04_interface;
+package day04.chap02_interface;
 
 public class Ex02 {
 //	Ex02-> DB연결시 연결하는 일련의 과정을 각각의 클래스파일로 쪼개둔다.

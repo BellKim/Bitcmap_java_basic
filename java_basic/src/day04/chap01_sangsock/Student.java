@@ -1,4 +1,4 @@
-package day04_sangsock;
+package day04.chap01_sangsock;
 //상속
 //상속에는 2가지 개념이 있다.
 //	1번 : 클래스상속
