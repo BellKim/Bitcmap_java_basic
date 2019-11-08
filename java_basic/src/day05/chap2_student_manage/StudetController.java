@@ -1,4 +1,4 @@
-package day5.chap2_student;
+package day05.chap2_student_manage;
 
 public class StudetController {
 	public int calcSum(StudentDTO s) {
