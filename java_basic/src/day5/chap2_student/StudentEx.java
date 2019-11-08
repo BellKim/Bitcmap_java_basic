@@ -11,6 +11,10 @@ import java.util.Scanner;
 //map 안에 map 안에 어레이리스트
 public class StudentEx {
 	public static void main(String[] args) {
+//		모든학년을 담당하는HASHMAP 안에
+//		모든 반을 담당하는 HASHMAP안에
+//		각반의 학생을 담고있는 ArrayList
+
 		// 각반 학생을 담당할 list
 //		ArrayList<StudentDTO> list = new ArrayList<>();
 
@@ -28,8 +32,6 @@ public class StudentEx {
 			} else if (choice == 1) {
 				StudentDTO s = new StudentDTO();
 				// 각 반을 담당할 hashMap
-				HashMap<Integer, ArrayList<StudentDTO>> yearMap = new HashMap<Integer, ArrayList<StudentDTO>>();
-
 				System.out.print("학년: ");
 				s.setYear(scanner.nextInt());
 				System.out.print("반: ");
@@ -46,36 +48,19 @@ public class StudentEx {
 				System.out.print("수학점수: ");
 				s.setMath(scanner.nextInt());
 				System.out.println(s);
-				// 람다식 입력
-//				computeIfAbsent 는 키값이있는지없는지 봐 없으면 어레이리스트를 만들어 
-				yearMap.computeIfAbsent(s.getRoom(), k -> new ArrayList<StudentDTO>()).add(s);
 
-//				아래내용 줄인것.
-//				if(yearMap.keySet().contains(s.getRoom())) {
-//					yearMap.get(s.getRoom()).add(s);
-//				}else {
-//					ArrayList<StudentDTO> list = new ArrayList<StudentDTO>();
-//					list.add(s);
-//					yearMap.put(s.getRoom(), list);
-//				}
+				schoolMap.computeIfAbsent(s.getYear(), k -> new HashMap<Integer, ArrayList<StudentDTO>>())
+						.computeIfAbsent(s.getRoom(), j -> new ArrayList<StudentDTO>()).add(s);
+//				3가지 경우의 변화
+//				1.학년,반 모두 있을떄-> 곶당 해당 arrayList에 s 를 추가한다.
+//				2. 학년은 반에있고 반은 없을때 -> 반은 담당할 ArrayList를 만들고 새로 만들어진 arraylist에 s 를 추가한다.
+//				3. 학년 반 모두 없을때 -.args 그 학년을 담당할 hashmap을 만들고 그 안에 반을 담당할 arrayList를 만들고 s 를 추가한다.
 
-				ArrayList<StudentDTO> list = new ArrayList<StudentDTO>();
-				list.add(s);
-				if (yearMap.containsKey(s.getRoom())) {
-					yearMap.get(s.getRoom()).add(s);
-				} else {
-					yearMap.put(s.getRoom(), list);
-				}
-				if (schoolMap.containsKey(s.getYear())) {
-					schoolMap.get(s.getYear()).putAll(yearMap);
-				} else {
-					schoolMap.put(s.getYear(), yearMap);
-				}
 			}
 		}
 		for (int i : schoolMap.keySet()) {
-			for (int j : schoolMap.keySet()) {
-				for (StudentDTO s : schoolMap.get(j).get(j)) {
+			for (int j : schoolMap.get(i).keySet()) {
+				for (StudentDTO s : schoolMap.get(i).get(j)) {
 					System.out.println(s);
 				}
 			}
