@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 public class BoardDTO {
 	private int id;
+	private int writerId;
 	private String title;
 	private String content;
 	private Calendar writtenDate;
@@ -13,6 +14,16 @@ public class BoardDTO {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	
+
+	
+	public int getWriterId() {
+		return writerId;
+	}
+	public void setWriterId(int writerId) {
+		this.writerId = writerId;
 	}
 	public String getTitle() {
 		return title;
@@ -38,7 +49,6 @@ public class BoardDTO {
 	public void setUpdateDate(Calendar updateDate) {
 		this.updateDate = updateDate;
 	}
-	
 	
 	
 	

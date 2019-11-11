@@ -1,7 +1,9 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
+import dto.BoardDTO;
 import dto.MemberDTO;
 
 public class MemberController {
@@ -13,23 +15,31 @@ public class MemberController {
 		m1.setId(1);
 		m1.setUserId("admin");
 		m1.setPassword("111");
-		m1.setName("관리지");
+		m1.setName("관리지1");
 
 		MemberDTO m2 = new MemberDTO();
-		m2.setId(1);
-		m2.setUserId("admin");
+		m2.setId(2);
+		m2.setUserId("admin2");
 		m2.setPassword("111");
-		m2.setName("관리지");
+		m2.setName("관리지2");
 
 		MemberDTO m3 = new MemberDTO();
-		m3.setId(1);
-		m3.setUserId("admin");
+		m3.setId(3);
+		m3.setUserId("admin3");
 		m3.setPassword("111");
-		m3.setName("관리지");
+		m3.setName("관리자3");
+		
+		MemberDTO m4 = new MemberDTO();
+		m3.setId(4);
+		m3.setUserId("admin4");
+		m3.setPassword("111");
+		m3.setName("관리자4");
+		
 
 		list.add(m1);
 		list.add(m2);
 		list.add(m3);
+		list.add(m4);
 
 	}// MemberController()
 
@@ -61,6 +71,17 @@ public class MemberController {
 			System.out.println("이미 존재하는 아이디 입니다. ");
 		}
 	}
+	public String getWriterName(int id) {
+		for(MemberDTO m : list) {
+			if(m.getId() == id) {
+				return m.getName();
+			}
+		}
+		return null;
+	}
+	
+
+
 	
 
 }// end of class

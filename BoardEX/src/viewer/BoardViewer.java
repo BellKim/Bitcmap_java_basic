@@ -1,8 +1,12 @@
 package viewer;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import controller.BoardController;
 import controller.MemberController;
+import dto.BoardDTO;
 import dto.MemberDTO;
 
 public class BoardViewer {
@@ -10,7 +14,7 @@ public class BoardViewer {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		MemberController memberController = new MemberController();
-
+		BoardController boardController = new BoardController();
 		while (true) {
 			// 기본화면에서 로그인할지 종료할지 선택 -> 종료면 종료, 로그인이면 로그인 화면으로 이동한다.
 			System.out.println("========= 게시판 입니다. ===========");
@@ -29,8 +33,81 @@ public class BoardViewer {
 						choice = scan.nextInt();
 						if(choice == 1) {
 							//게시판 목록보는 코드부터 들어간다.
+							ArrayList<BoardDTO> list = boardController.selectAll();
+							SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+							System.out.println("글번호 \t  제목 \t 작성자 \t 작성일 ");
+							for(BoardDTO b: list) {
+								System.out.printf("%d\t%s\t%s\t%s\n", 
+										b.getId(),
+										b.getTitle(),
+										memberController.getWriterName(b.getWriterId()), //b.getWriterId(),
+										sdf.format(b.getUpdateDate().getTime())
+										);
+							}
+							
+							System.out.println("1. 새조작성    2. 개별보기 ");
+							choice = scan.nextInt();
+							if(choice == 1) {
+								//글 새로작성 코드
+							}else if(choice == 2) {
+								//글 번호 선택해서 개별보기 코드
+								System.out.println("개별 보기할 글 번호를 입력하세요 : ");
+								int boardId = scan.nextInt();
+								BoardDTO selectedBoard = boardController.selectOne(boardId);
+								if(selectedBoard == null) {
+									System.out.println("게시글이 없습니다.");
+								}else {
+									sdf = new SimpleDateFormat("yy년 MM월 dd일 HH시 mm문 ss초");
+									System.out.println("==========");
+									System.out.println("제목 : " + selectedBoard.getTitle());
+									System.out.println("==========");
+									System.out.println("작성자 : " + memberController.getWriterName(selectedBoard.getWriterId()));
+									System.out.println("==========");
+									System.out.println("작성일 : "+ sdf.format(selectedBoard.getWrittenDate().getTime()));
+									System.out.println("==========");
+									System.out.println("수정일 : "+ sdf.format(selectedBoard.getUpdateDate().getTime()));
+									System.out.println("==========");
+									System.out.println("     내    용     ");
+									System.out.println("==========");
+									System.out.println(selectedBoard.getContent());
+									System.out.println("==========");
+									System.out.println("1.수정   2. 삭제");
+									choice = scan.nextInt();//입력 초기화 한다.
+									if(choice == 1) {
+										//수정하는 코드 실행    		제목과 내용만 수정되면된다.
+										scan.nextLine();
+										System.out.println("제목 :" );
+										selectedBoard.setTitle(scan.nextLine());
+										System.out.println("내용 :" );
+										selectedBoard.setContent(scan.nextLine());
+										boardController.update(selectedBoard);
+										
+									}else if(choice ==2 ) {
+										//삭제하는 코드실행
+//										scan.nextLine();
+										boardController.delete(selectedBoard);
+									}
+								
+									
+								}
+							}
+							
 						}else if(choice ==2) {
 							//회원 정보를 출력하고 수정할 수 있는 코드가 들어간다.
+							System.out.println("==========");
+							System.out.println("이름 : " + logInUser.getName());
+							System.out.println("비밀번호 : " + logInUser.getPassword());
+							System.out.println("==========");
+							System.out.println("작성글 목록" + logInUser.getPassword());
+							ArrayList<BoardDTO> list = boardController.selectAll(logInUser.getId());
+							
+							SimpleDateFormat sdf = new SimpleDateFormat("yyMMdd");
+							System.out.println("글번호 \t 제목 \t 작성자 \t 작성일");
+							for (BoardDTO b : list) {
+								System.out.printf("%d\t%s\t%s\t%s\n", b.getId(), b.getTitle(),
+								        memberController.getWriterName(b.getWriterId()),
+								        sdf.format(b.getUpdateDate().getTime()));
+							}
 						}
 						
 					} else {
