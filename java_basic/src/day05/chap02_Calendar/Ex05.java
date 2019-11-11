@@ -4,18 +4,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-//calender
+//calendar
 public class Ex05 {
 	public static void main(String[] args) {
 //		java에서 날짜(시간)을 담당하는 클래스가 여럿있습니다.
-//		java.util.DataTime, java.sql.DateTime, java.util.Calender
+//		java.util.DataTime, java.sql.DateTime, java.util.Calendar
 //		근데 java.sql.DateTime 패키지이름만봐도 알수 있듯
 //		sql의 DateTiem 데이터타입으로 쓰입니다.
 //		그럼 우리가 일상적으로 쓰는 시간은 DateTime과 Calendar가 있습니다.
 //		하지만 자바가 더이상 java.util.DateTime을 지원하지 않기때문에
-//		우리는Calender를 써야합니다.
+//		우리는Calendar를 써야합니다.
 		
-//		Calendar calendar = new Calendar();		Calender객체는 new로 초기화 하지 않는다.
+//		Calendar calendar = new Calendar();		Calendar객체는 new로 초기화 하지 않는다.
 		Calendar calendar = Calendar.getInstance();
 		System.out.println(calendar);//	tiem = 1970년1월1일0시0분0초 이후로 측정된 초 
 //		Calendar 객체의 필드들을 출력해 봅시다.
