@@ -30,7 +30,16 @@ public class MemberDTO {
 		this.name = name;
 	}
 	
-	
+	public boolean equls(Object o) {
+		if(o instanceof MemberDTO) {
+			MemberDTO m = (MemberDTO)o;
+//			if(m.getId()==this.id) {
+			if(m.getId()==m.id) {
+				return true;
+			}
+		}
+		return false;
+	}//equals
 	
 	
 

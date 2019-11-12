@@ -80,6 +80,14 @@ public class MemberController {
 		return null;
 	}
 	
+	public void update(MemberDTO m) {//equals 메소드 생성해야함. (memberDTO)
+		list.set(list.indexOf(m), m);
+	}
+	
+	public void delete (MemberDTO m) {
+		list.remove(m);
+	}
+	
 
 
 	

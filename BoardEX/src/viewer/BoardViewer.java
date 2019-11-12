@@ -108,6 +108,31 @@ public class BoardViewer {
 								        memberController.getWriterName(b.getWriterId()),
 								        sdf.format(b.getUpdateDate().getTime()));
 							}
+							System.out.println("1. 회원정보 수정 2. 회원탈퇴");
+							System.out.print("> ");
+							choice = scan.nextInt();
+							if(choice == 1) {
+								scan.nextLine();
+								System.out.println("이름 : ");
+								logInUser.setName(scan.nextLine());
+								System.out.print("비밀번호 : ");
+								logInUser.setPassword(scan.nextLine());
+								memberController.update(logInUser);
+							}else if(choice == 2) {
+								scan.nextLine();
+								System.out.println("정말로 탈퇴하시겠습니까??? 정말???\n (Y/N)");
+								String agreement = scan.nextLine();
+								if(agreement.equalsIgnoreCase("y")) {
+									System.out.println("탈퇴를위해 비밀번호를 다시 입력해주세요");
+									String password = scan.nextLine();
+									if(password.equals(logInUser.getPassword())) {
+										//회원동의하고, 비밀번호도 입력했으니 탈퇴메소드 호출한다.
+										memberController.delete(logInUser);
+										
+									}
+								}
+							}
+							
 						}
 						
 					} else {
