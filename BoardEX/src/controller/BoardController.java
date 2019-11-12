@@ -91,6 +91,13 @@ public class BoardController {
 			}
 		}
 	}
+
+	public void insert(BoardDTO b) {
+		int id = list.get(list.size()-1).getId() +1;
+		b.setId(id);
+		list.add(b);
+		
+	}
 	
 	
 	

@@ -9,7 +9,7 @@ import dto.MemberDTO;
 public class MemberController {
 	ArrayList<MemberDTO> list;
 
-	public MemberController() {//void 붙히면 안된다.
+	public MemberController() {// void 붙히면 안된다.
 		list = new ArrayList<MemberDTO>();
 		MemberDTO m1 = new MemberDTO();
 		m1.setId(1);
@@ -28,13 +28,12 @@ public class MemberController {
 		m3.setUserId("admin3");
 		m3.setPassword("111");
 		m3.setName("관리자3");
-		
+
 		MemberDTO m4 = new MemberDTO();
-		m3.setId(4);
-		m3.setUserId("admin4");
-		m3.setPassword("111");
-		m3.setName("관리자4");
-		
+		m4.setId(4);
+		m4.setUserId("admin4");
+		m4.setPassword("111");
+		m4.setName("관리자4");
 
 		list.add(m1);
 		list.add(m2);
@@ -51,45 +50,42 @@ public class MemberController {
 
 			}
 		}
-
+		System.out.println("정보가없습니다.");
 		return null;
 	}
-	
-	//중복확인하기.
-	public void insert (MemberDTO memberDTO) {
+
+	// 중복확인하기.
+	public void insert(MemberDTO memberDTO) {
 		boolean isAlready = false;
-		for(MemberDTO m : list) {
-			if(m.getUserId().equals(memberDTO.getUserId())) {
+		for (MemberDTO m : list) {
+			if (m.getUserId().equals(memberDTO.getUserId())) {
 				isAlready = true;
-			}//이미 같은 아이디가 있으면, insert 자체를 실행안하도록 한다.
+			} // 이미 같은 아이디가 있으면, insert 자체를 실행안하도록 한다.
 		}
-		if(!isAlready) {
-			int id = list.get(list.size()-1).getId() +1;
+		if (!isAlready) {
+			int id = list.get(list.size() - 1).getId() + 1;
 			memberDTO.setId(id);
 			list.add(memberDTO);
-		}else {
+		} else {
 			System.out.println("이미 존재하는 아이디 입니다. ");
 		}
 	}
+
 	public String getWriterName(int id) {
-		for(MemberDTO m : list) {
-			if(m.getId() == id) {
+		for (MemberDTO m : list) {
+			if (m.getId() == id) {
 				return m.getName();
 			}
 		}
 		return null;
 	}
-	
-	public void update(MemberDTO m) {//equals 메소드 생성해야함. (memberDTO)
+
+	public void update(MemberDTO m) {// equals 메소드 생성해야함. (memberDTO)
 		list.set(list.indexOf(m), m);
 	}
-	
-	public void delete (MemberDTO m) {
+
+	public void delete(MemberDTO m) {
 		list.remove(m);
 	}
-	
-
-
-	
 
 }// end of class
