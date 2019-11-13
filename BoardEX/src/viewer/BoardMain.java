@@ -24,18 +24,27 @@ public class BoardMain {
 					if ((logInUser != null)) {
 						System.out.println("로그인 성공\n"+ logInUser.getName()  +" 사용자님 환영합니다.");
 						//로그인 성공 이후 코드를 여기에
-						System.out.println("1. 게시판보기, 2. 회원정보보기");
-						choice = scan.nextInt();
-						if(choice == 1) {
-							//게시판 목록보는 코드부터 들어간다.
-							boardViewer.showList(boardController, memberController, scan, logInUser);
-						} else if (choice == 2) {
-							// 회원 정보를 출력하고 수정할 수 있는 코드가 들어간다.
-							memberViewer.showOne(logInUser, scan, memberController, boardController);
-						}						
+						while(true) {
+							System.out.println("1. 게시판보기, 2. 회원정보보기, 3. 로그아웃");
+							choice = scan.nextInt();
+							if(choice == 1) {
+								//게시판 목록보는 코드부터 들어간다.
+								boardViewer.showList(boardController, memberController, scan, logInUser);
+							} else if (choice == 2) {
+								// 회원 정보를 출력하고 수정할 수 있는 코드가 들어간다.
+								memberViewer.showOne(logInUser, scan, memberController, boardController);
+							} else if(choice == 3) {
+								//로그아웃	
+								System.out.println("로그아웃 되었스비다.");
+								//로그인유저를 주석처리 해야한다.
+								logInUser=null;
+								break;
+							}
+							
+						}//while()
 					} else {
 						System.out.println("로그인 실패 !!!");
-					}					
+					}	
 				}else if(choice == 2) {
 					//회원가입메소드 호출
 					memberViewer.insert(memberController, scan);
