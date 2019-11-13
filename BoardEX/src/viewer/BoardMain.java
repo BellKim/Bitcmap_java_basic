@@ -3,6 +3,7 @@ package viewer;
 
 import java.util.Scanner;
 import controller.BoardController;
+import controller.CommentController;
 import controller.MemberController;
 import dto.MemberDTO;
 
@@ -13,6 +14,8 @@ public class BoardMain {
 		BoardController boardController = new BoardController();
 		BoardViewer boardViewer = new BoardViewer();
 		MemberViewer memberViewer = new MemberViewer();
+		CommentController commentController = new CommentController();
+		
 		while (true) {
 			// 기본화면에서 로그인할지 종료할지 선택 -> 종료면 종료, 로그인이면 로그인 화면으로 이동한다.
 			System.out.println("========= 게시판 입니다. ===========");
@@ -29,7 +32,7 @@ public class BoardMain {
 							choice = scan.nextInt();
 							if(choice == 1) {
 								//게시판 목록보는 코드부터 들어간다.
-								boardViewer.showList(boardController, memberController, scan, logInUser);
+								boardViewer.showList(boardController, memberController, commentController, scan, logInUser);
 							} else if (choice == 2) {
 								// 회원 정보를 출력하고 수정할 수 있는 코드가 들어간다.
 								memberViewer.showOne(logInUser, scan, memberController, boardController);
