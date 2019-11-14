@@ -15,6 +15,7 @@ import dto.MemberDTO;
 public class BoardViewer {
 	public void showList(BoardController boardController, MemberController memberController,
 			CommentController commentController, Scanner scan, MemberDTO logInUser) {
+//		게시글 목록을 보여주는 메소드
 		ArrayList<BoardDTO> list = boardController.selectAll();
 		SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
 		System.out.println("=========================");
