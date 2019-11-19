@@ -32,9 +32,9 @@ public class CarMain {
 		System.out.println(c2);
 		System.out.println(list);
 		*/
-		Gson g = new Gson();
-		String json = "{\"id\":0,\"plateNumber\":\"00가 0000\",\"type\":\"모닝\",\"color\":\"금색\"}";
-		c = g.fromJson(json,  Car.class);
+//		Gson g = new Gson();
+//		String json = "{\"id\":0,\"plateNumber\":\"00가 0000\",\"type\":\"모닝\",\"color\":\"금색\"}";
+//		c = g.fromJson(json,  Car.class);
 		
 		System.out.println(c.getType());
 		
