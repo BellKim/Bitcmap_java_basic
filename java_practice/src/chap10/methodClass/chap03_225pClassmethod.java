@@ -1,7 +1,7 @@
 package chap10.methodClass;
+import java.lang.Math;
 
 class NumberPrinter{
-	
 	private int myNum = 0;
 	
 	static void showInt(int n) {		//static 메소드
@@ -33,16 +33,18 @@ class chap03_225pClassmethod {
 		NumberPrinter.showInt(20); //스테틱을 선언하면  인스턴스 생성을 하지 않아도 호출이 가능하다.
 		NumberPrinter.showDouble(22.55);
 		
-		
+
+		double num = Math.PI;
 		NumberPrinter np = new NumberPrinter();
 		np.showDouble(3.6);
 		np.setMyNumber(75);
 		np.showMyNumber();
 		
-		
+		System.out.println(Math.PI);
 
 	}//end of main
 
 }//end of class
+
 
 

@@ -1,7 +1,7 @@
 package chap10.methodClass;
 
 class AccessWay{
-	static int num = 0;
+	 static int num=0;
 	 AccessWay(){
 		 incrCnt();
 		 
@@ -19,6 +19,7 @@ public class chap02classVarAccess {
 		AccessWay.num++;	//외부에서 클래스 이름을 통한 접근.
 		System.out.println("num = " + AccessWay.num);
 		
+//		System.out.println(num);
 		
 		
 		

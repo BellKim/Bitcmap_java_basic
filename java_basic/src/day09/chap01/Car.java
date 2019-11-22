@@ -33,7 +33,7 @@ public class Car {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	@Override
+//	@Override
 //	public String toString() {
 ////		JSON객체는 {} 으로 묶인다.
 ////		스트링벨류값은 "" 으로 묵는다.

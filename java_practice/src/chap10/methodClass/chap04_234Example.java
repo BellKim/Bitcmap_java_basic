@@ -15,7 +15,7 @@ public class chap04_234Example {
 		System.out.println("오늘날자 \n"+Calendar.getInstance());
 		
 		
-		static Calendar nowDate1 = Calendar.getInstance();
+//		static Calendar nowDate1 = Calendar.getInstance();
 		
 		
 		
