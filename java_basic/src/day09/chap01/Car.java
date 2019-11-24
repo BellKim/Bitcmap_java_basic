@@ -1,6 +1,5 @@
 package day09.chap01;
 
-import com.google.gson.Gson;
 
 //JSON 직접 ㅏㄴ들어보기
 //JAVASCRIPT OBJECT Nottion

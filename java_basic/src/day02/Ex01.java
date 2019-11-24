@@ -41,7 +41,7 @@ public class Ex01 {
 		
 		
 		
-		
+		scanner.close();
 		
 		
 	}//end of main
