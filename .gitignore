@@ -97,7 +97,7 @@ MANIFEST.MF
 # .project
 
 # JDT-specific (Eclipse Java Development Tools)
-# .classpath
+.classpath
 
 # Annotation Processing
 .apt_generated
