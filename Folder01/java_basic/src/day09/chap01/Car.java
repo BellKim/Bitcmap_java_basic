@@ -1,6 +1,8 @@
 package day09.chap01;
 
 
+
+
 //JSON 직접 ㅏㄴ들어보기
 //JAVASCRIPT OBJECT Nottion
 public class Car {

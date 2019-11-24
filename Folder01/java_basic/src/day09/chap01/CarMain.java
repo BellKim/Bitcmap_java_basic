@@ -2,6 +2,10 @@ package day09.chap01;
 
 import java.util.ArrayList;
 
+<<<<<<< HEAD:Folder01/java_basic/src/day09/chap01/CarMain.java
+=======
+//import com.google.gson.Gson;
+>>>>>>> 5a22f808eba5f08b9f3e12599c3f07c5c9f5dbfe:java_basic/src/day09/chap01/CarMain.java
 
 
 
