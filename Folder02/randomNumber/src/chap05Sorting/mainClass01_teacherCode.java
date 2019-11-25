@@ -65,19 +65,17 @@ public class mainClass01_teacherCode {
 					if(updown == true) {
 						if(number[i] < number[j]) {//오름차순
 							temp = number[i];
-							number[j] = number[i];
+							number[i] = number[j];
 							number[j] = temp;
-						}
-						else {	//내림차순
-							if(number[i] > number[j]) {//내림차순
+						}else if(number[i] > number[j]) {//내림차순
 								temp = number[i];
-								number[j] = number[i];
+								number[i] = number[j];
 								number[j] = temp;
 							}
 						}
 					}
 				}
-			}
+			
 			
 			//4. 결과
 			for (int i = 0; i < number.length; i++) {
