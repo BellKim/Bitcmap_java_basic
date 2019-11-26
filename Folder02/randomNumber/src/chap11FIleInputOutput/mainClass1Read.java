@@ -4,11 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-public class mainClass1 {
+public class mainClass1Read {
 
 	public static void main(String[] args) throws Exception{
 		//file read 
-		File file = new File("d:\\tmp\\newfile1.txt");//파일을 가져옴.
+		File file = new File("d:\\tmp\\newfile.txt");//파일을 가져옴.
 		
 		FileReader fr = new FileReader(file);//throws Exception 시행하지 않는다면 try-catch해줘야한다.
 		

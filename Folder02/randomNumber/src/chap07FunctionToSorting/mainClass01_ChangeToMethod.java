@@ -40,12 +40,6 @@ public class mainClass01_ChangeToMethod {
 
 			
 		}//end main
-	
-	
-	
-	
-	
-	
 
 	private static void ResultAll(int[] number) {
 		System.out.println("넘버길이" + number.length);
