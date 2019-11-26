@@ -2,7 +2,7 @@ package chap07FunctionToSorting;
 
 import java.util.Scanner;
 
-public class mainClass01_teacherCode {
+public class mainClass01_ChangeToMethod {
 	public static void main(String[] args) {
 		
 		
