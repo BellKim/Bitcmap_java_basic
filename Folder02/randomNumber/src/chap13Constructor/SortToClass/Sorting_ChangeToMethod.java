@@ -1,8 +1,8 @@
-package chap07FunctionToSorting;
+package chap13Constructor.SortToClass;
 
 import java.util.Scanner;
 
-public class mainClass01_ChangeToMethod {
+public class Sorting_ChangeToMethod {
 	public static void main(String[] args) {
 		
 		
@@ -89,8 +89,8 @@ public class mainClass01_ChangeToMethod {
 		}
 		
 		int temp;
-		for (int i = 0; i < number.length; i++) {
-			for (int j = 0; j < number.length; j++) {
+		for (int i = 0; i < number.length-1; i++) {
+			for (int j = i+1; j < number.length; j++) {
 				if(updown == true) {
 					if(number[i] < number[j]) {//오름차순
 						temp = number[i];

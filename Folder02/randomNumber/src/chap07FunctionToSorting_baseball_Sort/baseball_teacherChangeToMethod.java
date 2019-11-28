@@ -1,4 +1,4 @@
-package chap07FunctionToSorting;
+package chap07FunctionToSorting_baseball_Sort;
 
 import java.util.Scanner;
 
