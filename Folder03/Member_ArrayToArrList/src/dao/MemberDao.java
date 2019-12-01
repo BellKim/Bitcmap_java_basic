@@ -78,7 +78,7 @@ public class MemberDao {
 			
 			System.out.println("회원 정보를 삭제하였습니다");
 		}		
-	}
+	}// delete 
 	
 	public void select() {
 		int findIndex;

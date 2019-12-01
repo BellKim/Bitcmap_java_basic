@@ -40,13 +40,19 @@ public class MemberDTO {
 		this.avg = avg;
 	}
 
-	public int getKor() {
-		return kor;
+	
+	public MemberDTO(String name, int age, int kor, int eng, int math, int total, int avg, int rank) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+		this.total = total;
+		this.avg = avg;
+		this.rank = rank;
 	}
 
-	public void setKor(int kor) {
-		this.kor = kor;
-	}
 
 
 	public String getName() {
@@ -65,6 +71,14 @@ public class MemberDTO {
 		this.age = age;
 	}
 
+	public int getKor() {
+		return kor;
+	}
+
+	public void setKor(int kor) {
+		this.kor = kor;
+	}
+
 	public int getEng() {
 		return eng;
 	}
@@ -81,9 +95,34 @@ public class MemberDTO {
 		this.math = math;
 	}
 
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public int getAvg() {
+		return avg;
+	}
+
+	public void setAvg(int avg) {
+		this.avg = avg;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
+
 	@Override
 	public String toString() {
-		return "MemberDTO [name=" + name + ", age=" + age + ", kor=" + kor + ", eng=" + eng + ", math=" + math + "]";
+		return "MemberDTO [name=" + name + ", age=" + age + ", kor=" + kor + ", eng=" + eng + ", math=" + math
+				+ ", total=" + total + ", avg=" + avg + ", rank=" + rank + "]";
 	}
 
 
