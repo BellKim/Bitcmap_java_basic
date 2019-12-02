@@ -15,6 +15,7 @@ public class MainClass {
 		int choice;
 		
 		while(true) {
+			System.out.println("입력해주세요");
 			choice = sc.nextInt();
 			if(choice ==1) {//선수등록
 				System.out.println("1.Pitcher 등록, 2.Batter 등록");

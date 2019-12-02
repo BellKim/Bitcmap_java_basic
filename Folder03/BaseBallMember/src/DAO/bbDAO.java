@@ -89,7 +89,7 @@ public class bbDAO {
 		if(select == 1) {
 			return pitcherCount+1000;
 		}else {
-			return batterCount+2000;
+			return batterCount+2000+1;
 		}
 
 	}//end searchLastHumanNo 
