@@ -52,6 +52,7 @@ public class PitcherDTO extends HumanDTO{
 
 	@Override
 	public String toString() {
+		
 		return "PitcherDTO [win=" + win + ", lose=" + lose + ", ratio=" + ratio + "]";
 	}
 	

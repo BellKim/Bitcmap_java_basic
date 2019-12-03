@@ -24,7 +24,9 @@ public class MainClass {
 			}else if(choice == 2) {//선수삭제
 
 			}else if(choice == 3) {//선수검색
-				
+				System.out.println("1.Pitcher 검색, 2.Batter 검색");
+				choice=sc.nextInt();
+				dao.search(choice);
 			}else if(choice == 4) {//선수정보 수정
 				
 			}else if(choice == 5) {//방어율 TopToBottom

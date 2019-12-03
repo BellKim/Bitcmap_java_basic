@@ -1,7 +1,9 @@
 package DAO;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 
 import DTO.BatterDTO;
 import DTO.HumanDTO;
@@ -18,7 +20,7 @@ public class bbDAO {
 	private void baseData() {
 		PitcherDTO pdto = new PitcherDTO();
 		pdto.setNumber(1000);
-		pdto.setName("김가나");
+		pdto.setName("김피처");
 		pdto.setAge(20);
 		pdto.setHeight(180);
 		pdto.setWin(3);
@@ -40,70 +42,60 @@ public class bbDAO {
 
 	public void showAll() {
 //		System.out.println("listsize "+list.size());
-		
-		
-		
+
 //		((PitcherDTO)(list.get(1))).getAge();
 		System.out.println("pitcher 정보 총 ");
 		for (int i = 1; i <= list.size(); i++) {
-			if(list.get(i) instanceof PitcherDTO) {
+			if (list.get(i) instanceof PitcherDTO) {
 				System.out.println("Pitcher정보");
-				System.out.println(list.get(i).getNumber()+
-						" "+list.get(i).getName()+
-						" "+list.get(i).getAge()+
-						" "+list.get(i).getHeight());
-				System.out.println(list.get(i).toString()+"");
-				
-				
+				System.out.println(list.get(i).getNumber() + " " + list.get(i).getName() + " " + list.get(i).getAge()
+						+ " " + list.get(i).getHeight());
+				System.out.println(list.get(i).toString() + "");
+
 			}
 		}
 		System.out.println("\n\n");
 		for (int i = 1; i <= list.size(); i++) {
-			if(list.get(i) instanceof BatterDTO) {
+			if (list.get(i) instanceof BatterDTO) {
 				System.out.println("Batter정보");
-				System.out.println(list.get(i).getNumber()+
-						" "+list.get(i).getName()+
-						" "+list.get(i).getAge()+
-						" "+list.get(i).getHeight());
+				System.out.println(list.get(i).getNumber() + " " + list.get(i).getName() + " " + list.get(i).getAge()
+						+ " " + list.get(i).getHeight());
 				System.out.println(list.get(i).toString());
 			}
 		}
-		
-		
+
 	}
+
 	public int searchLastHumanNo(int select) {
-		//1이면 pitcher, 2면 batter의 선수 번호를 출력한다.
-		int pitcherCount=0;
-		int batterCount=0;
-		
-		for (int i = 1; i < list.size(); i++) {
-			if(list.get(i) instanceof PitcherDTO) {
+		// 1이면 pitcher, 2면 batter의 선수 번호를 출력한다.
+		int pitcherCount = 0;
+		int batterCount = 0;
+
+		for (Integer key : list.keySet()) {
+			if (list.get(key) instanceof PitcherDTO) {
 				pitcherCount++;
-			}else if(list.get(i) instanceof BatterDTO){
+			} else if (list.get(key) instanceof BatterDTO) {
 				batterCount++;
-			}else {
+			} else {
 				System.out.println(" error ");
 			}
 		}
-		
-		if(select == 1) {
-			return pitcherCount+1000;
-		}else {
-			return batterCount+2000+1;
+
+		if (select == 1) {
+			return pitcherCount + 1000;
+		} else {
+			return batterCount + 2000;
 		}
 
-	}//end searchLastHumanNo 
-	
-	
+	}// end searchLastHumanNo
+
 	public void insert(int choice) {
-		
 		Scanner sc = new Scanner(System.in);
-		
-		if(choice == 1) {
-			int number =searchLastHumanNo(choice);
-			System.out.println("number : " + number + "로 등록합니다.");	//1000번대 pitcher 2000번대 batter
+		if (choice == 1) {
+			int number = searchLastHumanNo(choice);
+			System.out.println("number : " + number + "로 등록합니다."); // 1000번대 pitcher 2000번대 batter
 			System.out.println("name");
-			String name=sc.next();
+			String name = sc.next();
 			System.out.println("age");
 			int age = sc.nextInt();
 			System.out.println("height");
@@ -114,16 +106,13 @@ public class bbDAO {
 			int lose = sc.nextInt();
 			System.out.println("ratio");
 			double ratio = sc.nextInt();
-
-
 			PitcherDTO pdto = new PitcherDTO(number, name, age, height, win, lose, ratio);
-			list.put((list.size()+1), pdto);
-			
-		}else{
-			int number =searchLastHumanNo(choice);
-			System.out.println("number : " + number + "로 등록합니다.");	//1000번대 pitcher 2000번대 batter
+			list.put((list.size() + 1), pdto);
+		} else {
+			int number = searchLastHumanNo(choice);
+			System.out.println("number : " + number + "로 등록합니다."); // 1000번대 pitcher 2000번대 batter
 			System.out.println("name");
-			String name=sc.next();
+			String name = sc.next();
 			System.out.println("age");
 			int age = sc.nextInt();
 			System.out.println("height");
@@ -134,45 +123,46 @@ public class bbDAO {
 			int hitCount = sc.nextInt();
 			System.out.println("ratio");
 			double batAvg = sc.nextInt();
-
-
-			BatterDTO pbto = new BatterDTO(number, name, age, height, batCount, 
-																	hitCount, batAvg);
-			list.put((list.size()+1), pbto);
-
-			
+			BatterDTO pbto = new BatterDTO(number, name, age, height, batCount, hitCount, batAvg);
+			list.put((list.size() + 1), pbto);
 		}
-		
-		
-		
-	}
+	}// end insert
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void search(int choice) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("검색할 선수명 입력");
+		String input = sc.next();
+
+		if ((choice == 1)) {
+			for (Integer key : list.keySet()) {
+				if (list.get(key) instanceof PitcherDTO) {
+					PitcherDTO dto = new PitcherDTO();
+					dto = ((PitcherDTO) (list.get(key)));
+
+					if (dto.getName().equals(input)) {
+						System.out.println(
+								dto.getNumber() + " " + dto.getName() + " " + dto.getAge() + " " + dto.getHeight());
+						System.out.println(dto.toString());
+					}
+				}
+			}
+
+		} else if ((choice == 2)) {
+			for (Integer key : list.keySet()) {
+				if (list.get(key) instanceof BatterDTO) {
+
+					BatterDTO dto = new BatterDTO();
+					dto = ((BatterDTO) (list.get(key)));
+
+					if (dto.getName().equals(input)) {
+						System.out.println(
+								dto.getNumber() + " " + dto.getName() + " " + dto.getAge() + " " + dto.getHeight());
+						System.out.println(dto.toString());
+					}
+				}
+			}
+		} // end for
+
+	}// end search()
 
 }// end of class
