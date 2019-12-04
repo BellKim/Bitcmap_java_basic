@@ -14,12 +14,9 @@ public class mmSingleton {
 	}
 
 	public static mmSingleton getInstance() {
-		System.out.println("2");
 		if(single == null) {
-			System.out.println("3");
 			single = new mmSingleton();
 		}
-		System.out.println("4");
 		return single;
 	}
 	
