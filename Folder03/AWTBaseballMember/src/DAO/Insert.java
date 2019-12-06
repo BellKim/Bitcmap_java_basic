@@ -17,6 +17,8 @@ import java.awt.event.ItemListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.JOptionPane;
+
 import SingleTon.Singleton;
 
 public class Insert extends Frame implements WindowListener, ItemListener {
@@ -132,6 +134,8 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 		batterPanel.add(txt9);
 		batterPanel.add(lbl10);
 		batterPanel.add(txt10);
+		
+		
 
 		//5,6,7은 핏처
 		//8,9,10은 타자.
@@ -158,20 +162,54 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 		setBackground(Color.gray);
 		setVisible(false);// 싱글톤 제어를위해서 비지블 false로전환
 		addWindowListener(this);
+		selectPitcher.addItemListener(this);
+		selectBatter.addItemListener(this);
+		
+
 
 	}
 	
 	////
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		// TODO Auto-generated method stub
+		Object obj = e.getSource();
+		Checkbox cb = (Checkbox)obj;
+		
+		System.out.println("cb = "+cb);
+		
+		
+		
+		if(cb ==selectPitcher) {
+			
+//			JOptionPane.showMessageDialog(null, "pitcher ");
+
+			pitcherPanel.setVisible(true);
+			batterPanel.setVisible(false);
+			
+			
+		}else if(cb == selectBatter) {
+//			JOptionPane.showMessageDialog(null, "Batter ");
+			pitcherPanel.setVisible(false);
+			batterPanel.setVisible(true);
+		}
+		
+		
+		
 		
 	}
 	
 ////
 	@Override
 	public void windowOpened(WindowEvent e) {
-		// TODO Auto-generated method stub
+		batterPanel.setVisible(false);
+//		java.awt.Checkbox
+//		Object obj = e.getSource();
+//		Checkbox cb = (Checkbox)obj;
+//		System.out.println("checkbox status = "+cb.getCheckboxGroup().getSelectedCheckbox());
+//		
+
+		
+		
 
 	}
 
@@ -191,19 +229,18 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 
 	@Override
 	public void windowIconified(WindowEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void windowDeiconified(WindowEvent e) {
-		// TODO Auto-generated method stub
+
 
 	}
 
 	@Override
 	public void windowActivated(WindowEvent e) {
-		// TODO Auto-generated method stub
+
 
 	}
 
