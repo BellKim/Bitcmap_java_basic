@@ -27,10 +27,32 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 	Checkbox selectPitcher, selectBatter;
 //	Panel basePanel, pitcherPanel, batterPanel;
 	Panel basePanel, pitcherPanel,typeSelectPanel, batterPanel, bottomPanel;
-	
+
+	// 레이블 생성
+	Label lbl1 = new Label(" ID :");
+	Label lbl2 = new Label(" NAME :");
+	Label lbl3 = new Label(" AGE :");
+	Label lbl4 = new Label(" HEIGHT :");
+
+	Label lbl5 = new Label(" WIN :");
+	Label lbl6 = new Label(" LOSE :");
+	Label lbl7 = new Label(" DEFENCE :");
+
+	/*Label lbl8 = new Label(" A :");
+	Label lbl9 = new Label(" B :");
+	Label lbl10 = new Label(" C :");*/
+
+	TextField txt5 = new TextField("win",20 );
+	TextField txt6 = new TextField("lose",20 );
+	TextField txt7 = new TextField("defence",20 );
+
+	/*TextField txt8 = new TextField("타수", 20);
+	TextField txt9 = new TextField("안타수", 20);
+	TextField txt10 = new TextField("타율", 20);*/
+
 	public Insert() {
 		super("INSERT 입니다. ");
-		setLayout(new GridLayout(6,1));
+		//setLayout(new GridLayout(6,1));
 
 		MainMenu = new Button(" MainMenu ");
 		MainMenu.setBounds(100, 200, 100, 30);
@@ -74,18 +96,18 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 
 		
         // 레이블 생성
-        Label lbl1 = new Label(" 선수번호 :");      
-        Label lbl2 = new Label(" 이름 :");
-        Label lbl3 = new Label(" 나이 :");
-		Label lbl4 = new Label(" 신장 :");	
+       /* Label lbl1 = new Label(" ID :");
+        Label lbl2 = new Label(" NAME :");
+        Label lbl3 = new Label(" AGE :");
+		Label lbl4 = new Label(" HEIGHT :");
 		
-        Label lbl5 = new Label(" 승 :");
-        Label lbl6 = new Label(" 패 :");
-		Label lbl7 = new Label(" 방어율 :");
+        Label lbl5 = new Label(" WIN :");
+        Label lbl6 = new Label(" LOSE :");
+		Label lbl7 = new Label(" DEFENCE :");
 		
-        Label lbl8 = new Label(" 타수 :");
-        Label lbl9 = new Label(" 안타수 :");
-        Label lbl10 = new Label(" 타율 :");
+        Label lbl8 = new Label(" A :");
+        Label lbl9 = new Label(" B :");
+        Label lbl10 = new Label(" C :");*/
         
         
 
@@ -94,21 +116,20 @@ public class Insert extends Frame implements WindowListener, ItemListener {
         TextField txt3 = new TextField("age",20 );
         TextField txt4 = new TextField("height",20 );
         
-        TextField txt5 = new TextField("win",20 );
+        /*TextField txt5 = new TextField("win",20 );
         TextField txt6 = new TextField("lose",20 );
         TextField txt7 = new TextField("defence",20 );
         
         TextField txt8 = new TextField("타수", 20);
         TextField txt9 = new TextField("안타수", 20);
-        TextField txt10 = new TextField("타율", 20);
+        TextField txt10 = new TextField("타율", 20);*/
         
         
 		basePanel = new Panel(new GridLayout(4,1));
 		pitcherPanel = new Panel(new GridLayout(3,1));
 		typeSelectPanel = new Panel(new GridLayout(1,2));
-		batterPanel = new Panel(new GridLayout(3,1));
 		bottomPanel = new Panel(new GridLayout(1,2));
-		
+
 		basePanel.add(lbl1);
 		basePanel.add(txt1);
 		basePanel.add(lbl2);
@@ -128,15 +149,6 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 		pitcherPanel.add(lbl7);
 		pitcherPanel.add(txt7);
 
-		batterPanel.add(lbl8);
-		batterPanel.add(txt8);
-		batterPanel.add(lbl9);
-		batterPanel.add(txt9);
-		batterPanel.add(lbl10);
-		batterPanel.add(txt10);
-		
-		
-
 		//5,6,7은 핏처
 		//8,9,10은 타자.
 
@@ -147,17 +159,14 @@ public class Insert extends Frame implements WindowListener, ItemListener {
         bottomPanel.add(dataInsert);
         
 		add(basePanel);
-		
 		add(typeSelectPanel);
-		
 		add(pitcherPanel);
-		add(batterPanel);
-		
 		add(bottomPanel);
 	
 		setLayout(new FlowLayout());
-		setSize(400, 500);
-		// setBounds(0,0,1200, 800);
+		setSize(400, 450);
+		setBounds(0,0,400, 450);
+		setResizable(false);
 		setLocation(0, 0);
 		setBackground(Color.gray);
 		setVisible(false);// 싱글톤 제어를위해서 비지블 false로전환
@@ -183,14 +192,26 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 			
 //			JOptionPane.showMessageDialog(null, "pitcher ");
 
-			pitcherPanel.setVisible(true);
-			batterPanel.setVisible(false);
-			
+			//pitcherPanel.setVisible(true);
+			//batterPanel.setVisible(false);
+			lbl5.setText("WIN");
+			lbl6.setText("LOSE");
+			lbl7.setText("DEFENCE");
+			txt5.setText("WIN");
+			txt6.setText("LOSE");
+			txt7.setText("DEFENCE");
 			
 		}else if(cb == selectBatter) {
 //			JOptionPane.showMessageDialog(null, "Batter ");
-			pitcherPanel.setVisible(false);
-			batterPanel.setVisible(true);
+			//pitcherPanel.setVisible(false);
+			//batterPanel.setVisible(true);
+
+			lbl5.setText("A");
+			lbl6.setText("B");
+			lbl7.setText("C");
+			txt5.setText("타수");
+			txt6.setText("안타율");
+			txt7.setText("타율");
 		}
 		
 		
@@ -201,7 +222,7 @@ public class Insert extends Frame implements WindowListener, ItemListener {
 ////
 	@Override
 	public void windowOpened(WindowEvent e) {
-		batterPanel.setVisible(false);
+//		batterPanel.setVisible(false);
 //		java.awt.Checkbox
 //		Object obj = e.getSource();
 //		Checkbox cb = (Checkbox)obj;
