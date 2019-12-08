@@ -52,23 +52,15 @@ public class DataClass {
 		try {
 			if(checkBeforeReadFile(file)) {
 				PrintWriter br = new PrintWriter(new BufferedWriter(new FileWriter(file)));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}else {
+			System.out.println("파일을 읽거나 찾을 수 없습니다.");
 		}
-	}else {
-		System.out.println("파일을 읽거나 찾을 수 없습니다.");
-	}
-	
-		
-
-		
-		
-		
-		
-		return null;
-		
+	}catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}// end readFile
+		return null;
+	}
 
 	private boolean checkBeforeReadFile(File f) {
 		if (f.exists()) {
