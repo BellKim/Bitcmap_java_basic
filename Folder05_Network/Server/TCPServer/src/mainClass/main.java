@@ -1,11 +1,14 @@
 package mainClass;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class main {
 	/*
@@ -95,14 +98,21 @@ public class main {
 			ServerSocket serSocket = new ServerSocket(9000);
 			//자동으로 자신의 IP를 설정한다, binding, listen포함.
 			
+			List<Socket> list = new ArrayList<Socket>();
+			
 			while(true) {
 
 				System.out.println("접속 대기중 ... ");
 				clientSocket = serSocket.accept();//접석된 클라이언트만 받는다.(문지기)
 				
+				list.add(clientSocket);
+				
 				System.out.println("client IP : " + clientSocket.getInetAddress() + "\n port : " + clientSocket.getPort());
 				
+				new ServerThread(clientSocket, list).start();
 				
+				/*
+				//ServerThread 클래스로 이동했다. (receive, send)
 				//2. recv 
 				BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 				
@@ -115,7 +125,7 @@ public class main {
 				PrintWriter writer = new PrintWriter(clientSocket.getOutputStream());
 				writer.print(str);	//실질적 전송
 				writer.flush();
-			
+			*/
 			}
 			
 			

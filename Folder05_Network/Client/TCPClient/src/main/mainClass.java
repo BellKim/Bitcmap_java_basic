@@ -21,7 +21,9 @@ public class mainClass {
 	 
 	 */
 	public static void main(String[] args) {
-		InetSocketAddress sockAddr = new InetSocketAddress("192.168.2.26", 9000);
+//		InetSocketAddress sockAddr = new InetSocketAddress("192.168.2.26", 9000);
+		InetSocketAddress sockAddr = new InetSocketAddress("192.168.2.40", 9000);
+//		InetSocketAddress sockAddr = new InetSocketAddress("192.168.2.27", 9000);
 		Scanner sc = new Scanner(System.in);
 		
 		Socket socket = new Socket();
@@ -42,20 +44,34 @@ public class mainClass {
 					System.out.println("서버 연결 실패 .");
 				}
 				
-				System.out.println("전송할 데이터 입력 ");
-				String str = sc.next();
+				new ReadThread(socket).start();
 				
-				//1. send
-				PrintWriter writer = new PrintWriter(socket.getOutputStream());
-				writer.println(str);	//실질적 전송
-				writer.flush();
-				
-				//2. recv 
-				BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-				
-				str = reader.readLine();
-				System.out.println("서버로부터 받은 메시지 : " + str);
-				
+				while(true) {
+					String str = "";
+					
+					System.out.println("전송할 데이터 입력 ");
+					 str = sc.next();
+					
+//					for (int i = 0; i < 60; i++) {
+						
+					
+//						 str = "하이";
+					
+					
+					//1. send
+					PrintWriter writer = new PrintWriter(socket.getOutputStream());
+					writer.println(str);	//실질적 전송
+					writer.flush();
+					
+//					}
+//					//2. recv 
+//					BufferedReader reader
+//							= new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//					
+//					str = reader.readLine();
+//					System.out.println("서버로부터 받은 메시지 : " + str);
+				}
+					
 	
 			
 			
@@ -66,6 +82,6 @@ public class mainClass {
 		
 		
 		
-	}
+	}//end main
 
-}
+}//end class
