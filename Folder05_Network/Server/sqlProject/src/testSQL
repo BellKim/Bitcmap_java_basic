@@ -1,0 +1,6 @@
+-- alt + c 
+select * from employees;
+
+
+
+
