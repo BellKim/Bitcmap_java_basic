@@ -13,12 +13,6 @@ public class singleTonClass {
 	public int MemNumber;
 	
 	
-	
-	
-	
-	
-	
-	
 	private singleTonClass() {
 		System.out.println("singleton start");
 		hMap = new HashMap<String, Human>();
