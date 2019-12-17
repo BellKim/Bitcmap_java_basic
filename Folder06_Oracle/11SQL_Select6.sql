@@ -124,8 +124,47 @@ UNION
     WHERE job_id IN ('AD_VP', 'IT_PROG');
 
 
+--INTERSECT (교집합)
+SELECT employee_id
+FROM employees
+INTERSECT
+    SELECT manager_id
+    FROM employees;         -- manager 아이디에 해당하는 것만 나오게 된다. 
+    
+                                            SELECT DISTINCT manager_id  --교집합 구문을 다음과 같이 설정하는것이 더 간단하긴하다.
+                                            FROM employees;
+                                            
+                                            --JOIN 으로 표현한 똑같은 결과값
+                                            SELECT DISTINCT a.employee_id
+                                            FROM employees A, employees B
+                                            WHERE A.employee_id = B.manager_id;
+                                            
+--MINUN     (차집합)
+SELECT employee_id
+FROM employees
+MINUS
+    SELECT manager_id
+    FROM employees;
 
 
+--SELECT절
+--매우 중요하다. 
+SELECT 컬럼 OR 함수 OR 그룹함수 OR SUBQUERY OR OVER()
+FROM 테이블명 OR SUBQUERY (다중컬럼 다중로우 가능)
+[ WHERE ] 조건절 IN AND OR ANY ALL LIKE <  > <> != = 
+[ GROUP BY ]  컬럼, ........
+[ HAVING ] 그룹핑의 조건절
+[ ORDER BY ] 정렬 ASC(올림), DESC(내림)
+[ START BY ] 계층형
+[ CONNECT BY ] 연결 PRIOR(상향, 하향)
+
+JOIN INNER, OUTTER(LEFT, RIGHT), SELFJOIN
+SUBQUERY
+
+OVER()
+RANK()
+ROW_NUMBER()
+ROWNUM
 
 
 
