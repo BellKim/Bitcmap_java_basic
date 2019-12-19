@@ -33,6 +33,8 @@ WHERE salary < (SELECT AVG(salary) FROM employees );
 
 
 
+
+
 select * FROM employees;
 --문제3) EMPLOYEES 테이블에서 100번 부서의 최소 급여보다 최소 급여가 많은 다른 모든 부서를 출력하라 
 SELECT department_id, MIN(salary)
