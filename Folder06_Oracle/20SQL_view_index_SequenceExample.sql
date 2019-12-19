@@ -27,9 +27,23 @@ CREATE VIEW EMP_30(
 --문제3) 부서별로 부서명,최소 급여,최대 급여,부서의 평균 급여를 포함하는 DEPT_SUM VIEW을 생성하여라. 
 CREATE VIEW DEPT_SUM (
                                             "부서명", "급여최저", "급여최대", "급여평균")
-    AS(SELECT department_id, MIN(salary), MAX(salary), TRUNC(AVG(salary))
-        FROM employees
-        GROUP BY department_id);
+    AS(SELECT d.department_name, "급여최저", "급여최대", "급여평균"
+        FROM (
+                    SELECT department_id, MIN(salary) AS "급여최저", MAX(salary) AS "급여최대", TRUNC(AVG(salary))AS "급여평균" 
+                    FROM employees 
+                    GROUP BY department_id
+                    ) e, departments d
+        WHERE e.department_id = d.department_id
+        GROUP BY d.department_name);
+        
+        
+        SELECT d.department_name       --, 
+        FROM (SELECT department_id, MIN(salary), MAX(salary), TRUNC(AVG(salary)) FROM employees GROUP BY department_id) e, departments d
+        WHERE e.department_id = d.department_id
+        GROUP BY d.department_name;
+        
+        select * from departments
+        
      
 SELECT * FROM DEPT_SUM
 ORDER BY "부서명" ASC;

@@ -10,8 +10,8 @@ CREATE SEQUENCE TEST_SEQ
 INCREMENT BY 1      --1씩 증하하도록한다. 
 START WITH 10       -- 시작 수
 MAXVALUE 1000       --최대값, 생략가능.
-MINVALUE 1;             --최소값
-
+MINVALUE 1             --최소값
+NOCYCLE;       --최대값, 최소값에 도달한 후에 갑을 계속 생성할지를 지정한다.
 
 --currentval 현재의값
 SELECT TEST_SEQ.CURRVAL
