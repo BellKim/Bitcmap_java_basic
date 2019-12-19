@@ -175,6 +175,8 @@ SELECT * FROM test_chd;
 
 CREATE TABLE EMP
 AS SELECT * FROM employees;
+
+
 --UPDATE
 
                 --UPDATE emp 

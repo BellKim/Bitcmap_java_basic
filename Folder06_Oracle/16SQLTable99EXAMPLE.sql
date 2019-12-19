@@ -128,7 +128,7 @@ SELECT * FROM address;
 --문제 7번) 주소록 테이블에 문자 타입을 가지는 comments 칼럼을 추가
 --기본값은 'No Comment'로 지정하여라.
 alter table address
-ADD comments varchar(20);
+ADD comments varchar(20) DEFAULT 'No Comment ';
 
 --문제 8번)주소록 테이블에서 comments 칼럼을 삭제
 alter table address
