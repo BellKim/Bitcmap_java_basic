@@ -180,11 +180,11 @@ END;
 DECLARE
     --여기서 배열은 0번시작이 아닌 1번시작이 처음이다. 
     TYPE varray_test IS VARRAY(3) OF INTEGER;      --int varray_test[] = new int [3];
-    varr varray_test;
+    var varray_test;
 
 BEGIN
-        varr := varray_test(111,222,333);
-        dbms_output.put_line('varr(1) = ' || varr(1));
+        var := varray_test(111,222,333);
+        dbms_output.put_line('var(1) = ' || varr(1));
         
 END;
 /
@@ -208,7 +208,11 @@ DECLARE
     v_sal EMPLOYEES.salary%type :=1000;
     v_salTotal NUMBER;
 BEGIN
-DBMS_OUTPUT.PUT_LINE(&p_empno || '번 + 1000후의 사원의 급여 = '|| v_salTotal);
+    SELECT salary INTO v_salTotal
+    FROM employees
+    WHERE employee_id=&p_empno;
+    DBMS_OUTPUT.PUT_LINE(&p_empno || '번 + 1000후의 사원의 급여 = '|| v_salTotal);
+    
     UPDATE employees
     SET salary = salary+v_sal
     WHERE employee_id = &p_empno;
