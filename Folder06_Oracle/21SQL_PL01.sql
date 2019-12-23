@@ -252,7 +252,37 @@ END;
 
 
 
+-- 입력 처리
+ACCEPT p_name PROMPT '이 름:'
+ACCEPT p_sal PROMPT '급 여:'
+ACCEPT p_deptno PROMPT '부서번호:'
 
+DECLARE
+    v_name employees.last_name%TYPE := '&p_name';   -- 문자열
+    v_sal employees.salary%TYPE := &p_sal;
+    v_deptno employees.department_id%TYPE := &p_deptno;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('v_name:' || v_name);
+    DBMS_OUTPUT.PUT_LINE('v_sal:' || v_sal);
+    DBMS_OUTPUT.PUT_LINE('v_deptno:' || v_deptno);
+    
+    IF v_deptno = 30 THEN
+        v_sal := v_sal * 1.2;
+    ELSIF v_deptno = 60 THEN
+        v_sal := v_sal * 1.1;
+    END IF;
+
+    INSERT INTO employees(employee_id, last_name, salary, 
+                            hire_date, department_id, job_id, email)
+    VALUES(employees_seq.nextval, v_name, v_sal,
+                            sysdate, 30, 'IT_PROG', v_name || '@naver.com');
+END;
+/
+
+SELECT
+    *
+FROM employees
+WHERE last_name = '일';
 
 
 
