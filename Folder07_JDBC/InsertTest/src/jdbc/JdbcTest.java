@@ -7,21 +7,24 @@ import java.sql.Statement;
 
 public class JdbcTest {
 
+	
 	public JdbcTest() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			System.out.println("DirverLoading Success! ");
-
+			
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
 	}
-
+	
+	
 	public Connection getConnection() {
 		Connection conn = null;
-		// 해당주소는 DB의 properties - driverproperties 에 주소가있음.
+										//해당주소는 DB의 properties - driverproperties 에 주소가있음.
 		try {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.2.26:1521:xe", "hr", "hr");
 			System.out.println("DB CONnection success!!");
@@ -31,11 +34,11 @@ public class JdbcTest {
 		}
 		return conn;
 	}
-
+	
 	public int Insert(String id, String name, int age) {
 		// createStatement, preparedStatement
-		String sql = "INSERT INTO USERDTO(ID, NAME, AGE, JOINDATE)" + "VALUES(" + id + "'," + name + "'," + age
-				+ ", SYSDATE)";
+		String sql = "INSERT INTO USERDTO(ID, NAME, AGE, JOINDATE)" + 
+					"VALUES('" + id + "','" + name + "'," + age+", SYSDATE)";
 		Connection conn = this.getConnection();
 		Statement stmt = null; // DB관련
 
@@ -65,5 +68,6 @@ public class JdbcTest {
 		}
 		return count;
 	}
-
-}// end of class
+	
+	
+}//end of class
