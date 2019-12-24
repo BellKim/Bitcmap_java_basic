@@ -31,7 +31,7 @@ public class MemberDAO {
 		String sql = " SELECT ID "
 				+ " FROM MEMBER "
 				+ " WHERE ID = ?";
-		
+		// ? 와일드카드 
 		Connection conn = null;				//DBCONNECTION
 		PreparedStatement psmt = null;		//SQL
 		ResultSet rs = null;				//result
