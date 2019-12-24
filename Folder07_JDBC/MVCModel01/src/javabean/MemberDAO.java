@@ -11,6 +11,7 @@ import dto.MemberDTO;
 
 //DB <->JAVA
 public class MemberDAO {
+
 	private static MemberDAO mem = null;
 	
 	private String loginID;
@@ -19,39 +20,13 @@ public class MemberDAO {
 		
 	}
 	
-	
-	
-	public static MemberDAO getMem() {
-		return mem;
-	}
-
-
-
-	public static void setMem(MemberDAO mem) {
-		MemberDAO.mem = mem;
-	}
-
-
-
-	public String getLoginID() {
-		return loginID;
-	}
-
-
-
-	public void setLoginID(String loginID) {
-		this.loginID = loginID;
-	}
-
-
-
 	public static MemberDAO getInstance() {
 		if(mem == null) {
 			mem = new MemberDAO();
 		}
 		return mem;
 	}
-	
+
 	public boolean getId(String id) {
 		String sql = " SELECT ID "
 				+ " FROM MEMBER "
@@ -62,7 +37,10 @@ public class MemberDAO {
 		ResultSet rs = null;				//result
 		
 		boolean findid = false;
+
 		System.out.println("sql : " + sql );
+
+
 		try {
 			conn = DBCONNECTON.getConnection();
 			psmt = conn.prepareStatement(sql);
@@ -70,7 +48,7 @@ public class MemberDAO {
 			
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				findid=true;	//데이터가 있을때
+				findid = true;	//데이터가 있을때
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -83,10 +61,36 @@ public class MemberDAO {
 	
 	public boolean addMember(MemberDTO dto) {
 		//db에 추가하는 작업진행
-		return true;
+		String sql = " INSERT INTO MEMBER(ID, PWD, NAME, EMAIL, AUTH) "
+				+ " VALUES(?, ?, ?, ?, 3) ";
+	
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		System.out.println("sql:" + sql);
+		
+		int count = 0;
+		
+		try {
+			conn = DBCONNECTON.getConnection();
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPwd());
+			psmt.setString(3, dto.getName());
+			psmt.setString(4, dto.getEmail());
+			
+			count = psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {		
+			DBCLOSE.close(psmt, conn, null);			
+		}		
+		
+		return count>0?true:false;
 	}
-
-
 
 	public MemberDTO login(String id, String pwd) {
 		String sql = " SELECT ID, NAME, EMAIL, AUTH "
@@ -124,6 +128,23 @@ public class MemberDAO {
 	}
 	return mem;
 	}
-	
+
+	public static MemberDAO getMem() {
+		return mem;
+	}
+
+	public String getLoginID() {
+		return loginID;
+	}
+
+	public void setLoginID(String loginID) {
+		this.loginID = loginID;
+	}
+
 
 }//end of class
+
+
+
+
+

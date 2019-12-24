@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import dto.MemberDTO;
-import javabean.MemberDAO;
+import dto.MemberDto;
+import javabean.MemberDao;
 
 public class loginView extends JFrame implements ActionListener {
 
@@ -73,15 +73,18 @@ public class loginView extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {		
 		JButton btn = (JButton)e.getSource();
-		
-		MemberDAO dao = MemberDAO.getInstance();
+				
+		MemberDao dao = MemberDao.getInstance();
 		if(btn == logBtn){	// log in
-			MemberDTO mem = dao.login(idTextF.getText(), pwTextF.getText()); 
+			MemberDto mem = dao.login(idTextF.getText(), pwTextF.getText()); 
 			if(mem == null) {
 				JOptionPane.showMessageDialog(null, "id나 password가 틀렸습니다");
 			}else {
 				JOptionPane.showMessageDialog(null, mem.getId() + "님 환영합니다");
 				this.dispose();
+				
+				// login한 id를 저장	-> Session(Web)
+				dao.setLoginID(mem.getId());
 				
 				new bbsListView();
 			}			

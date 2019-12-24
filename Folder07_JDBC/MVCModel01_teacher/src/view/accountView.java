@@ -10,10 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import dto.MemberDTO;
-import javabean.MemberDAO;
-
-
+import dto.MemberDto;
+import javabean.MemberDao;
 
 public class accountView extends JFrame implements ActionListener{
 
@@ -85,33 +83,29 @@ public class accountView extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-	//	JOptionPane.showMessageDialog(null, "버튼 클릭");
-		
+	//	JOptionPane.showMessageDialog(null, "버튼 클릭");		
 		JButton btn = (JButton)e.getSource();
 		String btnTitle = btn.getLabel();
 		
-		MemberDAO dao = MemberDAO.getInstance();
-		
-		
-		
+		MemberDao dao = MemberDao.getInstance();
+					
 		if(btnTitle.equals("id")) {
-//			JOptionPane.showMessageDialog(null, "id 버튼");
-			//빈칸체크
-			if(idTextF.getText().equals("")){
-				JOptionPane.showMessageDialog(null, "id를 입력해주세요");
+		//	JOptionPane.showMessageDialog(null, "id 버튼");
+			
+			// 빈칸 첵크
+			if(idTextF.getText().trim().equals("")) {
+				JOptionPane.showMessageDialog(null, "id를 입력해 주십시오");
 				return;
 			}
+			
 			String id = idTextF.getText().trim();
 			boolean b = dao.getId(id);
 			if(b) {
-				JOptionPane.showMessageDialog(null, "사용할 수 없는 아이디입니다. ");
+				JOptionPane.showMessageDialog(null, "사용할 수 없는 id입니다");
 				idTextF.setText("");
 			}else {
-				JOptionPane.showMessageDialog(null, idTextF.getText()+"는 사용할 수 있습니다.");
-				//회원가입 버튼 활성화.
-			}
-			
-			
+				JOptionPane.showMessageDialog(null, idTextF.getText() + "는 사용하실 수 있습니다");
+			}			
 		}else if(btnTitle.equals("회원가입")) {			
 			if(idTextF.getText().equals("") || 
 					passTextF.getText().equals("") ||
@@ -121,7 +115,7 @@ public class accountView extends JFrame implements ActionListener{
 				return;
 			}
 			
-			boolean b = dao.addMember(new MemberDTO(idTextF.getText(), passTextF.getText(), nameTextF.getText(), emailTextF.getText(), 0));
+			boolean b = dao.addMember(new MemberDto(idTextF.getText(), passTextF.getText(), nameTextF.getText(), emailTextF.getText(), 0));
 			if(b) {
 				JOptionPane.showMessageDialog(null, "성공적으로 가입되었습니다");
 				this.dispose();
@@ -129,8 +123,7 @@ public class accountView extends JFrame implements ActionListener{
 			}else {
 				JOptionPane.showMessageDialog(null, "가입에 실패했습니다");
 			}
-		}	
-					
+		}		
 	}
 }
 
