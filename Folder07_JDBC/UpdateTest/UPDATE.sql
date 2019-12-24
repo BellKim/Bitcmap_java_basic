@@ -12,6 +12,7 @@ UPDATE USERDTO SET AGE=99 WHERE id='aaa';
 
 
 
+<<<<<<< HEAD
 SELECT * FROM USERDTO;
 
 select * FROM user_constraint;
@@ -21,3 +22,6 @@ SELECT * FROM emp;
 SELECT COUNT(department_id) FROM EMPLOYEES GROUP BY department_id;
 
 select department_id sum(salary) from emp;
+=======
+SELECT * FROM USERDTO;
+>>>>>>> class01
