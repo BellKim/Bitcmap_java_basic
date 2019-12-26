@@ -30,7 +30,7 @@ public class DBConnection {
 		Connection conn = null;
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.10:1521:xe","hr","hr");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.2.26:1521:xe","hr","hr");
 			System.out.println("DBCONNECTION SUCCESS!! \n getConnection()");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
