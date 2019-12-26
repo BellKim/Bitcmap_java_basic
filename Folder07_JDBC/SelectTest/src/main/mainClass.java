@@ -1,7 +1,5 @@
 package main;
 
-import java.util.List;
-
 import DB.DBCONNECTON;
 import dto.UserDTO;
 import jdbc.SelectTest;
