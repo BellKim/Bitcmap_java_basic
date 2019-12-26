@@ -1,7 +1,14 @@
 package main;
 
+<<<<<<< HEAD
 import DB.DBCONNECTON;
 import dto.UserDTO;
+=======
+import java.util.List;
+
+import DB.DBConnection;
+import DTO.userDTO;
+>>>>>>> --
 import jdbc.SelectTest;
 
 public class MainClass {
@@ -34,6 +41,12 @@ public class MainClass {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i).toString());
 		}
+<<<<<<< HEAD
+=======
+	
+		
+		
+>>>>>>> --
 		
 		
 		
