@@ -19,11 +19,12 @@ public class DBCLOSE {
 				}
 				if(conn != null) {
 					conn.close();
+
+
 				}
 				if(rs != null) {
 					conn.close();
 				}
-				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

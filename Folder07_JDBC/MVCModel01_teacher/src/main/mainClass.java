@@ -1,18 +1,14 @@
 package main;
 
-import DB.DBCONNECTON;
-import view.accountView;
+import db.DBConnection;
 import view.loginView;
 
 public class mainClass {
 
 	public static void main(String[] args) {
-//		new accountView();
-		DBCONNECTON.initConnection();
+		DBConnection.initConnection();		
+		
 		new loginView();
-
 	}
 
 }
-
-

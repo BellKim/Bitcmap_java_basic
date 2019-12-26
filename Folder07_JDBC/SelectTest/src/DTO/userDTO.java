@@ -1,16 +1,19 @@
-package DTO;
+package dto;
 
-public class userDTO {
+public class UserDTO {
+	
 	private String id;
 	private String name;
 	private int age;
 	private String joinDate;
-	public userDTO() {
-		// TODO Auto-generated constructor stub
+	
+	
+	public UserDTO() {
+	
 	}
 	
 	
-	public userDTO(String id, String name, int age, String joinDate) {
+	public UserDTO(String id, String name, int age, String joinDate) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,13 +50,12 @@ public class userDTO {
 
 	@Override
 	public String toString() {
-		return "userDTO [id=" + id + ", name=" + name + ", age=" + age + ", joinDate=" + joinDate + "]";
+		return "UserDTO [id=" + id + ", name=" + name + ", age=" + age + ", joinDate=" + joinDate + "]";
 	}
-
-
-
 	
 	
 	
+	
+	
 
-}//end of class
+}

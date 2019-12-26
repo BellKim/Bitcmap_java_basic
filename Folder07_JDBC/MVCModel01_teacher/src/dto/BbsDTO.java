@@ -1,8 +1,11 @@
 package dto;
 
+/*
+DROP TABLE BBS
+CASCADE CONSTRAINTS;
 
-	
-	/*
+DROP SEQUENCE SEQ_BBS;
+
 CREATE TABLE BBS(
 	SEQ NUMBER(8) PRIMARY KEY,
 	ID VARCHAR2(30) NOT NULL,
@@ -17,15 +20,16 @@ CREATE SEQUENCE SEQ_BBS
 START WITH 1
 INCREMENT BY 1;
 
-ALTER TABLE BBS 
+ALTER TABLE BBS
 ADD CONSTRAINT FK_BBS_ID FOREIGN KEY(ID)
 REFERENCES MEMBER(ID);
 
-
-	 */
-public class BbsDTO {
+*/
+public class BbsDto {
+	
 	private int seq;
-	private String id;	//글 작성자
+	private String id;
+	
 	private String title;
 	private String content;
 	private String wdate;
@@ -33,12 +37,10 @@ public class BbsDTO {
 	private int del;
 	private int readcount;
 	
-	public BbsDTO() {
-		
+	public BbsDto() {
 	}
-	
 
-	public BbsDTO(int seq, String id, String title, String content, String wdate, int del, int readcount) {
+	public BbsDto(int seq, String id, String title, String content, String wdate, int del, int readcount) {
 		super();
 		this.seq = seq;
 		this.id = id;
@@ -49,15 +51,12 @@ public class BbsDTO {
 		this.readcount = readcount;
 	}
 
-
-	public BbsDTO(String id, String title, String content) {
+	public BbsDto(String id, String title, String content) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
 	}
-
-
 
 	public int getSeq() {
 		return seq;
@@ -107,24 +106,18 @@ public class BbsDTO {
 		this.del = del;
 	}
 
-
-	
 	public int getReadcount() {
 		return readcount;
 	}
-
 
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
 	}
 
-
 	@Override
 	public String toString() {
-		return "DbsDTO [seq=" + seq + ", id=" + id + ", title=" + title + ", content=" + content + ", wdate=" + wdate
-				+ ", del=" + del + "]";
+		return "BbsDto [seq=" + seq + ", id=" + id + ", title=" + title + ", content=" + content + ", wdate=" + wdate
+				+ ", del=" + del + ", readcount=" + readcount + "]";
 	}
-	
-	
 
 }
