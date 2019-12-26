@@ -83,6 +83,24 @@ public class bbsListView extends JFrame implements MouseListener{
 	}
 
 	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object obj = e.getSource();
+				
+		if(obj == logoutBtn){
+			MemberDao dao = MemberDao.getInstance();
+			dao.setLoginID("");
+			
+			this.dispose();
+			new loginView();			
+		}
+		else if(obj == writeBtn){
+			this.dispose();
+			new bbsAddView();	
+		}		
+	}
+	
+
+	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
