@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import DB.DBCLOSE;
 import DB.DBCONNECTON;
+import dto.BbsDTO;
 import dto.MemberDTO;
 
 //DB <->JAVA
@@ -15,10 +16,12 @@ public class MemberDAO {
 	private static MemberDAO mem = null;
 	
 	private String loginID;
+
 	
 	public MemberDAO() {
 		
 	}
+	
 	
 	public static MemberDAO getInstance() {
 		if(mem == null) {

@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
@@ -10,17 +12,21 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import dto.BbsDTO;
 import javabean.BbsDao;
+import javabean.MemberDAO;
 
-public class bbsListView extends JFrame implements MouseListener{
+public class bbsListView extends JFrame implements MouseListener, ActionListener{
 	
 	private JTable jtable;
 	private JScrollPane jscrPane;//스크롤 생겨나는영역
 	
 	private JButton writeBtn;
+	private JButton logoutBtn;
+	
 	String ColumnNames[] = {
 		"번호", "제목", "작성자"	
 	};
@@ -65,14 +71,30 @@ public class bbsListView extends JFrame implements MouseListener{
 		jtable.getColumnModel().getColumn(1).setMaxWidth(500);	//제목
 		jtable.getColumnModel().getColumn(2).setMaxWidth(200);	//작성자
 		
+		// 테이블의 column의 글의 맞춤(왼쪽, 중간, 오른쪽)
+		DefaultTableCellRenderer celAlignCenter = new DefaultTableCellRenderer();
+		celAlignCenter.setHorizontalAlignment(JLabel.CENTER);	// 중간
+		
+		// '번호'와 '작성자'의 컬럼은 글의 중간 맞춤이 된다
+		jtable.getColumn("번호").setCellRenderer(celAlignCenter);
+		jtable.getColumn("작성자").setCellRenderer(celAlignCenter);
+		
+		
 		jscrPane = new JScrollPane(jtable);
 		jscrPane.setBounds(10, 50, 600, 300);
 		add(jscrPane);
 		
 		writeBtn = new JButton("글쓰기");
-		writeBtn.setBounds(510, 10, 100, 20);
+		writeBtn.setBounds(10, 10, 100, 20);
+		writeBtn.addActionListener(this);						   
 		add(writeBtn);
 		
+		logoutBtn = new JButton("로그아웃");
+		logoutBtn.setBounds(510, 10, 100, 20);
+		
+		
+		logoutBtn.addActionListener(this);
+		add(logoutBtn);
 		
 		
 		setBackground(new Color(0, 0, 128));
@@ -85,21 +107,22 @@ public class bbsListView extends JFrame implements MouseListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object obj = e.getSource();
-				
+		
 		if(obj == logoutBtn){
-			MemberDao dao = MemberDao.getInstance();
+			MemberDAO dao = MemberDAO.getInstance();
 			dao.setLoginID("");
-			
 			this.dispose();
-			new loginView();			
-		}
-		else if(obj == writeBtn){
+			new loginView();
+			
+		}else if(obj == writeBtn){
 			this.dispose();
 			new bbsAddView();	
-		}		
+		}	
 	}
 	
 
+	
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -108,7 +131,27 @@ public class bbsListView extends JFrame implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+
+		Object obj = e.getSource();
+		
+		System.out.println(jtable.getSelectedColumn());
+		System.out.println(jtable.getSelectedRow());
+		
+		System.out.println();
+//		
+		int rowNum = jtable.getSelectedRow();
+		list.get(rowNum);
+		
+		System.out.println(list.get(jtable.getSelectedRow()).toString());
+		
+		
+		
+		
+//		클릭시 창이 뜬다.
+		new bbsDetail();
+		this.dispose();
+		
+		
 		
 	}
 

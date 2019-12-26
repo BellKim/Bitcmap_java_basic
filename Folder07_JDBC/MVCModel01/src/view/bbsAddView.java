@@ -3,8 +3,8 @@ package view;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,11 +14,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import dto.BbsDto;
+import dto.BbsDTO;
 import javabean.BbsDao;
-import javabean.MemberDao;
+import javabean.MemberDAO;
 
-public class bbsAddView extends JFrame implements ActionListener {
+
+public class bbsAddView extends JFrame implements ActionListener, WindowListener{
 
 	JTextField writerText;
 	JTextField titleText;
@@ -35,7 +36,7 @@ public class bbsAddView extends JFrame implements ActionListener {
 		writerLabel.setBounds(10, 10, 120, 15);
 		add(writerLabel);		
 		
-		MemberDao dao = MemberDao.getInstance();
+		MemberDAO dao = MemberDAO.getInstance();
 				
 		writerText = new JTextField(dao.getLoginID());
 		writerText.setBounds(120, 10, 200, 20);
@@ -74,7 +75,7 @@ public class bbsAddView extends JFrame implements ActionListener {
 		add(backBtn);
 		
 		
-		btn.addActionListener(new ActionListener() {			
+		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("btn.addActionListener");
@@ -83,9 +84,11 @@ public class bbsAddView extends JFrame implements ActionListener {
 				String title = titleText.getText();
 				String content = contentArea.getText();
 				
+//				System.out.println("ID 값을 출력합니다. " + id+"\n title = " + title +"\n content = " + content);
+				
 				BbsDao dao = BbsDao.getInstance();
 												
-				BbsDto dto = new BbsDto(0, id, title, content, null, 0, 0);				
+				BbsDTO dto = new BbsDTO(0, id, title, content, null, 0, 0);				
 				boolean b = dao.writeBBS(dto);
 				if(b){
 					JOptionPane.showMessageDialog(null, "성공적으로 추가되었습니다");
@@ -111,6 +114,51 @@ public class bbsAddView extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	
+	
+//윈도우 리스너 
+	@Override
+	public void windowOpened(WindowEvent e) {
+		
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

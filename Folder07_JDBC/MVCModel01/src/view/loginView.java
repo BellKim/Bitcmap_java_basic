@@ -81,6 +81,7 @@ public class loginView extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, "id나 password가 틀렸습니다");
 			}else {
 				JOptionPane.showMessageDialog(null, mem.getId() + "님 환영합니다");
+				dao.setLoginID(mem.getId());
 				this.dispose();
 				
 				new bbsListView();

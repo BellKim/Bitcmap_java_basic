@@ -20,3 +20,17 @@ INCREMENT BY 1;
 ALTER TABLE BBS 
 ADD CONSTRAINT FK_BBS_ID FOREIGN KEY(ID)
 REFERENCES MEMBER(ID);
+
+SELECT * FROM BBS;
+
+INSERT INTO BBS VALUES(SEQ_BBS.nextval, 'asd', 'hello', 'Hello content', sysdate, 0, 0);
+
+
+SELECT READCOUNT 
+FROM BBS 
+WHERE SEQ = 5 
+AND TITLE ='hello'  AND CONTENT = 'Hello content';
+		
+		
+		
+		
