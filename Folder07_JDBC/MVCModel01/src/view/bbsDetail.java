@@ -27,10 +27,10 @@ public class bbsDetail extends JFrame implements ActionListener, WindowListener{
 	   private JButton updateBtn;
 	   private JButton deleteBtn;
 	   
-	   public bbsDetail() {
+	   public bbsDetail() {	//글보기.작성 당사자일경우 수정이가능
 	      super("글보기?");
 	      setLayout(null);
-	      BbsDao bbdao = BbsDao.getInstance();
+	      BbsDao getDateFromList = BbsDao.getInstance();
 	      JLabel wLabel = new JLabel("");
 	      wLabel.setBounds(100, 10, 120, 15);
 	      add(wLabel);

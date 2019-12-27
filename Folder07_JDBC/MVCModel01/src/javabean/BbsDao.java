@@ -53,13 +53,10 @@ public class BbsDao {//singleton
 			rs = psmt.executeQuery();
 			
 			
-//			psmt.setString(3,  bdto.getContent());
-			System.out.println("1111setBdto 의 readcount 값 출력 "+rs.getInt(1));
 			if(rs.next()) {
 				bdto.setReadcount(rs.getInt(1));
-				System.out.println("2222setBdto 의 readcount 값 출력 "+rs.getInt(1));
 			}
-//쿼리문이 작성 되었을때 성공적으로 쿼리가 동작되면, rs.next로 
+//쿼리문이 작성 되었을때 성공적으로 쿼리가 동작되면, rs.next로 내용을 읽어들인다.
 			
 		
 		} catch (SQLException e) {
@@ -81,6 +78,7 @@ public class BbsDao {//singleton
 		String sql = " Select SEQ, ID, TITLE, CONTENT, "
 				+ " WDATE, DEL, READCOUNT "
 				+ " FROM BBS "
+				+ " WHERE DEL = 0 "
 				+ " ORDER BY WDATE DESC ";
 		
 		Connection conn = null;				//DBCONNECTION

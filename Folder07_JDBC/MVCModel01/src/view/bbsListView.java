@@ -34,7 +34,7 @@ public class bbsListView extends JFrame implements MouseListener, ActionListener
 	DefaultTableModel model;		//table의 넓이를 설정하기 위해서 필요.
 	List<BbsDTO> list= null;
 
-	public bbsListView() {
+	public bbsListView() {		//테이블 구조로 되어있는 글 리스트 
 		super("게시판");
 		setLayout(null);
 		JLabel label = new JLabel("게시판");
@@ -51,10 +51,18 @@ public class bbsListView extends JFrame implements MouseListener, ActionListener
 		//list  에서 테이블로 데이터를 삽입하기 위한 처리
 		for (int i = 0; i < list.size(); i++) {
 			BbsDTO dto = list.get(i);
-			rowData[i][0] = i + 1;//글번호.
-			rowData[i][1] = dto.getTitle();	//글제목
-			rowData[i][2] = dto.getId();
 			
+//			if(list.get(i).getDel() ==1) {//del이 1일경우, 다음리스트를 불러오며, list.size()+1일경우 조건문을 탈출하도록함.  
+//				if(list.size()<list.get(i).getDel()) {
+//					break;
+//				}else {
+//					i++;
+//				}
+//			}else {
+				rowData[i][0] = i + 1;//글번호.
+				rowData[i][1] = dto.getTitle();	//글제목
+				rowData[i][2] = dto.getId();
+//			}
 		}
 		
 		//테이블 관련
@@ -130,19 +138,18 @@ public class bbsListView extends JFrame implements MouseListener, ActionListener
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
+	public void mousePressed(MouseEvent e) {	
 
 		Object obj = e.getSource();
 		
 		System.out.println(jtable.getSelectedColumn());
 		System.out.println(jtable.getSelectedRow());
-		
 		System.out.println();
-//		
 		int rowNum = jtable.getSelectedRow();
 		list.get(rowNum);
-		
 		System.out.println(list.get(jtable.getSelectedRow()).toString());
+		BbsDao sendToBbsDetail = 
+		
 		
 		
 		

@@ -15,7 +15,7 @@ public class MemberDAO {
 
 	private static MemberDAO mem = null;
 	
-	private String loginID;
+	private String loginID;//로그인정보 저장.
 
 	
 	public MemberDAO() {

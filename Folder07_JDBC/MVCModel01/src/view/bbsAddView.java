@@ -28,7 +28,7 @@ public class bbsAddView extends JFrame implements ActionListener, WindowListener
 	JButton btn;
 	JButton backBtn;
 	
-	public bbsAddView() {
+	public bbsAddView() {//로그인한 후 글쓰기창
 		super("글쓰기");
 		setLayout(null);
 		

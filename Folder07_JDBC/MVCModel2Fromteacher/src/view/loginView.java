@@ -9,22 +9,21 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import dto.MemberDTO;
-import javabean.MemberDAO;
+import controller.MemberDao;
+import dto.MemberDto;
+import singleton.Singleton;
 
 public class loginView extends JFrame implements ActionListener {
-
 	private JTextField idTextF;
 	private JPasswordField pwTextF;
 	
 	private JButton logBtn;
 	private JButton accountBtn;
 	
-	public loginView() {		//로그인화면이다.
+	public loginView() {
 		super("로그인");
 		setLayout(null);
 		
@@ -71,26 +70,43 @@ public class loginView extends JFrame implements ActionListener {
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {		
+	public void actionPerformed(ActionEvent e) {	
+		
 		JButton btn = (JButton)e.getSource();
 		
-		MemberDAO dao = MemberDAO.getInstance();
+		
+//				
+//		MemberDao dao = MemberDao.getInstance();
+//		if(btn == logBtn){	// log in
+//			MemberDto mem = dao.login(idTextF.getText(), pwTextF.getText()); 
+//			if(mem == null) {
+//				JOptionPane.showMessageDialog(null, "id나 password가 틀렸습니다");
+//			}else {
+//				JOptionPane.showMessageDialog(null, mem.getId() + "님 환영합니다");
+//				this.dispose();
+//				
+//				// login한 id를 저장	-> Session(Web)
+//				dao.setLoginID(mem.getId());
+//				
+//				new bbsListView();
+//			}			
+//		}
+//		else if(btn == accountBtn){ // 회원가입
+//			new accountView();
+//			this.dispose();
+//		}
+		
+		//로그인 여부를 확인하기 위해서 싱글톤 접근
+		Singleton s = Singleton.getInstance();
+		
 		if(btn == logBtn){	// log in
-			MemberDTO mem = dao.login(idTextF.getText(), pwTextF.getText()); 
-			if(mem == null) {
-				JOptionPane.showMessageDialog(null, "id나 password가 틀렸습니다");
-			}else {
-				JOptionPane.showMessageDialog(null, mem.getId() + "님 환영합니다");
-				dao.setLoginID(mem.getId());
-				this.dispose();
-				
-				new bbsListView();
-			}			
-		}
-		else if(btn == accountBtn){ // 회원가입
-			new accountView();
-			this.dispose();
+			
+		} else if(btn == accountBtn) {//회원가입
+			s.memCtrl.regi();//화면 접근후
+			this.dispose();	//기존창 닫기.
+			
 		}
 	}
+
 
 }
