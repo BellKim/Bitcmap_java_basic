@@ -7,5 +7,6 @@ public interface MemberService {
 	
 	public boolean addMember(MemberDto dto);
 
-
+	public MemberDto login(String id, String pwd);
+	
 }

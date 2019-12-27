@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import dto.MemberDto;
 import service.MemberService;
 import service.impl.MemberServiceImpl;
+import singleton.Singleton;
 import view.accountView;
 import view.loginView;
 
@@ -33,6 +34,27 @@ public class MemberController {
 		}else {
 			JOptionPane.showMessageDialog(null, "회원가입실패 ㅇㅇㅇㅇㅇㅇㅇ ");
 			regi();//다시 가입하도록 한다.
+		}
+		
+	}
+	
+	public void loginAf(String id, String  pwd) {
+		System.out.println("id , pw " + id + "//" + pwd );
+		
+		MemberDto dto = memServ.login(id, pwd);
+		if(dto==null) {
+			JOptionPane.showMessageDialog(null, "id나 password가 틀렸습니다.");
+			login();
+		}else {
+			JOptionPane.showMessageDialog(null, dto.getId()+"님 환영합니다.");
+			//id 저장 => session 
+			Singleton s = Singleton.getInstance();
+			s.setLoginId(dto.getId());
+			
+			//bbs list controller 로 이동 
+			s.bbsCtrl.getBbsList();
+			
+			
 		}
 		
 	}

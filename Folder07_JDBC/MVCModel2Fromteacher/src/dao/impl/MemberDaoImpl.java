@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import controller.MemberDao;
+import dao.MemberDao;
 import db.DBClose;
 import db.DBConnection;
 import dto.MemberDto;
@@ -121,9 +121,11 @@ public class MemberDaoImpl implements MemberDao {
 	
 	}
 	
+	//로그인
+	
 	
 		
 		
 	
 
-}
+}//end class
