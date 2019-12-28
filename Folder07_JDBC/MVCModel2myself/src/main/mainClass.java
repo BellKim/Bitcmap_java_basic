@@ -1,7 +1,7 @@
 package main;
 
-import db.DBConnection;
-import singleton.Singleton;
+import main.singleton.Singleton;
+import template.db.DBConnection;
 
 public class mainClass {
 

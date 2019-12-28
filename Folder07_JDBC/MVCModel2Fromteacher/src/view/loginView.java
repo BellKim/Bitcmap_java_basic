@@ -70,12 +70,10 @@ public class loginView extends JFrame implements ActionListener {
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {	
-		
+	public void actionPerformed(ActionEvent e) {		
 		JButton btn = (JButton)e.getSource();
 		
 		
-//				
 //		MemberDao dao = MemberDao.getInstance();
 //		if(btn == logBtn){	// log in
 //			MemberDto mem = dao.login(idTextF.getText(), pwTextF.getText()); 

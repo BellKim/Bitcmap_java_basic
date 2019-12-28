@@ -10,6 +10,7 @@ import view.accountView;
 import view.loginView;
 
 
+
 //서비스와 대화한다. 
 public class MemberController {
 	
@@ -53,10 +54,7 @@ public class MemberController {
 			
 			//bbs list controller 로 이동 
 			s.bbsCtrl.getBbsList();
-			
-			
 		}
-		
 	}
 	
 	public boolean idCheck(String id) {
