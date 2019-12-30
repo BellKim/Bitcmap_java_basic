@@ -95,9 +95,14 @@ public class loginView extends JFrame implements ActionListener{
 		*/
 		JButton btn = (JButton)e.getSource();
 		Singleton s = Singleton.getInstance();
-		System.out.println("로그인 버튼 입력됨.");
 		if(btn == logBtn) {
+			System.out.println("로그인 버튼 입력됨.");
 			s.memCtrl.loginAf(idTextF.getText(), pwTextF.getText());
+			this.dispose();
+			
+		}else {
+			s.memCtrl.regi();
+			this.dispose();
 		}
 		
 	}

@@ -10,18 +10,35 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDto login(String id, String pwd) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dao.login(id, pwd);
 	}
 
 	@Override
 	public boolean addMember(MemberDto dto) {
 		
-		return dao.addMember(dto);
+		int res  = dao.addMember(dto);
+		if(res > 0) {
+			return true;
+		}else{
+			return false;
+		}
+		
+		
+	}
+
+	@Override
+	public boolean idcheck(String id) {
+		int res = dao.idCheck(id);
+		if(res > 0 ) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 
 
 	
 
-}
+}// end class
