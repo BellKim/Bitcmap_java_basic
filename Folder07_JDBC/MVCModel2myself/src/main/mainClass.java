@@ -9,8 +9,6 @@ public class mainClass {
 		DBConnection.initConnection();
 		Singleton s = Singleton.getInstance();
 		s.memCtrl.login();
-		
-
 	}
 
 }

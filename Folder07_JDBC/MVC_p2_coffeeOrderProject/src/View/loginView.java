@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import main.singleton.Singleton;
 
 public class loginView extends JFrame implements ActionListener{
 	
@@ -35,7 +34,7 @@ public class loginView extends JFrame implements ActionListener{
 		add(idLabel);
 		
 		idTextF = new JTextField(10);
-		idTextF.setBounds(100, 60, 150, 20);
+		idTextF.setBounds(100, 60, 100, 20);
 		add(idTextF);
 		
 		JLabel passLabel = new JLabel("PW:");
@@ -43,20 +42,21 @@ public class loginView extends JFrame implements ActionListener{
 		add(passLabel);
 		
 		pwTextF = new JPasswordField();
-		pwTextF.setBounds(100, 104, 150, 20);
+		pwTextF.setBounds(100, 104, 100, 20);
 		add(pwTextF);
 				
 		logBtn = new JButton("log-in");
-		logBtn.setBounds(31, 150, 100, 40);
+		logBtn.setBounds(240, 60, 100, 65);
+		//x y 너비 높이
 		logBtn.addActionListener(this);
 		add(logBtn);
 		
 		accountBtn = new JButton("회원가입");
-		accountBtn.setBounds(150, 150, 100, 40);
+		accountBtn.setBounds(30, 140, 310, 40);
 		accountBtn.addActionListener(this);
 		add(accountBtn);
 		
-		setBounds(100, 100, 300, 280);
+		setBounds(200, 200, 400, 260);
 		getContentPane().setBackground(Color.gray);
 		setVisible(true);
 		
@@ -69,7 +69,7 @@ public class loginView extends JFrame implements ActionListener{
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {	
+	public void actionPerformed(ActionEvent e) {
 		/*
 		JButton btn = (JButton)e.getSource();
 				
@@ -94,14 +94,14 @@ public class loginView extends JFrame implements ActionListener{
 		}
 		*/
 		JButton btn = (JButton)e.getSource();
-		Singleton s = Singleton.getInstance();
+//		Singleton s = Singleton.getInstance();
 		if(btn == logBtn) {
 			System.out.println("로그인 버튼 입력됨.");
-			s.memCtrl.loginAf(idTextF.getText(), pwTextF.getText());
+//			s.memCtrl.loginAf(idTextF.getText(), pwTextF.getText());
 			this.dispose();
 			
 		}else {
-			s.memCtrl.regi();
+//			s.memCtrl.regi();
 			this.dispose();
 		}
 		
