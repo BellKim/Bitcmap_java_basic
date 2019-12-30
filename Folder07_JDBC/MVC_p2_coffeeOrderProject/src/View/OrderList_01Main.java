@@ -177,13 +177,20 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		JButton btn = null;
 		JComboBox<String> jcbox = null;
 		JRadioButton rBtn = null;
+		JCheckBox jcheckbox = null;
+		
 		 Object source = e.getSource();
 		 if (source instanceof JButton) {
 			 btn = (JButton)e.getSource();
+			 
 			 } else if (source instanceof JComboBox) {
 				 jcbox = (JComboBox<String>)e.getSource();
+				 
 		    } else if(source instanceof JRadioButton) {
 		    	rBtn = (JRadioButton)e.getSource();
+		    	
+		    } else if(source instanceof JCheckBox) {
+		    	jcheckbox = (JCheckBox)e.getSource();
 		    }
 		
 		
@@ -210,19 +217,19 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		}
 		
 		//시럽선택
-		if(syrupOption1.isSelected()){    
+		if(rBtn == syrupOption1){    
 			System.out.println("select_syrup = " + syrupOption1.getLabel());    
-		}else if(syrupOption2.isSelected()){    
+		}else if(rBtn == syrupOption2){    
 			System.out.println("select_syrup = " + syrupOption2.getLabel());    
-		}else if(syrupOption3.isSelected()){    
+		}else if(rBtn == syrupOption3){    
 			System.out.println("select_syrup = " + syrupOption3.getLabel());
 		}
 		
 		//기타선택
-		if(addShot.isSelected()) {
+		if(jcheckbox == addShot) {
 			System.out.println("addShot 체크박스 선택됨. " + addShot.getLabel());
 		}
-		if(addWhiping.isSelected()) {
+		if(jcheckbox == addWhiping) {
 			System.out.println("addWhiping 체크박스 선택됨. " +addWhiping.getLabel());
 		}
 		
