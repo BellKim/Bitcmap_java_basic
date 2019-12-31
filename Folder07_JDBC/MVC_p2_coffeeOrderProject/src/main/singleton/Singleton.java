@@ -1,14 +1,21 @@
 package main.singleton;
 
+import Controller.memberController;
+import Controller.orderController;
+
 public class Singleton {
 	
 	private String loginId = null;
 	
 	private static Singleton s = null;
+	
+	public memberController memCtrl = null;
+	public orderController orderCtrl = null;
 
 
 	public Singleton() {
-		
+		memCtrl = new memberController();
+		orderCtrl = new orderController();
 	}
 	
 	public static Singleton getInstance() {
@@ -17,6 +24,12 @@ public class Singleton {
 		}
 		return s;
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
