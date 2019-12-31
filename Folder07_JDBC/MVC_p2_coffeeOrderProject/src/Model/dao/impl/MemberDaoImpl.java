@@ -17,7 +17,7 @@ public class MemberDaoImpl implements MemberDao{
 	@Override
 	public int idcheck(String id) {
 		String sql = " SELECT id "
-				+ " FROM MEMBER "
+				+ " FROM COFFEEMEMBERS "
 				+ "WHERE id = ? ";
 		int count = 0;
 		Connection conn = null;
@@ -84,7 +84,7 @@ public class MemberDaoImpl implements MemberDao{
 		int count = 0;
 		String sql = " insert into COFFEEMEMBERS " +
 //		" values(MEMBERINDEX.nextval, 'asd', 'asd', 'asd', 29, 3) ";
-		" values( ?, ?, ?, ?, ?, 3) ";
+		" values( MEMBERINDEX.nextval, ?, ?, ?, ?, ?) ";
 
 
 		Connection conn = null;
@@ -95,15 +95,14 @@ public class MemberDaoImpl implements MemberDao{
 		
 		
 		try {
+			System.out.println("맴버디티오에 쿼리문 입력된것"+dto.toString());
 			conn = DBConnection.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, "MEMBERINDEX.nextval");
-			psmt.setString(2, dto.getId());
-			psmt.setString(3, dto.getPw());
-			psmt.setString(4, dto.getName());
-			psmt.setInt(5, dto.getAge());
-			
-			
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+			psmt.setString(3, dto.getName());
+			psmt.setInt(4, dto.getAge());
+			psmt.setInt(5, dto.getAuth());
 			
 			rs = psmt.executeQuery();
 			
