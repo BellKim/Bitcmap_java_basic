@@ -5,6 +5,10 @@ SELECT * FROM COFFEEORDER;
 DROP TABLE COFFEELIST CASCADE CONSTRAINT;
 DROP TABLE COFFEEMEMBERS CASCADE CONSTRAINT;
 DROP TABLE COFFEEORDER CASCADE CONSTRAINT;
+--DROP CONSTRAINT UK_ID_01;
+--
+--ALTER TABLE COFFEEMEMBERS DROP CONSTRAINT UK_ID_01;
+
 DROP SEQUENCE cofee_index;
 DROP SEQUENCE MEMBERINDEX;
 DROP SEQUENCE ORDER_INDEX;
@@ -64,15 +68,6 @@ CREATE TABLE COFFEEORDER(
 );
 
 
-
-
-	
-insert into COFFEEMEMBERS
-values(MEMBERINDEX.nextval, 'asd', 'asd', 'asd', 29, 3);
-
-
-insert into coffeeorder
-values(ORDER_INDEX.nextval,1,1,sysdate,1,1,1,1);
 
 --커피이름 산출
 SELECT b.coffee_index, b.coffeeName 
@@ -142,4 +137,12 @@ INSERT INTO COFFEELIST
 VALUES (cofee_index.NEXTVAL, '오늘의 커피', 3, 3500);
 
 
+insert into COFFEEMEMBERS
+values(MEMBERINDEX.nextval, 'asd', 'asd', 'asd', 29, 3);
+insert into COFFEEMEMBERS
+values(MEMBERINDEX.nextval, '1233', '1233', '12', 29, 3);
+
+
+insert into coffeeorder
+values(ORDER_INDEX.nextval,1,1,sysdate,1,1,1,1);
 

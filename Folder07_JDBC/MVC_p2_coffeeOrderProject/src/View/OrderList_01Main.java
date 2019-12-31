@@ -23,6 +23,9 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import Controller.dto.orderList;
+import main.singleton.Singleton;
+
 public class OrderList_01Main extends JFrame implements ActionListener, ItemListener, MouseListener {
 
 	private JTextField orderCountTextF;	
@@ -42,7 +45,8 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
     //최종주문
     JButton finalOrder;
     
-    //
+    //주문내역DTO
+    orderList orderlist = new orderList();
 	
 
 	
@@ -149,14 +153,13 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		ageLabel.setBounds(31, 300, 67, 15);
 		add(ageLabel);
 		
-		orderCountTextF = new JTextField();
+		orderCountTextF = new JTextField("1");
 		orderCountTextF.setBounds(100, 300, 150, 20);
 		add(orderCountTextF);
 		
-		
 		finalOrder = new JButton(" 주문하기 ");
 		finalOrder.addActionListener(this);
-		finalOrder.setBounds(500, 10, 150, 50);
+		finalOrder.setBounds(500, 300, 150, 100);
 		add(finalOrder);
 		
 
@@ -193,93 +196,100 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		    	jcheckbox = (JCheckBox)e.getSource();
 		    }
 		
-		
-		
-		
-		
-		
+
 		//커피선택
 		if(jcbox == coffeeListBox) {
-			System.out.println("선택된 커피  : " + coffeeListBox.getSelectedItem());
-		}
-		
-		
+			String chooseCoffee = (String)coffeeListBox.getSelectedItem();
+//			System.out.println("선택된 커피  : " +chooseCoffee);
+			orderlist.setName(chooseCoffee);
+		}		
 		//사이즈 선택
-		if(size1.isSelected()){    
-//			JOptionPane.showMessageDialog(this,"You are Male.");    
-			System.out.println("size_short = " + size1.getLabel());
-		}else if(size2.isSelected()){    
-//			JOptionPane.showMessageDialog(this,"You are Male.");    
-			System.out.println("size_short = " + size2.getLabel());
-		}else if(size3.isSelected()){    
-//			JOptionPane.showMessageDialog(this,"You are Male.");    
-			System.out.println("size_short = " + size3.getLabel());
+		if(size1.isSelected()){
+//			System.out.println("size_short = " + size1.getLabel());
+			orderlist.setSize((String)size1.getLabel());
+		}else if(size2.isSelected()){
+//			System.out.println("size_short = " + size2.getLabel());
+			orderlist.setSize((String)size2.getLabel());
+		}else if(size3.isSelected()){
+//			System.out.println("size_short = " + size3.getLabel());
+			orderlist.setSize((String)size3.getLabel());
 		}
-		
 		//시럽선택
 		if(rBtn == syrupOption1){    
-			System.out.println("select_syrup = " + syrupOption1.getLabel());    
+//			System.out.println("select_syrup = " + syrupOption1.getLabel());
+			orderlist.setSyrup((String)syrupOption1.getLabel());
 		}else if(rBtn == syrupOption2){    
-			System.out.println("select_syrup = " + syrupOption2.getLabel());    
+//			System.out.println("select_syrup = " + syrupOption2.getLabel());
+			orderlist.setSyrup((String)syrupOption2.getLabel());
 		}else if(rBtn == syrupOption3){    
 			System.out.println("select_syrup = " + syrupOption3.getLabel());
+			orderlist.setSyrup((String)syrupOption3.getLabel());
 		}
-		
 		//기타선택
-		if(jcheckbox == addShot) {
-			System.out.println("addShot 체크박스 선택됨. " + addShot.getLabel());
+		if(addShot.isSelected()) {
+//			System.out.println("addShot 체크박스 선택됨. " + addShot.getLabel());
+			orderlist.setAddShot(true);
+		}else {
+//			System.out.println("샷추가없음.");
+			orderlist.setAddShot(false);
 		}
-		if(jcheckbox == addWhiping) {
+		
+		if(addWhiping.isSelected()) {
 			System.out.println("addWhiping 체크박스 선택됨. " +addWhiping.getLabel());
+			orderlist.setWhiping(true);
+		}else {
+			System.out.println("휘핑크림 추가없음 ");	
+			orderlist.setWhiping(false);
+		}
+		System.out.println("입력된 수량출력 " + orderCountTextF.getText());
+		orderlist.setAmount(Integer.parseInt(orderCountTextF.getText()));
+		
+		//====================================================
+		//버튼 변수 입력 확인끝.
+		
+		//싱글톤 -> service => dao -> db
+		Singleton s = Singleton.getInstance();
+		
+		
+		if(btn == MenuButton) {
+			System.out.println("메뉴보기버튼");
+			
+			
+		}else if(btn == finalOrder) {
+			System.out.println("주문하기버튼 ");
+			System.out.println("orderlist" + orderlist.toString());
+			
+			
 		}
 		
-		System.out.println("입력된 수량출력 " + orderCountTextF.getText());
-		
-		
-//		Singleton s = Singleton.getInstance();
-//		if(btn == AddOrder) {
-//			System.out.println("주문추가하기 버튼 =  " + AddOrder.getText());
-//			
-//		}
-//		
-	}
+	}// end actionPerformed
 
 
 // ITEM LISTENER
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		// TODO Auto-generated method stub
+		
 		
 	}
-
-
-
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 
 		
+
+		
 	}
-
-
-
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 
 	}
 
-
-
-
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
@@ -288,11 +298,12 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 	}
 
 
-
-
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	
 }

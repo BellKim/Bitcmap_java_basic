@@ -1,5 +1,7 @@
 package Model.service.impl;
 
+import java.util.Iterator;
+
 import Controller.dto.coffeeMemberDto;
 import Model.dao.MemberDao;
 import Model.dao.impl.MemberDaoImpl;
@@ -29,6 +31,12 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public boolean addMember(coffeeMemberDto dto) {
+		System.out.println("입력된 데이터 출력 ");
+		System.out.println(dto.toString());
+		
+		
+	
+		
 			if(memDao.addmemberIns(dto) != 0) {
 				return true;
 			} else {
