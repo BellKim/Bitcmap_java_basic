@@ -7,7 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -17,16 +16,15 @@ import javax.swing.table.DefaultTableModel;
 
 import main.singleton.Singleton;
 
-public class OrderList_03Result extends JFrame implements MouseListener, ActionListener {
+public class OrderList_02Sub_OrderList extends JFrame implements MouseListener, ActionListener {
 	
 	private JTable jtable;
 	private JScrollPane jscrPane;
 	
-	private JButton AddOrder;//추가주문하기버튼
-	private JButton payment;//결제하기버튼
 	
-	
-	String columnNames[] = {"주문한 커피", "날짜", "사이즈", "수량", "가격"};
+	String columnNames[] = {
+			"Espresso Beverages", "SHORT", "Tall", "Grande"	
+		};
 	
 	Object rowData[][];	
 	DefaultTableModel model;	// table의 넓이를 설정
@@ -35,7 +33,7 @@ public class OrderList_03Result extends JFrame implements MouseListener, ActionL
 	List<String> list = null;//추후에 추가될 메뉴 리스트. DTO자료형으료 교체
 	
 	
-	public OrderList_03Result() {
+	public OrderList_02Sub_OrderList() {
 		super("메뉴판");
 		setLayout(null);
 		
@@ -44,14 +42,14 @@ public class OrderList_03Result extends JFrame implements MouseListener, ActionL
 //		list = si.bbsCtrl.getBbsList();
 		
 		
-		JLabel label = new JLabel(" 현재까지 주문한 내역입니다.\n 확인후 결제를 눌려주세요.");
-		label.setBounds(10, 10, 400, 15);
+		JLabel label = new JLabel("주문한 내역입니다.");
+		label.setBounds(10, 10, 120, 15);
 		add(label);
 		
 		this.list = list;//리스트에 들어갈 데이터를 이 클래스 안에 대입시킨다.
 		
-//		rowData = new Object[list.size()][7];
-		rowData = new Object[1][7];//임시
+//		rowData = new Object[list.size()][4];
+		rowData = new Object[1][4];//임시
 		
 		
 		
@@ -80,12 +78,10 @@ public class OrderList_03Result extends JFrame implements MouseListener, ActionL
 		jtable.addMouseListener(this);
 			
 		// column의 폭을 설정
-//		, 
-		jtable.getColumnModel().getColumn(0).setMaxWidth(300);	// "주문한 커피"
-		jtable.getColumnModel().getColumn(1).setMaxWidth(100);	// "날짜"
-		jtable.getColumnModel().getColumn(2).setMaxWidth(50);	// "사이즈"
-		jtable.getColumnModel().getColumn(3).setMaxWidth(50);	// "수량"
-		jtable.getColumnModel().getColumn(4).setMaxWidth(100);	// "가격"
+		jtable.getColumnModel().getColumn(0).setMaxWidth(300);	// 
+		jtable.getColumnModel().getColumn(1).setMaxWidth(100);	// 
+		jtable.getColumnModel().getColumn(2).setMaxWidth(100);	// 
+		jtable.getColumnModel().getColumn(3).setMaxWidth(100);	// 
 		
 		
 		// 테이블의 column의 글의 맞춤(왼쪽, 중간, 오른쪽)
@@ -95,16 +91,7 @@ public class OrderList_03Result extends JFrame implements MouseListener, ActionL
 		// '번호'와 '작성자'의 컬럼은 글의 중간 맞춤이 된다
 //		jtable.getColumn("번호").setCellRenderer(celAlignCenter);
 //		jtable.getColumn("작성자").setCellRenderer(celAlignCenter);
-//		"Espresso Beverages", "SHORT", "Tall", "Grande"	
-		
-		JLabel loginLabel = new JLabel("총 금액 : " + "얼마" + " 원");
-		loginLabel.setBounds(460, 350, 150, 30);
-		add(loginLabel);
-		
-		payment = new JButton(" 돌아가기 ");
-		payment.addActionListener(this);
-		payment.setBounds(460, 380, 150, 50);
-		add(payment);
+//		"Espresso Beverages", "SHORT", "Tall", "Grande"			
 		
 		jscrPane = new JScrollPane(jtable);
 		jscrPane.setBounds(10, 50, 600, 300);
@@ -120,16 +107,7 @@ public class OrderList_03Result extends JFrame implements MouseListener, ActionL
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		JButton btn = (JButton)e.getSource();
-//		Singleton s = Singleton.getInstance();
-		if(btn == AddOrder) {
-			System.out.println("주문추가하기 버튼 =  " + AddOrder.getText());
-			
-		}
-		
-		
-	
+		// TODO Auto-generated method stub
 		
 	}
 
