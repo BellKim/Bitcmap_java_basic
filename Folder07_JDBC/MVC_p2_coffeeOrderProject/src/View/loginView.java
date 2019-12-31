@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import main.singleton.Singleton;
+
 
 public class loginView extends JFrame implements ActionListener{
 	
@@ -94,14 +96,14 @@ public class loginView extends JFrame implements ActionListener{
 		}
 		*/
 		JButton btn = (JButton)e.getSource();
-//		Singleton s = Singleton.getInstance();
+		Singleton s = Singleton.getInstance();
 		if(btn == logBtn) {
 			System.out.println("로그인 버튼 입력됨.");
-//			s.memCtrl.loginAf(idTextF.getText(), pwTextF.getText());
+			s.memCtrl.loginAf(idTextF.getText(), pwTextF.getText());
 			this.dispose();
 			
 		}else {
-//			s.memCtrl.regi();
+			s.memCtrl.regi();
 			this.dispose();
 		}
 		

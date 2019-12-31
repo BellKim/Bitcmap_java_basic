@@ -132,19 +132,18 @@ public class accountJoinView extends JFrame implements ActionListener{
 		Singleton s = Singleton.getInstance();
 		System.out.println("입력된 중복아이디체크 내용  = "+idTextF.getText());
 		if(btnTitle.equals("id")) {
-//			boolean b = s.memCtrl.idCheck(idTextF.getText());
-			
-//			if(b) {
-//				JOptionPane.showMessageDialog(null, "사용할수 없는 아이디 입니다. ");
-//				idTextF.setText("");
-//			}else {
-//				JOptionPane.showMessageDialog(null,  idTextF.getText()+"는 사용할 수 있습니다. ");
-//			}
+			boolean b = s.memCtrl.idCheck(idTextF.getText());			
+			if(b) {
+				JOptionPane.showMessageDialog(null, "사용할수 없는 아이디 입니다. ");
+				idTextF.setText("");
+			}else {
+				JOptionPane.showMessageDialog(null,  idTextF.getText()+"는 사용할 수 있습니다. ");
+			}
 			
 		}else if(btnTitle.equals("회원가입")) {
 			//빈칸체크 => 생략
-//			s.memCtrl.regiAf(idTextF.getText(), passTextF.getText(), nameTextF.getText(), emailTextF.getText());
-			
+			s.memCtrl.regiAf(idTextF.getText(), passTextF.getText(), nameTextF.getText(), Integer.parseInt(ageTextF.getText()));
+			 
 			this.dispose();
 			
 		}
