@@ -44,7 +44,53 @@ public class orderDaoImpl implements orderDao {
 		}
 		return res;
 	}
+	
+	
+	
+	@Override
+	public List<orderList> callMenuNumber(List<orderList> list) {
+		List<orderList> ol = list;
+		String sql = " SELECT coffee_index"
+				+ " FROM COFFEELIST";
+				for (int i = 0; i < ol.size(); i++) {
+					 sql += " WHERE coffeeName = ?" ;
+				}
+				
+		
+		System.out.println( "idcheck.sql = " + sql);
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		int res = 0;
+		
+		try {
+			conn = DBConnection.getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			for (int i = 1; i <= ol.size(); i++) {
+				psmt.setString((i), ol.get(i).getName());
+			}
+			
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				for (int i = 1; i <= ol.size(); i++) {
+					res = rs.getInt(i);
+					ol.get(i).setNameNumber(res);
+				}
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBClose.close(psmt, conn, rs);
+		}
 
+		return ol;
+	}
+	
+	
+	
 	@Override
 	public void insertOrderList(List<orderList> list, String userInfo) {
 		
@@ -80,7 +126,8 @@ public class orderDaoImpl implements orderDao {
 		
 		
 	}
-	
+
+
 	
 
 }

@@ -25,15 +25,15 @@ public class orderController {
 			System.out.println("리스트 뉴 생성");
 			shopingCartList = new ArrayList<orderList>();
 		}
-		System.out.println("gotocart 내역 : -===================");
-		System.out.println(orderlist.toString());
-		System.out.println("gotocart 내역 : -===================");
+//		System.out.println("gotocart 내역 : -===================");
+//		System.out.println(orderlist.toString());
+//		System.out.println("gotocart 내역 : -===================");
 		
 		shopingCartList.add(orderlist);
 		
-		System.out.println("add된 리스트 내역 : -===================");
-		System.out.println(shopingCartList.toString());
-		System.out.println("add된 리스트  내역 : -===================");
+//		System.out.println("add된 리스트 내역 : -===================");
+//		System.out.println(shopingCartList.toString());
+//		System.out.println("add된 리스트  내역 : -===================");
 		
 	}//end goToCart
 	
