@@ -27,7 +27,12 @@ public class orderServiceImpl implements orderService{
 
 	@Override
 	public void insertOrderList(List<orderList> list, String userInfo) {
-		ordardao.insertOrderList(list,userInfo);
+		//카페 매뉴명 에 숫자 불러오기. 
+		List<orderList> ol =  ordardao.callMenuNumber(list);
+		
+		System.out.println("insertOrderList \n 리스트 출력 합니다 = " + ol.toString() + " \n ");
+		
+//		ordardao.insertOrderList(ol,userInfo);
 		
 	}
 

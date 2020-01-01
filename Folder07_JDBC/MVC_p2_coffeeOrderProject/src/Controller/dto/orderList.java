@@ -4,6 +4,7 @@ import View.OrderList_03_ShowAll;
 
 public class orderList {
 	private String Name;
+	private int nameNumber;
 	private String size;
 	private String syrup;
 	private boolean addShot;
@@ -23,9 +24,26 @@ public class orderList {
 		this.whiping = whiping;
 		this.amount = amount;
 	}
-	
-	
 
+	public orderList(String name, int nameNumber, String size, String syrup, boolean addShot, boolean whiping,
+			int amount) {
+		super();
+		Name = name;
+		this.nameNumber = nameNumber;
+		this.size = size;
+		this.syrup = syrup;
+		this.addShot = addShot;
+		this.whiping = whiping;
+		this.amount = amount;
+	}
+
+	public int getNameNumber() {
+		return nameNumber;
+	}
+
+	public void setNameNumber(int nameNumber) {
+		this.nameNumber = nameNumber;
+	}
 
 	public String getName() {
 		return Name;
@@ -77,20 +95,10 @@ public class orderList {
 
 	@Override
 	public String toString() {
-		return "orderList [Name=" + Name + ", size=" + size + ", syrup=" + syrup + ", addShot=" + addShot + ", whiping="
-				+ whiping + ", amount=" + amount + "]";
+		return "orderList [Name=" + Name + ", nameNumber=" + nameNumber + ", size=" + size + ", syrup=" + syrup
+				+ ", addShot=" + addShot + ", whiping=" + whiping + ", amount=" + amount + "]\n";
 	}
 
-
-
-
-
-
-
-	
-
-
-	
 	
 
 }//end classs
