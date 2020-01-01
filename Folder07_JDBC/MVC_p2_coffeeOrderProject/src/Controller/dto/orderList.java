@@ -1,6 +1,6 @@
 package Controller.dto;
 
-import View.OrderListAll;
+import View.OrderList_03_ShowAll;
 
 public class orderList {
 	private String Name;
@@ -23,6 +23,9 @@ public class orderList {
 		this.whiping = whiping;
 		this.amount = amount;
 	}
+	
+	
+
 
 	public String getName() {
 		return Name;
@@ -77,7 +80,13 @@ public class orderList {
 		return "orderList [Name=" + Name + ", size=" + size + ", syrup=" + syrup + ", addShot=" + addShot + ", whiping="
 				+ whiping + ", amount=" + amount + "]";
 	}
-	
+
+
+
+
+
+
+
 	
 
 

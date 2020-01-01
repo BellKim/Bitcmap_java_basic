@@ -11,6 +11,7 @@ public class coffeeOrderDto {
 	private boolean SYRUP;
 	private boolean ADDSHOT;
 	private boolean	ADDWHIPING;
+	private boolean AMOUNT;
 	
 	
 	public coffeeOrderDto(int oRDER_INDEX, int mEMBERINDEX, int coffee_index, Date order_date, int coffee_size,
