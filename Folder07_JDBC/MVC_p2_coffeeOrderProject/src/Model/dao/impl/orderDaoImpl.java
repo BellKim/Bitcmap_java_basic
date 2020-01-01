@@ -50,16 +50,10 @@ public class orderDaoImpl implements orderDao {
 	@Override
 	public List<orderList> callMenuNumber(List<orderList> list) {
 		List<orderList> ol = list;
-		String sql = " SELECT coffee_index"
-				+ " FROM COFFEELIST WHERE coffeeName = ";
-				for (int i = 1; i <= ol.size(); i++) {
-					 sql += " ? " ;
-					 if(i != ol.size()) {
-						 sql += " , "; 
-					 }else {
-						 break;
-					 }
-				}
+		String sql = " SELECT coffee_index FROM COFFEELIST " + 
+				" WHERE coffeeName = '아메리카노' AND coffeeSize  = 1 " + 
+				" OR coffeeName = '아메리카노' AND coffeeSize  = 2 " + 
+				" OR coffeeName = '아메리카노' AND coffeeSize  = 3 ";
 		System.out.println( "callMenuNumber.sql = " + sql);
 		Connection conn = null;
 		PreparedStatement psmt = null;
