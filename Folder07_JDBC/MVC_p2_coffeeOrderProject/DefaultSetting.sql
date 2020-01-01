@@ -151,3 +151,8 @@ SELECT * FROM COFFEELIST
 WHERE coffeeName = '카라멜 마끼아또' 
 AND coffeeSize = 1;
 
+--커피 번호 출력 
+SELECT coffee_index FROM COFFEELIST 
+WHERE coffeeName = '아메리카노' AND coffeeSize  = 1
+OR coffeeName = '아메리카노' AND coffeeSize  = 2
+OR coffeeName = '아메리카노' AND coffeeSize  = 3; 

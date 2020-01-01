@@ -51,19 +51,20 @@ public class orderDaoImpl implements orderDao {
 	public List<orderList> callMenuNumber(List<orderList> list) {
 		List<orderList> ol = list;
 		String sql = " SELECT coffee_index"
-				+ " FROM COFFEELIST";
-				for (int i = 0; i < ol.size(); i++) {
-					 sql += " WHERE coffeeName = ?" ;
+				+ " FROM COFFEELIST WHERE coffeeName = ";
+				for (int i = 1; i <= ol.size(); i++) {
+					 sql += " ? " ;
+					 if(i != ol.size()) {
+						 sql += " , "; 
+					 }else {
+						 break;
+					 }
 				}
-				
-		
-		System.out.println( "idcheck.sql = " + sql);
-		
+		System.out.println( "callMenuNumber.sql = " + sql);
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		int res = 0;
-		
 		try {
 			conn = DBConnection.getConnection();
 			psmt = conn.prepareStatement(sql);
