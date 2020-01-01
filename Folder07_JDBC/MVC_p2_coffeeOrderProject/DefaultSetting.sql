@@ -62,18 +62,11 @@ CREATE TABLE COFFEEORDER(
 	SYRUP		VARCHAR2(1),
 	ADDSHOT		VARCHAR2(1),
 	ADDWHIPING	VARCHAR2(1),
+	AMOUNT		VARCHAR2(2),
 	CONSTRAINT PR_OrderList_01 PRIMARY KEY(ORDER_INDEX),
 	CONSTRAINT FK_COFFEEMEMBERS_01 FOREIGN KEY(MEMBERINDEX) REFERENCES COFFEEMEMBERS(MEMBERINDEX),
 	CONSTRAINT FK_COFFEELIST_01 FOREIGN KEY(coffee_index) REFERENCES COFFEELIST(coffee_index)
 );
-
-
-
---커피이름 산출
-SELECT b.coffee_index, b.coffeeName 
-from coffeeorder a, coffeelist b
-WHERE a.coffee_index = b.coffee_index; 
-
 
 INSERT INTO COFFEELIST
 VALUES (cofee_index.NEXTVAL, '헤이즐넛 카라멜 모카', 1, 4800);
@@ -144,5 +137,17 @@ values(MEMBERINDEX.nextval, '1233', '1233', '12', 29, 3);
 
 
 insert into coffeeorder
-values(ORDER_INDEX.nextval,1,1,sysdate,1,1,1,1);
+values(ORDER_INDEX.nextval,1,1,sysdate,1,1,1,1,3);
+
+
+--커피이름 산출
+SELECT b.coffee_index, b.coffeeName 
+from coffeeorder a, coffeelist b
+WHERE a.coffee_index = b.coffee_index; 
+
+
+-- 커피가격 받아왔나 출력
+SELECT * FROM COFFEELIST
+WHERE coffeeName = '카라멜 마끼아또' 
+AND coffeeSize = 1;
 

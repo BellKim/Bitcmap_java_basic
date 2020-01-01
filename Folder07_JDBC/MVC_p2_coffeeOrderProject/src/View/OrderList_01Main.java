@@ -172,9 +172,6 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		
 	}
 
-
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton btn = null;
@@ -188,7 +185,6 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 			 
 			 } else if (source instanceof JComboBox) {
 				 jcbox = (JComboBox<String>)e.getSource();
-				 
 		    } else if(source instanceof JRadioButton) {
 		    	rBtn = (JRadioButton)e.getSource();
 		    	
@@ -253,13 +249,12 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		
 		if(btn == MenuButton) {
 			System.out.println("메뉴보기버튼");
-			
-			
 		}else if(btn == finalOrder) {
 			System.out.println("주문하기버튼 ");
 			System.out.println("orderlist" + orderlist.toString());
-			
-			
+			s.orderCtrl.goToCart(orderlist);
+			this.dispose();
+			new OrderList_02_ShopingCart();
 		}
 		
 	}// end actionPerformed

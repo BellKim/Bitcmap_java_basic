@@ -16,14 +16,14 @@ import javax.swing.table.DefaultTableModel;
 
 import main.singleton.Singleton;
 
-public class OrderList_02Sub_OrderList extends JFrame implements MouseListener, ActionListener {
+public class OrderList_01_sub_MenuList extends JFrame implements MouseListener, ActionListener {
 	
 	private JTable jtable;
 	private JScrollPane jscrPane;
 	
 	
 	String columnNames[] = {
-			"Espresso Beverages", "SHORT", "Tall", "Grande"	
+			"Espresso Beverages", "Sortt", "Tall", "Grande"	
 		};
 	
 	Object rowData[][];	
@@ -33,7 +33,7 @@ public class OrderList_02Sub_OrderList extends JFrame implements MouseListener, 
 	List<String> list = null;//추후에 추가될 메뉴 리스트. DTO자료형으료 교체
 	
 	
-	public OrderList_02Sub_OrderList() {
+	public OrderList_01_sub_MenuList() {
 		super("메뉴판");
 		setLayout(null);
 		
