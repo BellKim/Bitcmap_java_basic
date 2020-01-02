@@ -50,10 +50,13 @@ public class orderDaoImpl implements orderDao {
 	@Override
 	public List<orderList> callMenuNumber(List<orderList> list) {
 		List<orderList> ol = list;
-		String sql = " SELECT coffee_index FROM COFFEELIST " + 
-				" WHERE coffeeName = '아메리카노' AND coffeeSize  = 1 " + 
-				" OR coffeeName = '아메리카노' AND coffeeSize  = 2 " + 
-				" OR coffeeName = '아메리카노' AND coffeeSize  = 3 ";
+		String sql = " SELECT coffee_index FROM COFFEELIST WHERE ";
+				for (int i = 0; i < ol.size(); i++) {
+					if(i != 0){
+						sql += " or ";
+					}
+					sql += " coffeeName = ? AND coffeeSize  = ? ";
+				}
 		System.out.println( "callMenuNumber.sql = " + sql);
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -61,15 +64,27 @@ public class orderDaoImpl implements orderDao {
 		int res = 0;
 		try {
 			conn = DBConnection.getConnection();
-			psmt = conn.prepareStatement(sql);
-			
-			for (int i = 1; i <= ol.size(); i++) {
-				psmt.setString((i), ol.get(i).getName());
+			psmt = conn.prepareStatement(sql);		
+			int sizeToInt = 1;
+			for (int i = 1; i < ol.size()+1; i++) {
+				if((ol.get(i).getSize()).equals("Short")) {
+					sizeToInt = 1;
+				}else if((ol.get(i).getSize()).equals("Tall")) {
+					sizeToInt = 2;
+				}else if((ol.get(i).getSize()).equals("Grande")) {
+					sizeToInt = 3;
+				}
+				System.out.println(" input 측정 ");
+				int first = i+(i-1);
+				int second = first + 1;
+				psmt.setString(first, ol.get(i).getName());
+				psmt.setInt(second, sizeToInt);
+				System.out.println(" ol.size = "+ol.size()+" \n"+ol.get(i).getName()+" / "+ sizeToInt);
 			}
 			
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				for (int i = 1; i <= ol.size(); i++) {
+				for (int i = 1; i < ol.size()+1; i++) {
 					res = rs.getInt(i);
 					ol.get(i).setNameNumber(res);
 				}
@@ -82,6 +97,7 @@ public class orderDaoImpl implements orderDao {
 		}
 
 		return ol;
+	
 	}
 	
 	
@@ -125,4 +141,4 @@ public class orderDaoImpl implements orderDao {
 
 	
 
-}
+}//end class

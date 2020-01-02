@@ -156,3 +156,11 @@ SELECT coffee_index FROM COFFEELIST
 WHERE coffeeName = '아메리카노' AND coffeeSize  = 1
 OR coffeeName = '아메리카노' AND coffeeSize  = 2
 OR coffeeName = '아메리카노' AND coffeeSize  = 3; 
+
+
+SELECT coffee_index FROM COFFEELIST 
+WHERE  coffeeName = '카라멜 라떼' AND coffeeSize  = 2  
+or  coffeeName = '카라멜 라떼' AND coffeeSize  = 3;
+
+
+
