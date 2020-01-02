@@ -66,6 +66,7 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		
 		
 		String[] coffeeList = {
+				"",
 				"헤이즐넛 카라멜 모카",
 				"카라멜  마끼아또",
 				"화이트 초콜릿 모카",
@@ -97,6 +98,8 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
         sizeGroup.add(size2);
         sizeGroup.add(size3);
         
+        size1.setSelected(true);
+        
         size1.setBounds(100,200,100,30);
         size2.setBounds(100,220,100,30);
         size3.setBounds(100,240,100,30);
@@ -114,7 +117,7 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
         SyrupGroup.add(syrupOption1);
         SyrupGroup.add(syrupOption2);
         SyrupGroup.add(syrupOption3);
-        
+        syrupOption1.setSelected(true);
         syrupOption1.setBounds(250,200,100,30);
         syrupOption2.setBounds(250,220,100,30);
         syrupOption3.setBounds(250,240,100,30);
@@ -182,12 +185,10 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		 Object source = e.getSource();
 		 if (source instanceof JButton) {
 			 btn = (JButton)e.getSource();
-			 
 			 } else if (source instanceof JComboBox) {
 				 jcbox = (JComboBox<String>)e.getSource();
 		    } else if(source instanceof JRadioButton) {
 		    	rBtn = (JRadioButton)e.getSource();
-		    	
 		    } else if(source instanceof JCheckBox) {
 		    	jcheckbox = (JCheckBox)e.getSource();
 		    }

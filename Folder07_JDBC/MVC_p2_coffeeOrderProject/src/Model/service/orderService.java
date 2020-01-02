@@ -6,7 +6,7 @@ import Controller.dto.orderList;
 
 public interface orderService {
 	
-	public int getNameToPrice(String coffeeName, String coffeeSize);
+	public List<orderList> getNameToPrice(List<orderList> list);
 
 	public void insertOrderList(List<orderList> list, String userInfo);
 	

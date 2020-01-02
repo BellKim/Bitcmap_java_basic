@@ -12,16 +12,26 @@ public class orderServiceImpl implements orderService{
 	
 	
 	@Override
-	public int getNameToPrice(String coffeeName, String coffeeSize) {
+	public List<orderList> getNameToPrice(List<orderList> list) {
 		int sizeToInt = 1;
-		if(coffeeSize.equals("Short")) {
-			sizeToInt = 1;
-		} else if(coffeeSize.equals("Tall")) {
-			sizeToInt = 2;
-		} else if(coffeeSize.equals("Grande")) {
-			sizeToInt = 3;
+		String coffeeName ="";
+		for (int j = 0; j < list.size(); j++) {
+			if(list.get(j).getSize().equals("Short")) {
+				sizeToInt = 1;
+			} else if(list.get(j).getSize().equals("Tall")) {
+				sizeToInt = 2;
+			} else if(list.get(j).getSize().equals("Grande")) {
+				sizeToInt = 3;
+			}
+			coffeeName = list.get(j).getName();
+//			int input = orderDao.receiveCoffeeNo(list);
+//			list.get(j).setNameNumber();
+			
+//			ordardao.getPrice(coffeeName, sizeToInt);
 		}
-		return ordardao.getPrice(coffeeName, sizeToInt);
+		 
+		
+		return null;
 	}//end getNameToPrice
 
 
@@ -32,7 +42,7 @@ public class orderServiceImpl implements orderService{
 		
 		System.out.println("insertOrderList \n 리스트 출력 합니다 = " + ol.toString() + " \n ");
 		
-//		ordardao.insertOrderList(ol,userInfo);
+		ordardao.insertOrderList(ol,userInfo);
 		
 	}
 

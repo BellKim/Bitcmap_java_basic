@@ -55,7 +55,7 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 		for (int i = 0; i <list.size(); i++) {
 			String coffeeName = list.get(i).getName();
 			String coffeeSize = list.get(i).getSize();
-			int coffeePrice = si.orderCtrl.getPrice(coffeeName, coffeeSize);
+			int coffeePrice = si.orderCtrl.getPrice(list);
 			
 //			System.out.println("커피가격 받아왔나 " + coffeePrice);
 //			System.out.println("쇼핑카트리스트 = "+list.get(i).getName());

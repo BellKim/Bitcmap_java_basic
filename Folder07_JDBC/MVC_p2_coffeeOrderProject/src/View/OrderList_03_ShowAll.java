@@ -55,7 +55,7 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		for (int i = 0; i <list.size(); i++) {
 			String coffeeName = list.get(i).getName();
 			String coffeeSize = list.get(i).getSize();
-			int coffeePrice = si.orderCtrl.getPrice(coffeeName, coffeeSize);
+//			int coffeePrice = si.orderCtrl.getPrice(coffeeName, coffeeSize);
 			
 //			System.out.println("커피가격 받아왔나 " + coffeePrice);
 //			System.out.println("쇼핑카트리스트 = "+list.get(i).getName());
@@ -66,7 +66,7 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 			rowData[i][3] = list.get(i).isAddShot();
 			rowData[i][4] = list.get(i).isWhiping();
 			rowData[i][5] = list.get(i).getAmount();
-			rowData[i][6] = (list.get(i).getAmount()*coffeePrice);
+//			rowData[i][6] = (list.get(i).getAmount()*coffeePrice);
 		}
 		
 		// 테이블 관련

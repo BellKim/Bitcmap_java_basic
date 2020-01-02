@@ -13,6 +13,7 @@ public class orderController {
 	orderService orderServ = new orderServiceImpl();
 	
 	private List<orderList> shopingCartList = null;
+
 	
 	
 	
@@ -44,15 +45,24 @@ public class orderController {
 		return shopingCartList;
 	}// end getFromCart
 
-	public int getPrice(String coffeeName, String coffeeSize) {
+	public int getPrice(List<orderList> list) {
 		
-		return orderServ.getNameToPrice(coffeeName, coffeeSize);
+		return orderServ.getNameToPrice(list);
 	}
 
 	public void paymentNow(List<orderList> list, String userInfo) {
-		for (orderList orderList : list) {
-			System.out.println("orderList = " + orderList.toString());
-		}
+//		for (orderList orderList : list) {
+//			System.out.println("orderList = " + orderList.toString());
+//		}
+		
+//		for (int i = 0; i < list.size(); i++) {
+//			orderServ.inputcoffeeNo()
+//			
+//		}
+		
+		
+		
+		
 		//주문내역 최종 결제.
 		orderServ.insertOrderList(list, userInfo);
 	}
