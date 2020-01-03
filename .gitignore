@@ -141,3 +141,10 @@ hs_err_pid*
 .history
 
 # End of https://www.gitignore.io/api/java,eclipse,visualstudiocode
+# /Folder08_Front/Servers/Tomcat v8.5 Server at localhost-config/catalina.policy
+# /Folder08_Front/Servers/Tomcat v8.5 Server at localhost-config/context.xml
+# /Folder08_Front/Servers/Tomcat v8.5 Server at localhost-config/server.xml
+# /Folder08_Front/Servers/Tomcat v8.5 Server at localhost-config/tomcat-users.xml
+# /Folder08_Front/Servers/Tomcat v8.5 Server at localhost-config/web.xml
+
+Servers/
