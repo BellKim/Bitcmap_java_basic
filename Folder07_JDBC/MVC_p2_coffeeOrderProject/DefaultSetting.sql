@@ -163,4 +163,6 @@ WHERE  coffeeName = '카라멜 라떼' AND coffeeSize  = 2
 or  coffeeName = '카라멜 라떼' AND coffeeSize  = 3;
 
 
+SELECT coffee_index, sizePrice  FROM COFFEELIST WHERE coffeeName = '카라멜 라떼' AND coffeeSize = 2;
+				
 

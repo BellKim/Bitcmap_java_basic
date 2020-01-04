@@ -14,7 +14,7 @@ import Template.DB.DBConnection;
 public class orderDaoImpl implements orderDao {
 
 	@Override
-	public int getPrice(String coffeeName, int coffeeSize) {
+	public List<orderList> getPrice(String coffeeName, int coffeeSize) {
 		String sql = " SELECT sizePrice "
 				+ " FROM COFFEELIST "
 				+ " WHERE coffeeName = ? "

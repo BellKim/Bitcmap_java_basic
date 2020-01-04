@@ -199,7 +199,7 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 			String chooseCoffee = (String)coffeeListBox.getSelectedItem();
 //			System.out.println("선택된 커피  : " +chooseCoffee);
 			orderlist.setName(chooseCoffee);
-		}		
+		}
 		//사이즈 선택
 		if(size1.isSelected()){
 //			System.out.println("size_short = " + size1.getLabel());
@@ -257,7 +257,6 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 			this.dispose();
 			new OrderList_02_ShopingCart();
 		}
-		
 	}// end actionPerformed
 
 
@@ -265,14 +264,10 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		
-		
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
-		
-
 		
 	}
 

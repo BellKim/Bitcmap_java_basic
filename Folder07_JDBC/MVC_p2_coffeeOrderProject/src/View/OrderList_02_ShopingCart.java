@@ -55,7 +55,8 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 		for (int i = 0; i <list.size(); i++) {
 			String coffeeName = list.get(i).getName();
 			String coffeeSize = list.get(i).getSize();
-			int coffeePrice = si.orderCtrl.getPrice(list);
+			list =  si.orderCtrl.getPrice(list);
+			int coffeePrice = list.get(i).getPrice();
 			
 //			System.out.println("커피가격 받아왔나 " + coffeePrice);
 //			System.out.println("쇼핑카트리스트 = "+list.get(i).getName());
@@ -66,7 +67,7 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 			rowData[i][3] = list.get(i).isAddShot();
 			rowData[i][4] = list.get(i).isWhiping();
 			rowData[i][5] = list.get(i).getAmount();
-			rowData[i][6] = (list.get(i).getAmount()*coffeePrice);
+			rowData[i][6] = (list.get(i).getAmount())*(list.get(i).getPrice());
 		}
 		
 		// 테이블 관련
@@ -147,15 +148,8 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 			
 			String userInfo = si.getLoginId();
 			si.orderCtrl.paymentNow(list, userInfo);
-		} 
-		
-		
-		
-		
-		
-	
-		
-	}
+		}
+	}//end actionPerformed
 
 //마우스리스너 마우스리스너
 	@Override

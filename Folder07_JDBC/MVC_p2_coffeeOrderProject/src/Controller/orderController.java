@@ -45,7 +45,7 @@ public class orderController {
 		return shopingCartList;
 	}// end getFromCart
 
-	public int getPrice(List<orderList> list) {
+	public List<orderList> getPrice(List<orderList> list) {
 		
 		return orderServ.getNameToPrice(list);
 	}
