@@ -39,7 +39,7 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		setLayout(null);
 		
 		//게시판에 들어오자마자 리스트를 받아오기 위해서 기본 데잍 ㅓ셋팅. 
-		list = si.orderCtrl.getFromCart();
+//		list = si.orderCtrl.getFromOrderList();
 		JLabel label = new JLabel(""+si.getLoginId()+"님이 현재까지 주문한 내역입니다.\n 확인후 결제를 눌려주세요.");
 		label.setBounds(10, 10, 400, 15);
 		add(label);
@@ -59,14 +59,13 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 			
 //			System.out.println("커피가격 받아왔나 " + coffeePrice);
 //			System.out.println("쇼핑카트리스트 = "+list.get(i).getName());
-			
+			//커피명,  날자, 사이즈, 수량, 가격
 			rowData[i][0] = list.get(i).getName();
-			rowData[i][1] = list.get(i).getSize();
+//			rowData[i][1] = list.get(i).getDate();
 			rowData[i][2] = list.get(i).getSyrup();
 			rowData[i][3] = list.get(i).isAddShot();
 			rowData[i][4] = list.get(i).isWhiping();
-			rowData[i][5] = list.get(i).getAmount();
-//			rowData[i][6] = (list.get(i).getAmount()*coffeePrice);
+
 		}
 		
 		// 테이블 관련
@@ -77,13 +76,11 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		// 테이블 생성
 		jtable = new JTable(model);
 		jtable.addMouseListener(this);
-			
+
 		// column의 폭을 설정
 		jtable.getColumnModel().getColumn(0).setMaxWidth(200);	// "주문한 커피"
+		jtable.getColumnModel().getColumn(2).setMaxWidth(70);	// "날짜"
 		jtable.getColumnModel().getColumn(1).setMaxWidth(80);	// "사이즈"
-		jtable.getColumnModel().getColumn(2).setMaxWidth(70);	// "시럽추가"
-		jtable.getColumnModel().getColumn(3).setMaxWidth(50);	// "샷추가"
-		jtable.getColumnModel().getColumn(4).setMaxWidth(60);	// "휘핑추가"
 		jtable.getColumnModel().getColumn(5).setMaxWidth(50);	// "수량"
 		jtable.getColumnModel().getColumn(6).setMaxWidth(100);	// "갯수당 가격 " (개당가격*수량) 
 		

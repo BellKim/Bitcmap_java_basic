@@ -20,6 +20,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -31,7 +32,7 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 	private JTextField orderCountTextF;	
 	private JButton MenuButton;
 	
-	JRadioButton size1, size2, size3, syrupOption1, syrupOption2, syrupOption3;    
+	JRadioButton size1, size2, size3, syrupOption0, syrupOption1, syrupOption2, syrupOption3;    
 	Label label1, label2;
 	JRadioButton jradiobutton;
 	
@@ -66,9 +67,9 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		
 		
 		String[] coffeeList = {
-				"",
+				"커피를 선택해 주세요",
 				"헤이즐넛 카라멜 모카",
-				"카라멜  마끼아또",
+				"카라멜 마끼아또",
 				"화이트 초콜릿 모카",
 				"카라멜 모카",
 				"카페 모카",
@@ -81,7 +82,7 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		//Create the combo box, select item at index 4.
 		//Indices start at 0, so 4 specifies the pig.
 		coffeeListBox = new JComboBox(coffeeList);
-		coffeeListBox.setSelectedIndex(coffeeList.length-1);
+		coffeeListBox.setSelectedIndex(0);
 		coffeeListBox.setBounds(80, 100, 500, 30);
 		coffeeListBox.addActionListener(this);
 		add(coffeeListBox);
@@ -109,18 +110,23 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
         
         //=================================================
 		//시럽 라디오버튼
+        syrupOption0 = new JRadioButton("선택안함");
         syrupOption1 = new JRadioButton("바닐라");
         syrupOption2 = new JRadioButton("카라멜");
         syrupOption3 = new JRadioButton("헤이즐럿");        
  
         ButtonGroup SyrupGroup = new ButtonGroup();
+        SyrupGroup.add(syrupOption0);
         SyrupGroup.add(syrupOption1);
         SyrupGroup.add(syrupOption2);
         SyrupGroup.add(syrupOption3);
-        syrupOption1.setSelected(true);
+        
+        syrupOption0.setSelected(true);
         syrupOption1.setBounds(250,200,100,30);
         syrupOption2.setBounds(250,220,100,30);
         syrupOption3.setBounds(250,240,100,30);
+        
+        syrupOption0.addActionListener(this);
         syrupOption1.addActionListener(this);
         syrupOption2.addActionListener(this);
         syrupOption3.addActionListener(this);
@@ -129,6 +135,7 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
         add(size1);
         add(size2);
         add(size3);
+        add(syrupOption0);
         add(syrupOption1);
         add(syrupOption2);
         add(syrupOption3);
@@ -253,9 +260,15 @@ public class OrderList_01Main extends JFrame implements ActionListener, ItemList
 		}else if(btn == finalOrder) {
 			System.out.println("주문하기버튼 ");
 			System.out.println("orderlist" + orderlist.toString());
-			s.orderCtrl.goToCart(orderlist);
-			this.dispose();
-			new OrderList_02_ShopingCart();
+			coffeeListBox.getSelectedIndex();
+			if(orderlist.getName() == null || orderlist.getName().equals("커피를 선택해 주세요")) {
+				JOptionPane.showMessageDialog(null, "커피를 선택후 주문결제 해주세요.");
+			}else {
+				s.orderCtrl.goToCart(orderlist);			
+				this.dispose();
+				new OrderList_02_ShopingCart();
+			}
+
 		}
 	}// end actionPerformed
 
