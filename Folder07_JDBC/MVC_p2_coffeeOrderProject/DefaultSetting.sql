@@ -157,6 +157,11 @@ WHERE coffeeName = '아메리카노' AND coffeeSize  = 1
 OR coffeeName = '아메리카노' AND coffeeSize  = 2
 OR coffeeName = '아메리카노' AND coffeeSize  = 3; 
 
+ SELECT b.coffeeName, a.order_date, b.sizePrice 
+ from coffeeorder a, coffeelist b 
+ WHERE a.coffee_index = b.coffee_index
+				
+
 
 SELECT coffee_index FROM COFFEELIST 
 WHERE  coffeeName = '카라멜 라떼' AND coffeeSize  = 2  

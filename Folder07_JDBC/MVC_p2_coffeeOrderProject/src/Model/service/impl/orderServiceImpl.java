@@ -3,6 +3,7 @@ package Model.service.impl;
 
 import java.util.List;
 
+import Controller.dto.coffeeOrderDto;
 import Controller.dto.orderList;
 import Model.dao.orderDao;
 import Model.dao.impl.orderDaoImpl;
@@ -23,6 +24,12 @@ public class orderServiceImpl implements orderService{
 		
 		
 		return ordardao.insertOrderList(orderlist);
+	}
+
+	@Override
+	public List<coffeeOrderDto> getReceiveAll() {
+		
+		return ordardao.getReceiveAll();
 	}
 	
 	

@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.dto.coffeeOrderDto;
 import Controller.dto.orderList;
 import main.singleton.Singleton;
 
@@ -27,11 +28,11 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 	private JButton payment;//결제하기버튼
 	
 	
-	String columnNames[] = {"주문한 커피", "사이즈", "시럽", "샷추가", "휘핑추가", "수량", "가격"};
+	String columnNames[] = {"주문한 커피", "날짜", "사이즈", "수량","가격"};
 	
 	Object rowData[][] = null;	
 	DefaultTableModel model;	// table의 넓이를 설정
-	List<orderList> list = null;
+	List<coffeeOrderDto> list = null;
 	Singleton si = Singleton.getInstance();
 	
 	public OrderList_03_ShowAll() {
@@ -45,7 +46,8 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		add(label);
 		this.list = list;//리스트에 들어갈 데이터를 이 클래스 안에 대입시킨다.		
 		rowData = new Object[list.size()][columnNames.length];
-
+		
+		list = si.orderCtrl.getOrderList();
 		
 		
 		System.out.println("받아온 내역  ");
@@ -53,18 +55,17 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		System.out.println("받아온 내역  ");
 		// list에서 테이블로 데이터를 삽입하기 위한 처리
 		for (int i = 0; i <list.size(); i++) {
-			String coffeeName = list.get(i).getName();
-			String coffeeSize = list.get(i).getSize();
-//			int coffeePrice = si.orderCtrl.getPrice(coffeeName, coffeeSize);
+			//커피 번호 + 커피사이즈 => 커피명, 커피가격 받아오기. 
 			
-//			System.out.println("커피가격 받아왔나 " + coffeePrice);
-//			System.out.println("쇼핑카트리스트 = "+list.get(i).getName());
+			
+			
+
 			//커피명,  날자, 사이즈, 수량, 가격
-			rowData[i][0] = list.get(i).getName();
-//			rowData[i][1] = list.get(i).getDate();
-			rowData[i][2] = list.get(i).getSyrup();
-			rowData[i][3] = list.get(i).isAddShot();
-			rowData[i][4] = list.get(i).isWhiping();
+//			rowData[i][0] = list.get(i).getCoffee_index();//조인으로 이름불러오기
+			rowData[i][1] = list.get(i).getOrder_date();
+			rowData[i][2] = list.get(i).getCoffee_size();
+//			rowData[i][3] = list.get(i).getAmount;
+//			rowData[i][4] = list.get(i).(price가격 받아오기.)
 
 		}
 		

@@ -1,11 +1,14 @@
 package Model.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import Controller.dto.coffeeOrderDto;
 import Controller.dto.orderList;
 import Model.dao.orderDao;
 import Template.DB.DBClose;
@@ -90,12 +93,9 @@ CREATE TABLE COFFEEORDER(
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
 		
-		
 		System.out.println("sql = " + sql );
 		
-			System.out.println( "111   !!!!!! = "+psmt);
-			try {
-				System.out.println( "2222  !!!!!! = "+psmt);	
+			try {	
 				if(orderlist.get(i).getSize().equals("Short")) {
 					settingSize=1;
 				}else if(orderlist.get(i).getSize().equals("Tall")) {
@@ -129,7 +129,6 @@ CREATE TABLE COFFEEORDER(
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} finally {
-				
 				DBClose.close(psmt, conn, rs);
 			}
 		}
@@ -170,6 +169,40 @@ CREATE TABLE COFFEEORDER(
 		return res;
 	}
 
+	@Override
+	public List<coffeeOrderDto> getReceiveAll() {
+		String sql = " SELECT b.coffeeName, a.order_date, b.sizePrice " + 
+				"from coffeeorder a, coffeelist b" + 
+				"WHERE a.coffee_index = b.coffee_index  ";
+		List<coffeeOrderDto> coffeeorder= null;
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		System.out.println("getReceiveAll().sql = " + sql );
+		
+		try {
+			conn = DBConnection.getConnection();
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				String cofName = rs.getString(1);
+				Date cofDate = rs.getDate(2);
+				int cofPrice = rs.getInt(3);
+			}
+			
+			coffeeorder = new ArrayList<coffeeOrderDto>();
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
 	
-
+	
 }//end class

@@ -25,15 +25,7 @@ public class Singleton {
 		return s;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	//getter//setter
 	//login information.

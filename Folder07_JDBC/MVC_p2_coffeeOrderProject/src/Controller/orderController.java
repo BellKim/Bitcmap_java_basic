@@ -76,6 +76,13 @@ public class orderController {
 	}
 	
 	
+	public List<coffeeOrderDto> getOrderList() {
+		
+		
+		return orderServ.getReceiveAll();
+	}
+	
+	
 
 
 }//end class
