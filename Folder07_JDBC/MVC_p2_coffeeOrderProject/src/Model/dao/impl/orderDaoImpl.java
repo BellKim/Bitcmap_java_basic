@@ -178,7 +178,7 @@ CREATE TABLE COFFEEORDER(
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-		
+		coffeeorder = new ArrayList<coffeeOrderDto>();
 		System.out.println("getReceiveAll().sql = " + sql );
 		
 		try {
@@ -189,9 +189,12 @@ CREATE TABLE COFFEEORDER(
 				String cofName = rs.getString(1);
 				Date cofDate = rs.getDate(2);
 				int cofPrice = rs.getInt(3);
+				orderList ol = new orderList();
+				
+				
 			}
 			
-			coffeeorder = new ArrayList<coffeeOrderDto>();
+			
 			
 			
 			
