@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+
+	</head>
+	<body>
+		<p id="demo"> p tag demo </p>
+	
+		<script type="text/javascript">
+			//var d = new Date();
+			//console.log(d);
+			//var e= new Date("October 12, 2020 12:12:12");
+			//console.log("e = "+e);
+			
+			//var f = new Date(2020, 5, 4, 6, 12, 32, 0);//월만 주의해서 작성할것.  0월~11월 까지 표기됨.
+			var f = new Date(2020, 5-1, 4, 6, 12, 32, 0); // 월: 0 ~ 11
+			
+			
+			console.log("f = "+f);
+			
+			document.getElementById("demo").innerHTML 
+						//= f.getFullYear();
+						//= f.getMonth()+1;
+						//= f.getDate();
+						//= f.getHours();
+						//= f.getMinutes();	//분
+						//=f.getSeconds();	//초
+						=f.getDay();		//요일 0~6
+					
+		
+		</script>
+	</body>
+	
+
+	
+</html>

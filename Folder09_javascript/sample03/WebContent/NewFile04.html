@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+    function myFunction(){
+        var v = document.getElementById("myCheck1").value;
+        var vchecked = document.getElementById("myCheck1").checked;
+        console.log(v);
+        console.log(vchecked);
+
+        var totalPrice = 0;
+
+        if(document.getElementById("mycheck1").checked == true){
+            totalPrice+=parseInt(document.getElementById("myCheck1").value);
+        }else if(document.getElementById("mycheck2").checked == true){
+            totalPrice+=parseInt(document.getElementById("myCheck2").value);
+        }else if(document.getElementById("mycheck3").checked == true){
+            totalPrice+=parseInt(document.getElementById("myCheck3").value);
+        }
+
+        
+    }
+    
+    </script>
+</head>
+<body>
+    <div>
+        <div>
+            <h2>체육관 이용요금</h2>
+        </div>
+        <div>
+            <h4>기본사용료(2면, 4시간) 40,800원</h4>
+         
+
+                <!-- <input type="checkbox" id="op1" name="option1" value=20000> 야간조명 (20,000원) </input>  <br>
+                <input type="checkbox" id="op2" name="option1" value=4000 > 배구 네트x2면 (4000원)</input> <br>
+                <input type="checkbox" id="op3" name="option1" value=5000> 배구X10개(5,000원) </input> <br><br> -->
+                <input type="checkbox" id="myCheck1"  onclick="myFunction()" value=20000>야간조명 (20,000원)
+                <input type="checkbox" id="myCheck2"  onclick="myFunction()" value=20000>배구 네트x2면 (4000원)
+                <input type="checkbox" id="myCheck3"  onclick="myFunction()" value=20000>배구X10개(5,000원)
+            
+
+        </div>
+    </div>
+
+
+
+    
+</body>
+
+
+
+</html>
