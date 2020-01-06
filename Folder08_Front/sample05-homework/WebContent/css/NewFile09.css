@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.colorRed{
+	color:red;
+}
+
+div p{
+	text-align: center;
+	
+}
+table{
+	border:solid 4px black;
+	width:600px;
+	/*border-collapse: collapse;*/
+}
+
+.textCenter{
+	text-align: center;
+}
+tr, td{
+	padding:0px 5px 0px 5px;
+}
+td{
+	
+}
+tr td{
+	border: 1px solid black;
+	text-align: center;
+}
+tr td:last-child{
+	text-align: right;
+}
+
+th{
+	border:1px solid black;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+	<head>		
+			<meta charset="UTF-8">
+			<title>Insert title here</title>
+			
+	</head>
+	
+	<body>
+		<!-- link : anchor  -->
+		<!-- 
+			<a href="이동하고 싶은 파일 또는 URL"> 표시문자열 이미지 </a>
+		 -->
+		 
+<!-- 
+		 form 
+		 event resource와 같이 많이 사용. 
+		 입력데이터등을 전송할 수 있다. 
+		 id		: 현재 페이지에서 1개만을 인식. javascript(=JQUERY)
+		 class	: 다중인식 .css(디자인)
+		 name	: link용, 값을전송, 변수의 역할
+		 
+		 <form action="이동을 하고싶은 URL 또는 파일"> submit
+		 	입력받고 싶은 리소스.
+		 	<input type="submit" value="클릭">
+		 </form>
+ -->
+ 
+ <!-- 
+ 		input : button(submit), checkbox, radio, toolBar.... 
+ 
+  -->
+ 	<h3>index.html</h3>	
+ 	<form action="NewFile.html">
+ 		<input type="submit" value=" 페이지 이동  " size="12"> <!-- 버튼의 타이틀  -->
+ 		<br>
+ 		name<input type="text" value="여기에입력" size ="10">
+ 		<br>
+ 		age:<input type="text" value="0" size="10">
+ 		<br>
+ 		<input type="reset" value="초기화">
+ 		<br>
+ 	</form>
+ 	
+ 	<!-- form 이외의 영역은 내부에 있는 영역과 별개로 처리가된다.  -->
+ 	<input type="button" value="이동">
+ 	<input type="button" value="이동">
+ 	<br>
+ 	<input type="reset" value="초기화">
+ 	
+ 	name<input type="text" value="여기에입력" size ="10">
+ 	
+ 	<form action="NewFile.jsp">
+ 	<table>
+ 	<tr>
+ 		<td>
+ 			id:
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<input type="text" name="id" value="" size="12"><br>
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			password:
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td>
+ 			<input type="password" name="pwd" value="" size="12"><br>
+ 		</td>
+ 	</tr>
+ 	<tr>
+ 		<td colspan = "2">
+ 			<input type="submit" value="이동">
+ 		</td>
+ 	</tr>
+	 </table>
+	 </form>
+	 		
+<br><br><br><br>
+
+
+	 	<form action="NewFile1.jsp">
+			number:<input type="number" max="5" min="1"name="inputnumber" >
+			<br>
+			date:<input type="date" name="inputdate">
+			<br>
+			color:<input type="color" value="#000000" name="inputcolor">
+			<br>
+			range:<input type="range" max="10" min="0" name="inputrange">
+			<br>
+			search:<input tpye="search" name="inputsearch">
+			<br>
+			<input type="submit" value="선택">
+	 	</form>
+ 		
+ 		//checkBox
+ 		<form action = "NewFile2.jsp">
+ 			<input type = "checkbox" name="job" value="패션">패션<br>
+ 			<input type = "checkbox" name="job" value="음악">패션<br>
+ 			<input type = "checkbox" name="job" value="게임">패션<br>
+ 			<input type="submit" value=" 이 동 ">
+ 		</form>
+ 		<br>
+ 		
+ 		RadioButton<br>
+ 		<input type="radio" name="car" value="벤즈">벤즈<br>
+ 		<input type="radio" name="car" value="비엠" checked="checked">비엠<br>
+ 		<!--  혹은 아래와 같이 -->
+ 		<!-- 
+ 		<input type="radio" name="car" value="비엠" checked>비엠<br>\
+ 		 -->
+ 		<!-- checked 만 입력해도 가능하다.  -->
+ 		<input type="radio" name="car" value="아우디">아우디<br>
+ 
+ 		<!-- SELECT == choice, combobox -->
+ 		<select name="cars">
+ 			<option value="볼보">Volvo</option>
+ 			<option value="사브">Saab</option>
+ 			<option value="피아트">Fiat</option>
+ 			<option value="프리우스">Prius</option>
+ 		</select>
+ 		
+ 		 <select name="cars" multiple="multiple">
+ 		 <!-- 멀티로 받으면 getParameterValues로 받아야한다. -->
+ 			<option value="볼보">Volvo</option>
+ 			<option value="사브">Saab</option>
+ 			<option value="피아트">Fiat</option>
+ 			<option value="프리우스">Prius</option>
+ 		</select>
+ 		
+ 		<br><br><br>
+ 		<textarea rows="20" cols="30">여기에 입력</textarea>
+ 		<br><br><br>
+ 		<input type="button" value="버튼"><br>
+ 		<button type="button" onclick="alert('클릭됨.')"> 버튼</button> 
+ 		<br><br><br><br><br><br>
+ 		
+
+ 		
+ 		
+ 	
+ 	
+ 	
+ 	
+	</body>
+</html>

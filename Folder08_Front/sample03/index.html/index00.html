@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>리 스 트 </title>
+		<style type="text/css">
+		.cls li{
+			display:inline;
+		}
+		</style>
+	</head>
+	<body>
+		<!--  list  unordered list (순서없는 목록) -->
+		<ul>
+			<li>coffee</li>
+			<li>tea</li>
+			<li>milk</li>
+			<li>hubTea</li>
+		</ul>
+		
+		<ul style="list-style-type : none;"><!-- 디폴트가 disc임.  -->
+			<li>
+				<a href="#">coffee</a><!-- # 으로 위로 올릴수 있음.  -->
+			</li>
+			<li>tea</li>
+			<li>milk</li>
+			<li>hubTea</li>
+		</ul>
+		
+		<!-- 순서가 있는 목록  -->
+		<ol>
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+		</ol>
+		
+		<ol type="1">		<!-- html4에서 사용했었음. 사용하나 마나임. --> 
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+		</ol>
+		
+		<ol start="2">		
+			<!-- html5에서 사용. 중간에 시작되는 숫자표현시 사용. . --> 
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+		</ol>
+		
+		
+		<ol type="A">		
+			<!--  a b c d 순서대로  --> 
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+		</ol>
+		
+		<ol type="I">		
+			<!-- 로마숫자. --> 
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+			<li>Apple</li>
+			<li>pear</li>
+			<li>Banana</li>
+		</ol>
+		
+		<!-- list 안의 list  -->
+		<h4>리스트안의 리스트 </h4>
+		<ul>
+			<li>
+				<ol>
+					<li>1</li>
+					<li>2</li>
+				</ol>
+			</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		
+		<ol class="cls">
+			<li>Apple</li>
+			<li>banana</li>
+			<li>pear</li>
+		</ol>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

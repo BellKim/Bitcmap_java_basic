@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+body{
+	background-color:black;
+	color:white;
+	
+}
+.europtitle{
+	font-size:25px;
+	font-weight: bold;
+}
+.europContents{
+	font-size:16px;
+	font-weight:none;
+}
+.europContentTitle{
+	color: yellow;
+    text-decoration: underline;
+}
+
+a img{
+	width:250px;
+	margin: 0px 15px 14px 0px;
+	float:left;
+}
+
+
