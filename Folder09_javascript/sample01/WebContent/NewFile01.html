@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+			<!-- Java script(Client)  != Java(Server)
+			목적 : Front end 제어하기 위한 스크립트(logic).
+			보조 프로그래밍적인 요소이다.
+			화면 제어하기 위한 요소. -> JQuery(ver) -> vue, reAct
+			컴파일을 하지 않는다. 가볍다-> 속도가 빠르다.
+
+			예> 회원가입시 빈칸을 조사하거나, ID글자수 조사, pw에 숫자포함체크
+
+			Css에 대해서 구현
+			Timer를 설정해서 특수효과 같은 처리를  할 수 있다. 
+
+			id(1개만 인식가능.), class(다수인식 및 접근 가능), name(link) => 접근하기 위한 속성 (attribute)
+
+		-->
+	<body>
+
+		<p id="demo"> p tag demo id</p>
+
+
+		<script type="text/Javascript">
+			// window.alert("javascript 실행 ");
+			// alert("이것도 가능하다.");
+			console.log("javascript 실행 ");
+
+			//getter
+			var v = document.getElementById("demo");
+			console.log(v);
+			console.log(v.innerHTML);
+			alert(v.innerHTML);
+
+			//setter
+			document.getElementById("demo").innerHTML = "p테그 demo id";
+			v.innerHTML="p태그 demo아이디입니다. ";
+
+
+
+
+		</script>
+			
+
+	</body>
+</html>

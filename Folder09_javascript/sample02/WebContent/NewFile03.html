@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function btnClick(){
+            
+            console.log("버튼 클릭이 됨. ");
+            document.getElementById("demo").innerHTML = "Hello";
+            //데모인 아이디에 HELLO를 두겠다. 
+        }
+
+        function btnClick1(num){
+            document.getElementById("demo").innerHTML = num * 6;
+        }
+
+        function func(x, y){
+            return x * y;
+        }
+
+        function btnClick2(){
+            document.getElementById("demo").innerHTML = func(5,6);
+        }
+
+
+
+        
+
+    </script>
+</head>
+<body>
+    <p id = "demo"> p tag </p>
+    <button type="button" onclick="btnClick()"> 버!튼0 </button>
+    <h3>h3 TAGGGGGGG</h3>
+
+
+    <button type="button" onclick="btnClick1(7)"> 버튼1 </button>
+
+    <button type="button" onclick="btnClick2()"> 버튼2 </button>
+
+<!--
+    id-> Javascript
+
+    class
+    name
+-->
+</body>
+</html>

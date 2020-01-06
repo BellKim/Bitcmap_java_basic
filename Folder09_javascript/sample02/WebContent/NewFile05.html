@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+<body>
+        Timmer
+        <p id="demo"> </p>
+        <input type="text" id="_id" width="auto">
+        <br><br>
+
+        <script type= "text/javascript">
+            function dispDate(){
+                document.getElementById("demo").innerHTML = Date();
+                document.getElementById("_id").value = Date();
+            }
+
+            setInterval("displayDate()", 1000);
+
+
+            dispDate();
+
+        </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="h3tag"> <b>h3 TAG</b>  </h3>
+
+    <p id="ptag"> p tag</p>
+    <br><br>
+
+    <!--입력받는곳-->
+    입력: <input tpye="text" id="text">
+    <br><br>
+    <button type="button" onclick="btnClick()"> 버튼 </button>
+
+    <script type="text/javascript">
+        function btnClick(){
+            // var str = document.getElementById("h3tag").innerHTML;
+            // document.getElementById("ptag").innerHTML = str;
+            // console.log(str);
+            var str = document.getElementById("text").value;
+            console.log("str = " + str);
+            document.getElementById("ptag").innerHTML = parseInt(str) * 12;
+            
+
+
+
+    </script>
+
+
+
+
+    
+</body>
+
+</html>

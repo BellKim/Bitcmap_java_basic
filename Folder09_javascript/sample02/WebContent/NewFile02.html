@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<p id="demo"> p tag</p>
+		<script type="text/javascript">
+			/*
+				var -- int, double, string, object, char
+
+				MyClass cls = new MyClass();
+				Object obj = new MyClass();
+				((MyClass)obj).method();
+			*/
+
+			var pi = 3.141592;
+			var name = "홍길동";
+			var answer = "Yes | NO";
+			var number = 123;
+			var updown = true;
+
+			var per = "일지매", num = 234 + 1;
+			console.log("num1 = "+num);
+
+			num="정수동";
+			console.log("num2 = "+num);
+
+			var nn = "5" + 3 + 1;
+			console.log("nn 출력 : " + nn);
+
+			var nn = 5 + 3 + "1";	//8 과 1의 문자열의합
+			console.log("nn 출력 : " + nn);
+
+			var cars = ["Saab", "Volvo", "BMW" ];	//nodejs도 동일함. 
+			console.log("cars[0] 출력 : " + cars[0]);
+
+			var cars1 = new Array(3);			//String cars[] = new String[3];
+			cars1.push("hyundai");
+			cars1.push("BMW");
+			cars1.push("Saab");
+			console.log("cars1[2] 출력 : " + cars[2]);
+
+			for (let i = 0; i < cars1.length; i++) {
+				console.log("반복문  : "+cars1[i]);
+			}
+
+			//Object == class -> json key: value
+			var obj = {
+				firstname:"길동",
+				lastname:"홍",
+				age:24,
+				funcName:function(){
+					console.log("function name 을 호출한다. ");
+					console.log("lastName : " + this.lastname);
+					console.log("firstName : " + this.firstname);
+				}
+			};
+
+			console.log(obj.firstname);
+			console.log(obj.lastname);
+			console.log(obj.age);
+			console.log(obj.funcName);
+			obj.funcName();
+
+			y=123e-2;
+			console.log(y);
+
+			document.getElementById("demo").innerHTML = "홍길동 : " + typeof "홍길동" + "<br>" +
+														"325 : " + typeof 325 + "<br>" +
+														"3.141592" + typeof 3.141592 + "<br>" +
+														" true : " + typeof true + "<br>" + 
+														" array : " + typeof [1,2,3] + "<br>" +
+														"object : " + typeof{num:1, name:"abc"};
+
+
+			
+		</script>
+
+		
+	</body>
+</html>
