@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="demo"> </p>
+
+    <script type="text/javascript">
+    /*
+        document.getElementById("demo").innerHTML = 
+            parseInt("10") + "<br>" + 
+            parseInt("23.4") + "<br>" + 
+            parseFloat("23.4") + "<br>" + 
+            parseFloat("23 4") + "<br>";
+      */
+        //파스 인트와 파스 플루트는 구분해야하지만 number는 구분할 필요가 없다. 
+
+      document.getElementById("demo").innerHTML = 
+            Number(true) + "<br>"+
+            Number(false) + "<br>"+
+            Number(new Date()) + "<br>"+
+            Number("123") + "<br>"+
+            Number("12.345") + "<br>";
+            
+            
+    </script>
+    
+</body>
+
+</html>

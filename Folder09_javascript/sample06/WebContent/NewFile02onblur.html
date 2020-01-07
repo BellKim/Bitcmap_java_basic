@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<!--  onblur : 포커스가 이동 -->
+	나이 : <input type="text" onblur="isRegNum()" size="10" maxlength="3"> 세 <br><br>
+	
+	<script type="text/javascript">
+		//입력을 안하고 이동을 할때 출력한다. 
+		//일단 텍스트는 3자리까지만 입력이 되고 텍스트 박스내에 스크롤을 둔 상태에서 다른곳으로 이동하기위해 클릭을 하면 팝업이 실행됨. 
+	
+		function isRegNum(){
+			alert("onblur 실행 ");
+			
+		}
+	</script>
+		
+	</body>
+</html>

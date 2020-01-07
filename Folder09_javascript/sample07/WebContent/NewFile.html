@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<div id="div1">
+			<p id="p1">첫번째 태그</p>
+			<p id="p2">두번째 p태그</p>
+		</div>
+		
+		<button onclick="appendBtn()">뒤에추가 </button>
+		<button onclick="insertBtn()">앞에추가 </button>
+		<button onclick="deleteBtn()">삭제 </button>
+		
+		<script type="text/javascript">
+		function appendBtn(){
+			
+			//tag 생성
+			var ptag = document.createElement("p");		//<p></p>
+			var textNode = document.createTextNode("새로운 태그");	//p테그 사이에 넣을 문자열 .
+			
+			ptag.appendChild(textNode);		//<p>새로운 태그</p>
+			//div1에 추가
+			var element = document.getElementById("div1");
+			element.appendChild(ptag);
+			
+			
+
+
+			
+		}
+		function insertBtn(){
+			//tag 생성
+			var h3tag = document.createElement("h3");		//<p></p>
+			var textNode = document.createTextNode("새로운 h3 태그");	//p테그 사이에 넣을 문자열 .
+			
+			h3tag.appendChild(textNode);		//<p>새로운 태그</p>
+			//div1에 추가
+			var element = document.getElementById("div1");
+			
+			var elementBefore = document.getElementById("p2");
+			element.insertBefore(h3tag,elementBefore);
+			
+		}
+		function deleteBtn(){
+			var element = document.getElementById("div1");
+			var delChild = document.getElementById("p2");
+			element.removeChild(delChild);
+			
+		}
+		
+		</script>
+		
+		
+		
+		<!-- nodeList -->
+		
+		<p> Hello </p>
+		<p> World </p>
+		<p> I CAN DO IT </p>
+		<p> NEVER CHANGE MY MIND </p>
+		
+		<button type="button" onclick="listFunc()"> NodeList </button>
+		
+	 	<script type="text/javascript">
+			function listFunc(){
+				var nodeList = document.getElementsByTagName("p");
+				console.log(nodeList);
+				nodeList[3].innerHTML = "안녕하세요";
+				
+				for(i=0; i<nodeList.length; i++){
+					nodeList[i].style.backgroundColor="#0000ff";
+					
+				}
+			}
+			
+			
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

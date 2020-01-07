@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <form action="" name="frm" >    <!-- form name -->
+        <div align="center">
+            <strong>Timer</strong><br><br>
+            <select id="selid" name="myChoice">
+                <option value="180"> time select </option>
+                <option value="300"> 5Min </option>
+                <option value="180"> 3Min </option>
+                <option value="150"> 2Min 30Sec </option>
+                <option value="120"> 2Min </option>
+                <option value="60"> 1Min </option>
+                <option value="30"> 30Sec </option>
+                
+            </select>
+            <input type="button" value="GO!" onclick="noodle()">
+            <br><br>
+
+            <span id = "countdown"> timeSelected</span>
+            <br><br>
+
+            <input type="button" value="close" onclick="window.close()">
+
+
+        </div>
+
+
+    </form>
+    <script type="text/javascript">
+        var count=0;
+        var time=0;
+        var choice=0;
+
+        function noodle(){
+            console.log("noodle");
+            clearInterval(time);    //timer initialize
+            // var val = document.getElementById("selid").value;
+            // console.log(val);
+
+            // var index=document.getElementById("selid").selectedIndex;
+            // console.log(index);
+            
+            var index=document.frm.myChoice.selectedIndex;
+            console.log(index);
+
+            count = document.frm.myChoice.options[choice].value;
+            count = parseInt(document.frm.myChoice.options[choice].value);
+            console.log("count = "+count);
+
+            time = setInterval("myTimer() ", 1000);
+            
+        }
+
+        function myTimer(){
+            count = count -1;
+            document.getElementById("countdown").innerHTML="완료까지 남은시간<b>"+count+"</b>초 남았습니다.";
+            if(count == 0){
+                clearInterval(time);
+                console.log("시간이 완료되었습니다.");
+                alert("시간이 완료되었습니다.");
+
+            }
+        }
+
+        //마우스 우클릭 금지 
+        document.oncontextmenu = function(){
+            alert("마우스 우클릭 금지");
+            return false;
+        }
+
+    </script>
+    
+</body>
+</html>

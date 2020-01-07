@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <p id="pid">class pid</p>
+    <br><br><br>
+
+    <p class="pclass"> p class pclass </p>
+
+    <h3 class="pclass"> h3 class pclass </h3>
+
+    <p name="pname"> p name pname </p>
+
+    <button type="button" onclick="func()">button</button>
+
+    <input type="text" id="str" name="str">
+    <!-- 아이디는 검수용 name테그는 실제 데이터 전송용 -->
+
+    <script type="text/javascript">
+        function func(){
+            console.log("func() 실행중.");
+            //id
+            // var text = document.getElementById("pid").innerText;
+            // document.getElementById("str").value = text;
+
+            //class
+            // var text = document.getElementsByClassName("pclass")[1].innerHTML;
+            // console.log(text);
+
+            //name
+            var nameText = document.getElementsByName("pname")[0].innerHTML;
+            document.getElementsByName("str")[0].value=nameText;
+
+
+        }
+
+    </script>
+    
+</body>
+
+</html>

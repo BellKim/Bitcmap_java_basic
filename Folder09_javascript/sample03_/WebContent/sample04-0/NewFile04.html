@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+    <p id="p1"> 투기와의 전쟁을 선언합니다 </p>
+
+    <script type="text/javascript">
+        var str = document.getElementById("p1").innerHTML;
+
+        document.getElementById("demo").innerHTML = str;
+
+        // str=str.indexOf("전쟁");
+        // str = str.lastIndexOf("선언");
+        // str = str.search("선언");
+        // str = str.substring(0,4);
+        // str=str.charAt(0);
+        str="aa,bb,cc,dd";
+        var arr = str.split(",");
+        str = arr[1];
+        
+
+        document.getElementById("demo").innerHTML = str;
+
+    
+    </script>
+    
+</body>
+</html>

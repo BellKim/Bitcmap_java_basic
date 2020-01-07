@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<!-- onchange : 
+			1.입력값이 바뀌고 
+			2.포커스가 다른 곳으로 이동했을때. 
+		-->
+		나이 :<input type="text" size="5" maxlength="3" onchange="isPostNum(this)">
+		
+		우편번호 입력란 : <input type="text" size="5" maxlength="3" onchange="isPostNum(this)">
+
+		
+		
+		<script type="text/javascript">
+		/*
+			function isPostNum(obj){
+				alert("isPostNum 실행됨. ");
+			}
+			
+			var str = obj.value;
+			//alert(str);
+			console.log(str);
+			if(str.match(/[^0-9]/g)){
+				alert("숫자가 아닌 문자가 포함되어 있습니다.");
+			}
+			*/
+		</script>
+		
+				
+		<!-- onkeydown, onkeypress -->
+		
+		<input type="text" name="title">
+		
+		<script type="text/javascript">
+		/*
+			document.getElementsByName("title")[0].onkeydown = 
+				function(){
+				console.log("keydown = keycode: " + event.keyCode);
+			}
+			*/
+		document.getElementsByName("title")[0].onkeypress = function(event){
+			console.log("keypress = keycode" + event.keyCode);		
+		}
+		</script>
+		
+		<!--  onMouseDown,  onMouseUp, onMouseOver, onMouseOut  -->
+		
+		
+		<br><br><br>
+		<input type="image" src="resource/san0.gif" 
+		onMousedown="mouseDown(this)"
+		onMouseup="mouseUp(this)"
+		onMouseover="mouseOver(this)"
+		onMouseout="mouseOut(this)">
+		
+		<script type="text/javascript">
+		function mouseDown(obj){
+			obj.src="resource/san1.gif";
+		}
+		function mouseUp(obj){
+			obj.src="resource/san0.gif";
+		}
+		function mouseOver(obj){
+			obj.src="resource/san2.gif";
+		}
+		function mouseOut(obj){
+			obj.src="resource/san0.gif";
+		}
+			
+		
+		</script>
+		
+		<br><br><br>
+		
+		<a href="#" onmouseover="document.box.src='resource/surprise.gif'"
+					onmouseout="document.box.src='resource/box.gif'">
+			<img alt="" src="resource/box.gif" name="box">			
+		</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

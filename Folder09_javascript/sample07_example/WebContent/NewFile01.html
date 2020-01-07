@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body id="chbg">
+	
+		<button type="button" onclick="bg_red()"> 빨강 </button>
+		<button type="button" onclick="bg_green()"> 녹색 </button>
+		<button type="button" onclick="bg_blue()"> 청색 </button>
+		<button type="button" onclick="bg_orange()"> 주황색 </button>
+		<button type="button" onclick="bg_black()"> 검정색 </button>
+		<button type="button" onclick="bg_white()"> 흰색 </button>
+
+		<script type="text/javascript">
+		function bg_red(){
+			console.log("1");
+//			  
+			  document.all[4].style.cssText='background-color:red;';
+		}
+		function bg_green(){
+			console.log("2");
+			document.all[4].style.cssText='background-color:green;';
+		}
+		function bg_blue(){
+			console.log("3");
+			document.all[4].style.cssText='background-color:red;';
+		}
+		function bg_orange(){
+			console.log("4");
+			document.getElementById('chbg').style.cssText = 'background-color: orange;';
+		}
+		function bg_black(){
+			console.log("5");
+			document.getElementById('chbg').style.cssText = 'background-color: black;';
+		}
+		function bg_white(){
+			console.log("6");
+			document.getElementById('chbg').style.cssText = 'background-color: white;';
+		}
+			
+			
+		
+		
+		</script>
+	</body>
+</html>

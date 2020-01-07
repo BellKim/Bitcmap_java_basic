@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html><!-- root node  -->
+		<head>  <!-- html child node -->
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<!-- DOM -->
+		<h5>DOM : document object Model</h5>
+		<pre>
+		--> 각각의 TAG는 OBJECT로 처리된다. 그 Object를 접근하기 위한 함수
+		getElementById();
+		</pre>
+		
+		<!-- childNodes -->
+		<h3 id="intro"> h3 tag intro </h3>
+		
+		<p id="demo"> p tag demo </p>
+		
+		
+		<button type="button" onclick="func()"> 버튼 </button>
+		<script type="text/javascript">
+			function func(){
+				var text = document.getElementById("intro").childNodes[0].nodeValue;
+				console.log(text);
+				
+			}
+		</script>
+		
+		<br><br>
+		
+		<select id="car">
+			<option>BMW</option>
+			<option>VOLVO</option>
+			<option>BENZ</option>
+		</select>
+		
+		<button type="button" onclick="myfunc()">선택</button>
+		
+		<script type="text/javascript">
+			function myfunc(){
+				var text=document.getElementById("car").childNodes;
+				console.log("0"+text[0].text);	//0번째는 첫번쨰 옵션 바로 위(select 라인을 가리킨다.)
+				console.log("1"+text[1].text);	//
+				console.log("2"+text[2].text);	//
+				console.log("3"+text[3].text);	//
+				console.log("4"+text[4].text);	//
+				console.log("5"+text[5].text);	//
+				console.log("6"+text[6].text);	//
+				
+				
+				
+			}
+		</script>
+		
+		
+	</body>
+</html>
