@@ -12,8 +12,8 @@
         sai_1.gif 
     -->
     <div id="formbox">
-        <img src="changeimg()" id="di1">
-        <img src="changeimg()" id="di2">
+        <img src=changeimg() id="di1">
+        <img src=changeimg() id="di2">
     </div>
 
     <p><button type="button" id="changeBtn" onclick="changeimg()"> "주사위를 굴립니다."</button></p>
@@ -21,12 +21,13 @@
     <script type="text/javascript">
         function changeimg(){
             // var element = document.getElementById("formbox");
-
-            console.log("asdfaf");
-            var res="./image/sai_1.gif";
+            var ran1=3;
+            var ran2=5;
+            document.getElementById("di1").src = "./images/sai_"+ran1+".gif";
+            document.getElementById("di2").src = "./images/sai_"+ran2+".gif";
+    
             
-            return res;
-
+  
 
 
         }
