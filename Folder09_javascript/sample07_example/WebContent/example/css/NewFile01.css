@@ -1,0 +1,14 @@
+tr td{
+    border:solid 1px black;
+}
+table{
+    width : 50%;
+}
+
+.topOfTable{
+    text-align: center;
+}
+.topOfTable.td:last-child{
+    position: absolute;
+    top:50%;
+}

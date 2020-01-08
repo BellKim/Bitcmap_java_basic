@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>배열의 연산</h3>
+    <table border="1">
+        <col width="50"><col width="80"><col width="80"><col width="100">
+        <tr>
+            <th>첨자</th><th>a</th><th>b</th><th>a*b</th>
+        </tr>
+        <tr>
+            <th>0</th>
+            <th>5</th>
+            <th>33</th>
+            <th>
+                <button type="button" onclick="multi(0)">계산결과</button>
+            </th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>12</th>
+            <th>14</th>
+            <th>
+                <button type="button" onclick="multi(1)">계산결과</button>
+            </th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>18</th>
+            <th>65</th>
+            <th>
+                <button type="button" onclick="multi(2)">계산결과</button>
+            </th>
+        </tr>
+
+        
+    </table>
+    
+
+        <script type="text/javascript">
+            //nodelist사용으로 class 안써두 되는상황. 
+            var nodeNum = document.getElementsByTagName("td");
+            
+            console.logs(nodeNum);
+            console.log(nodeNum[3].innerHTML);
+
+            var a = new Array(3);
+            var b = new Array(3);
+
+            for(i=0; i<a.length; i++){
+                a[i] = NUMBER(nodeNum[0 + 3*i].innerHTML);
+                b[i] = NUMBER(nodeNum[1 + 3*i].innerHTML);
+            }
+
+
+
+
+        </script>
+
+
+
+
+
+</body>
+</html>

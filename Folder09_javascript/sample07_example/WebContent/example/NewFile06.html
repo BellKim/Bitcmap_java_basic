@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th style="background-color: #00ff00; padding:10px;"> naver 네이버</th>
+        <td id="naver">https://www.naver.com</td>
+        <td>
+            <button type="button" onclick="func('naver')"> 네이버 </button>
+        </td>
+        <td id="google">https://www.google.com</td>
+        <td>
+            <button type="button" onclick="func('google')"> 구글 </button>
+        </td>
+
+
+    </table>
+
+    <script type="text/javascript">
+        function func(n){
+            if(n == 'naver'){//현재 창에서 열림
+                var url = document.getElementById("naver").innerHTML;
+                location.href = url;
+            } else if(n=='google'){//새 창에서 열린다. 
+                var url = document.getElementById("google").innerHTML;
+                window.open(url);
+            }
+        }
+    </script>
+    
+</body>
+
+</html>

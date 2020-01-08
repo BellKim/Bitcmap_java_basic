@@ -8,27 +8,60 @@
 
 <body>
 	<h2>미술관 및 박물관의 링크</h2>
-	<select id="checkSelect" onchange="gotosite()" style="width: 50%;">
-		<option>대상을 선택</option>
-		<option value="http://sema.seoul.go.kr/">서울시립미술관</option>
-		<option value="http://www.mmca.go.kr/">국립현대미술관</option>
-		<option value="http://www.sac.or.kr/">예술의전당</option>
-		<option value="http://www.museum.go.kr/">국립중앙박물관</option>
-		<option value="http://www.museum.seoul.kr/">서울역사박물관</option>
-		<option value="http://www.nfm.go.kr/">국립민속박물관</option>
-	</select>
+	<form name="frm">
+		<select id="checkSelect" onchange="gotosite()" style="width: 50%;">
+			<option>대상을 선택</option>
+			<option value="http://sema.seoul.go.kr/">서울시립미술관</option>
+			<option value="http://www.mmca.go.kr/">국립현대미술관</option>
+			<option value="http://www.sac.or.kr/">예술의전당</option>
+			<option value="http://www.museum.go.kr/">국립중앙박물관</option>
+			<option value="http://www.museum.seoul.kr/">서울역사박물관</option>
+			<option value="http://www.nfm.go.kr/">국립민속박물관</option>
+		</select>
+	</form>
+		<br><br>
+	<form name="frm">
+		<select name="links" id="_links" onchange="gosite()" style="width: 50%;">
+			<option>대상을 선택</option>
+			<option value="http://sema.seoul.go.kr/">서울시립미술관</option>
+			<option value="http://www.mmca.go.kr/">국립현대미술관</option>
+			<option value="http://www.sac.or.kr/">예술의전당</option>
+			<option value="http://www.museum.go.kr/">국립중앙박물관</option>
+			<option value="http://www.museum.seoul.kr/">서울역사박물관</option>
+			<option value="http://www.nfm.go.kr/">국립민속박물관</option>
+		</select>
+	</form>
+
+
 		<script text="text/javascript">
 			function gotosite(){
 				var siteValue= document.getElementById("checkSelect").value;
-
 				if(siteValue == '대상을 선택'){
-
 				}else{
 					// console.log(document.getElementById("checkSelect").value);\
 					document.location.href=siteValue;
 				}
-				
 			}
+
+			function gosite(){
+				// var loc = document.frm.links.selectedIndex;
+				// alert(loc);
+
+
+				var selectIndex = document.frm.links.selectedIndex;
+				var url = document.getElementById("_links").options[selectIndex].value
+				laert(url);
+
+				var url = document.frm.links.options[selectIndex].value;
+
+				if(selectIndex != 0 && selectIndex != 1 && selectIndex !=5){
+					location.href = url;
+				}
+
+
+
+			}
+
 		</script>
 </body>
 

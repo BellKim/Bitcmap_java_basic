@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1>다음 생일까지 남은 일수 </h1>
+    <br><br>
+    <button onclick="func()"> 생일을 입력 </button>
+    <br><br>
+    남은일수 : <h3 id="days"></h3>
+
+    <script type="text/javascript">
+        function func(){
+            //prompt
+            var birthMonth = prompt("생일 월을 작성해 주세요 ");
+            var birthDay = prompt("생일 날짜를 작성해 주세요 (1~31) ");
+            console.log(birthMonth + "월 " + birthDay + "일 ");
+
+            //현재 날짜와 비교
+            //현재 날짜를 구한다.
+            var nowday = new Date();
+            var birth = new Date();
+
+            //자신의 생일을 Set
+            birth.setMonth(birthMonth-1);
+            birth.setDate(birthDay);
+
+            //mSecond가 -값이 나왔을경우 -> 이미 현재 시간을 지났을 경우가 된다. 
+            var mSecond = birth.getTime() - nowday.getTime();
+            if(mSecond <= 0){   //올해 생일이 지난경우 다음해의 생일을 다시 셋팅해서 값을 산출해준다.
+                var birthYear = birth.getFullYear();
+                birth.setFullYear(birthYear + 1);
+                mSecond = birth.getTime(0) - nowday.getTime();
+            }
+            var days = mSecond / (24*60*60*1000);
+            // 24시간 60분 60초 1000분에1초
+
+            console.log(days);
+            document.getElementById("days").innerHTML = days;
+
+        }
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> 환 영 합 니 다 </h1>
+    <form name="frm">
+        현재 시각은 <input type="text" size="20" name="timebox"> 입니다.
+    </form>
+
+    <script type="text/javascript">
+        function nowTime(){
+            var now = new Date();
+
+            var hours = now.getHours()%13;
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+
+            if(hours < 10){
+                hour = "0" + hour; // 0 ~ 9   9:12   => 09:12  9시는 09시로 표기되지 않아서 0을 추가해준다. 
+            }
+            if(minute<10){
+                minute = "0" + minute;
+            }
+            if(second<10){
+                second = "0" + second;
+            }
+
+            document.frm.timebox.value = hours + ":" + minute + ":" + second;
+
+
+
+
+        }
+
+        setInterval("nowTime()", 1000);
+    </script>
+
+
+    
+</body>
+</html>
