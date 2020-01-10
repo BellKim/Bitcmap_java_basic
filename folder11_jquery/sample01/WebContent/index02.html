@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="ptag"> p tag id ptag </p>
+    <br>
+    <h3 class="h3tag">h3 tag class h3tag </h3>
+    <br>
+    <input type="text" id="text" value=""><br>
+    <br>
+    <button type="button"> button </button>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("button").click(function(){
+                //setter
+                $("#ptag").html("<b>새로운 문자열</b>");
+
+                //getter
+                var v = $("#ptag").text();
+                console.log("1번째 갯터 #ptag"+v);
+
+                //=======================================
+                //setter
+                $(".h3tag").text("새로운 h3 tag 문자열");
+                //getter
+                var va = $(".h3tag").html();
+                console.log(va);
+
+                //setter
+                $('#text').val('여기에 기입됨.');
+
+
+                //getter
+                var va = $("#text").val();//val = value
+                alert(va);
+
+
+
+            });
+
+
+
+        });
+    </script>
+
+
+
+    
+</body>
+</html>

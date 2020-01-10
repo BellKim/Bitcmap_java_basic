@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+<!--  css Cascading Style Sheet
+		문자의 컬러, 종류, 형태를 지정. 
+		태두리 넣기, 
+		각종 Tag, id, class에 형태를 추가할 수 있다. -->
+				<!--  attribute property -->
+		<!--  inline 방식으로 코드작성  (style: ;;;; ) 형식으로 작성하는방식.-->
+		
+		<!--  인터널방식 : 상단 해드에 <style type="text/css><style>  -->
+		<!--  익스터널방식: 별도의 파일에 작성하는방식.  -->
+		<style type="text/css">
+			//인터널 방식 
+			p{
+				font-size:14pt;
+			}
+			#p1{
+				/*	#은 id 를 말함. */
+				color:red;
+				font-size:20pt;
+			}
+			p.p2{
+				/*	.  는 class를 말함. */ 
+				color:#0000ff;
+				font-size:24pt;
+			}
+		</style>
+		<link type="text/css" rel="stylesheet" href="./css/my.css">
+		
+	</head>
+	<body>
+		<p> p tag	 </p>
+		<p style="font-size:10pt"> p tag 이 부분의 글자 크기는 10포인트 입니다. </p>
+		<h3>h3 tag 입니다. </h3>
+		
+		<p id="p1"> p tag id p1 입니다.</p>
+		<h3 id="p1"> h3 tag id p1 입니다. </h3>
+		<!-- id 인식은 1개만 인식하지만, css는 동시인식된다. -->
+		<p class="p2"> p tag class p2 입니다. </p>
+		<h3 class="p2"> h3 tag class p2 입니다. </h3>
+		
+	
+		
+		
+		
+	</body>
+</html>

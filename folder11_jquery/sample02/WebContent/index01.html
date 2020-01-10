@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- mouseover, mouseout -->
+    <h3 class="cls" onmouseover="mouseover()"
+                    onmouseout="mouseout()"> h3 tag </h3>
+    
+    <h3 class="cls" style="background-color: greenyellow;"> h3 tag </h3>
+
+
+
+
+
+    <script type="text/javascript">
+
+        function mouseover(){
+            console.log("범위에 들어왔습니다. ");
+        }
+        $(document).ready(function(){
+            
+            $(".cls").mouseover(function(){
+                console.log("jquery 범위에 들어왔습니다. ");
+                $('.cls').css("background", "#ffff00");
+            });
+
+            $(".cls").mouseout(function(){
+                console.log("jquery 마우스아웃 범위에 들어왔습니다. ");
+                $('.cls').css("background", "#00ff00");
+            });
+
+
+        });
+
+    </script>
+
+    <!-- <script type="text/javascript">
+
+        
+    </script> -->
+
+
+    
+</body>
+
+</html>

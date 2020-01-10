@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<p> p tag </p>
+		<div>
+			<p> div in p tag 1</p>
+			<p> div in p tag 2</p>
+			<p class="cls"> div in p tag class cls </p>
+		</div>
+		<script type="text/javascript">
+			$(function (){
+				// $('p').click(function(){
+				// 	console.log('p tag on click');
+				// });
+				/*
+				$('div p').click(function(){
+					console.log('div p tag click');
+				});
+				*/
+				/*
+				$('div .cls').click(function(){
+					console.log( 'div .cls;;;; div p tag click');
+				});
+				*/
+				
+				// p tag 전체 삭제
+				// $('p').on("click", function(){
+				// 	$('p').hide();
+				// });
+
+					// p테그중에서 클릭된 녀석만 삭제.
+				$('p').on("click", function(){
+					// $(this).hide();
+					// $(this).css( 프로퍼티명, 프로퍼티 값);//setter
+					 $(this).css("background" ,"#ff0000" );//setter
+					 
+					 var color = $(this).css("background"); ///getter
+					console.log(color);
+				});
+
+			});
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- button event -->
+    Java script
+    <p id="ptag" onclick="func()"> p tag </p>
+
+
+    
+
+
+
+    <script type="text/javascript">
+    function func(){
+        console.log("클릭 되었습니다. ");
+    }    
+    </script>
+
+
+    jquery
+    <p id="ptag"> p tag </p>
+    <button type="button"> button 입니다. </button>
+
+
+    <script tyep="text/javascript">
+        //document 를 읽으 후에 함수를 실행해라.
+        $(document).ready(function(){
+
+        });
+
+        //document를 읽기 전에 실행해라. 
+        // $(function(){
+        //     $("#ptag").click(
+        //                     function (){
+        //                        alert("click 됨. ");
+        //                     });
+        // });
+
+        // $("button").click(function (){
+        //     console.log("버튼이 클릭되었다. ");
+        // });
+
+/*
+        $("#ptag").on("click", function (){
+            console.log("피 테그 클릭되었습니다. ");
+        });
+*/
+        // javascript와 혼용해서 사용할수있습니다.
+        $("button").on("click", buttonClick());
+
+        function buttonCClick(){
+            console.log("자바스크립트내의 버튼 온클릭 ");
+        }
+
+
+    </script>
+
+
+
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    <title>Document</title>
+</head>
+<body>
+    <p> p tag </p>
+
+    <p id="pid"> p tag id pid </p>
+
+    <p class="cls"> p tag class class cls </p>
+
+    <p name="_name"> p tag name  _name</p>
+
+    <button type="button"> click </button>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $('p').click(function(){
+                console.log( $(this).text());
+           });
+           $('button').click(function(){
+                // $('p').hide();//p테그 전부 감춰버리기.
+                // $('*').hide();//p태그 및 버튼까지 전부 감춰버리기.
+                // $('p#pid').hide();  //p태그의 pid 클래스 감춰버리기.
+                // $('p.cls').hide();   
+                $("p[name='_name']").hide();// name=_name 태그만 사라진다.
+           });
+
+
+        });
+    </script>
+    
+</body>
+</html>

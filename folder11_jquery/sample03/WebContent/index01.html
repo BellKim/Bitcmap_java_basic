@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<h1> 수영 시합 </h1>
+		<button type="button" id="woman"> 여성부 </button>
+		<button type="button" id="man"> 남성부 </button>
+		<br><br>
+
+		<table border="1" id="result">
+			<tr>
+				<th>title</th>
+				<th>name</th>
+				<th>time</th>
+			</tr>
+
+			<tr>
+				<th>우승</th>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>2위</th>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>3위</th>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+
+		<script type="text/javascript">
+			//file read
+			var woman = [
+			["",""],
+			["김가나","01:45:22"],
+			["김나나","01:45:22"],
+			["김다다","01:45:22"]
+			];
+
+			var man = [
+			["",""],
+			["김남섬","01:45:22"],
+			["김나성","01:45:22"],
+			["김다성","01:45:22"]
+			];
+
+			$(function(){
+				// $("tr:even").css("background-color", "#00ff00");//홀수라인만 색을 칠해준다.
+				// $("tr:eq(1) td:eq(0)").html("데이터");
+
+				$("#woman").click(function(){
+					for(i=0; i<4; i++){
+						for(j=0;j<2;j++){
+							$("tr:eq("+i+") td:eq("+j+")").html(woman[i][j]);
+						}
+					}
+				});
+				$("#man").click(function(){
+					for(i=0; i<4; i++){
+						for(j=0;j<2;j++){
+							$("tr:eq("+i+") td:eq("+j+")").html(man[i][j]);
+						}
+					}
+				});
+
+				$("td").mouseover(function(){
+					// $(this).css("background-color", "#ffff00");
+					// $(this).css("color","#000000");
+
+					// 위와 같은 기능을 하는 구문이다. 
+					$(this).css({"background-color":"#ffff00", "color":"#000000"});
+					
+				});
+				$("td").mouseout(function(){
+					$(this).css("background-color", "#555555");
+					$(this).css("color","#ffffff");
+				});
+				
+
+
+			});
+		
+		</script>
+	
+		
+	</body>
+</html>
