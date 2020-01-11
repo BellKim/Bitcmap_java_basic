@@ -10,10 +10,8 @@
     <h1> 2개의 주사위 </h1>
     <h2 id="dic1">합계</h2>
 
-
     <img alt="" id="d1" src="./images/sai_2.gif">
     <img alt="" id="d2" src="./images/sai_3.gif">
-
 
     <br>
     <button onclick="dice()"> 주사위를 던졌따.</button>
@@ -28,14 +26,10 @@
             // console.log("r1 =" + r1 + "  r2 =" + r2);
             // document.getElementById("d1").src = "./images/sai_"+r1+".gif";
             // document.getElementById("d2").src = "./images/sai_"+r2+".gif";
-
             // document.getElementById("d1").src 와 똑같은 구문.
             document.images[0].src = "./images/sai_"+r1+".gif";
             document.images[1].src = "./images/sai_"+r2+".gif";
-
             document.getElementById("dic1").innerHTML = r1 + r2;
-
-
         }
         
 

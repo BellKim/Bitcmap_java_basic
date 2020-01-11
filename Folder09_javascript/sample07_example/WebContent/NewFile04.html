@@ -12,22 +12,28 @@
         sai_1.gif 
     -->
     <div id="formbox">
-        <img src=changeimg() id="di1">
-        <img src=changeimg() id="di2">
+        <img src="./images/sai_2.gif" id="di1">
+        <img src="./images/sai_3.gif" id="di2">
     </div>
+
+    <p id="dic1"> 총 합이 출력됩니다. </p>
 
     <p><button type="button" id="changeBtn" onclick="changeimg()"> "주사위를 굴립니다."</button></p>
 
     <script type="text/javascript">
         function changeimg(){
             // var element = document.getElementById("formbox");
-            var ran1=3;
-            var ran2=5;
+            var ran1 = Math.random()*6;
+            var ran2 = Math.random()*6;
+            ran1 = Math.ceil(ran1);
+            ran2 = Math.ceil(ran2);
+            
+            
             document.getElementById("di1").src = "./images/sai_"+ran1+".gif";
             document.getElementById("di2").src = "./images/sai_"+ran2+".gif";
     
             
-  
+            document.getElementById("dic1").innerHTML  = ran1 + ran2;
 
 
         }
