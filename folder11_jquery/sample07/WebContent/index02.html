@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<button type="button"> tag Append</button>
+		
+		<script type="text/javascript">
+			$(function(){
+				$("button").click(function(){
+					//html(text) 추가
+					var txt1 = "<p>html p tag append </p>";
+					$("body").append(txt1);
+					
+					//javascript 추가
+					var txt2 = document.createElement("p");
+					txt2.innerHTML = "JS p tag append";
+					$("body").append(txt2);
+					
+					//JQuery 추가
+					//jquery에 p 테그 추가하면서 내용을 text("") 을 통해 넣겠다.
+					var txt3 = $("<p></p>").text("JQuery p tag append");
+					$("body").append(txt3);
+				});
+			});
+		</script>
+		
+	</body>
+</html>

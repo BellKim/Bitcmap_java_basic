@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<style type="text/css">
+			.inputarea{
+				width:100px;
+			}
+			.input_addr{
+				width: 300px;
+    			height: 35px;
+			}
+
+			#marginTopBot10{
+				margin:10px 0px 10px 0px;
+			}
+			.inlineBlock{
+				display:inline-block;
+			}
+
+			.titleArea{
+				float: left;
+				width: 100px;
+				height: 20px;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div>
+			<form id="frm" action="NewFile1.jsp">
+				<div id="marginTopBot10 inlineBlock">	
+					<p>이    름 :&nbsp;</p>
+					<input type="text"  class="inputarea" name="name">
+				</div>
+
+				<div id="marginTopBot10 inlineBlock">
+					<p>우편번호 : </p>
+					<input type="text" class="inputarea" name="addrno1" maxlength="3"> - 
+					<input type="text" class="inputarea" name="addrno2" maxlength="3"> 
+					<button type="button"> 주소변환 </button>
+				</div>
+				<div id="marginTopBot10 inlineBlock">
+					<p>주   소 : </p>
+					<input type="text" class="input_addr" name="addr">
+				</div>
+				<div id="marginTopBot10 inlineBlock">
+					<p>전화번호 : </p>d
+					<input type="text" class="inputarea phoneno1" name="phNo1"> - <input type="text" class="inputarea phoneno2"name="phNo2"> - <input type="text" class="inputarea phoneno3"name="phNo3">
+				</div>
+				<div id="marginTopBot10 inlineBlock">
+					<p>배달시간 : </p>
+					<select id="selectSection" name="deleveryTime" multiple="multiple">
+						<option value="10:00 ~ 12:00"> 10:00 ~ 12:00</option>
+						<option value="12:00 ~ 15:00"> 12:00 ~ 15:00</option>
+						<option value="15:00 ~ 17:00"> 15:00 ~ 17:00</option>
+						<option value="17:00 ~ 20:00"> 17:00 ~ 20:00</option>
+						<option value="지정하지 않음"> 지정하지 않음 </option>
+					</select>
+				</div>
+				<div id="marginTopBot10 inlineBlock">
+
+					<p>영수증 요청 : </p>
+					<input type="checkbox" name="orderRecep">
+				</div>
+				<div id="marginTopBot10 inlineBlock">
+					<p>메일 메거진을 수신</p> 
+					<input type="radio" name="eMailInfo" value="true" >신청   
+					<input type="radio" name="eMailInfo" value="false"> 신청하지 않음
+				</div>
+				<input type="submit" value="확인화면으로 진행">
+			</form>
+		</div>
+		<script type="text/javascript">
+		$(function(){
+			$("_btn").click(function(){
+				$("#frm").submit();
+			});
+		});
+		
+		$("*").blur(function(){
+			$(this).css("background-color", "#ffff00");
+		});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		
+	</head>
+	<body>
+		<!-- RADIO 버튼 -->
+		<ul>
+			<li>
+				<input type="radio" name="radio_test" value="사과">사과
+			</li>
+			<li>
+				<input type="radio" name="radio_test" value="배" checked="checked">배
+			</li>
+			<li>
+				<input type="radio" name="radio_test" value="바나나">바나나
+			</li>
+			<li>
+				<input type="radio" name="radio_test" value="키위">키위
+			</li>
+			<li>
+				<input type="radio" name="radio_test" value="참외">참외
+			</li>
+		</ul>
+		<button type="button" id="choice"> 선 택 </button>
+		
+		
+		
+		<script type="text/javascript">
+			$(function(){
+				//getter 에 해당된다. 
+				//name 을 사용하진 않는다. 
+				$("#choice").click(function(){
+					var radioVal=$("input[name='radio_test']:checked").val();
+					console.log(radioVal);
+				});
+				
+				//setter
+				$("input[name='radio_test']").val(["사과"]);
+			});
+		
+		</script>
+		
+		<br>		<br>		
+		<input type="checkbox" id="che"> 그림그리기
+		<br>
+		<button type="button" id="mycheck"> 체 크  </button>
+		
+		<script type="text/javascript">
+			$("#mycheck").click(function(){
+				
+				//getter 
+				//var check = $("#che").is(":checked");
+				//console.log(check);
+				
+				//getter
+				var check = $("input:checkbox[id='che']").is(":checked");
+				console.log("check: "+ check);
+				
+				
+				//setter
+				$("#che").prop("checked", true);
+				
+				
+			});
+		
+		</script>
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<!-- createElement -->
+		<p>해외 개발자 커뮤니티 XDA디벨로퍼는 갤럭시S20플러스의 실물 사진을 익명의 소스로부터 입수했다며 12일(현지시간) 공개했다.</p>
+		<p>사진 시작 화면에는 '갤럭시S20 플러스 5G'라는 문구가 떠 갤럭시S 차기작 이름이 '갤럭시S11'이 아닌 '갤럭시S20'임을 보여준다. 
+		앞서 외신과 업계에서는 삼성전자가 '갤럭시S10' 차기작 이름으로 '갤럭시S11'이 아니라 2020년에 맞춘 '갤럭시S20'을 선택할 것이라는 추정이 나온 바 있다.</p>
+		
+		
+		<ol>
+			<li>사과</li>
+			<li>배</li>
+			<li>바나나</li>
+		</ol>
+		<br><br><br>
+		
+		<select>
+			<option value="햄버거"> 햄버거 </option>
+			<option value="피자"> 피자 </option>
+			<option value="치킨"> 치킨</option>
+		</select>
+		<br><br><br>
+		
+		
+		
+		<button type="button" id="btn1">추가 텍스트(뒤에추가)</button>
+		<button type="button" id="btn2">추가 텍스트(앞에추가)</button>
+		
+		<script type="text/javascript">
+			$(function(){
+				/*
+				$("#btn1").click(function(){
+					//원래는 아이디를 주어야지, 테그를 그냥 셀렉터로 잡으면 안된다. 
+					$("p").append("<br>append 추가 요소(element) 입니다.");
+				});
+				$("#btn2").click(function(){
+					$("p").prepend("<br>prepend 추가요소(element) 입니다.");
+				});*/
+				
+				
+				
+				/*
+				$("#btn1").click(function(){
+					//원래는 아이디를 주어야지, 테그를 그냥 셀렉터로 잡으면 안된다. 
+					$("ol").append("<li>포도도</li>");
+				});
+				$("#btn2").click(function(){
+					$("ol").prepend("<li>오오란지</li>");
+				});
+				*/
+				$("#btn1").click(function(){
+					//원래는 아이디를 주어야지, 테그를 그냥 셀렉터로 잡으면 안된다. 
+					$("select").append("<option value='스테이크'> 스테이크 </option>");
+				});
+				
+				$("#btn2").click(function(){
+					$("select").prepend("<option value='떡볶이'> 떡볶이 </option>");
+				});
+				
+				
+			});
+			
+		</script>
+		
+	</body>
+</html>
