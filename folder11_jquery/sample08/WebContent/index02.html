@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<div id="div1" style="width:500px; height:150px; border:1px solid blue; background-color:#00ff00">
+			<p id="pid">1단계 미중무역합의 서명 이틀 전 조작국서 해제</p>
+			
+			<p id="cls">"중국, 경쟁적 통화절하 삼가기 위한 이행 강제적 약속"</p>
+			
+			<h3 id="cls">한국은 3개 요건 중 대미무역 흑자 등 2개 해당해 관찰대상국 그대로</h3>
+		</div>
+		
+		<button type="button"> 클릭 </button>
+		
+		<script type="text/javascript">
+			$(function(){
+				$("button").click(function(){
+					//$("#div1").hide(3000);
+					//$("*").remove();
+					//$("#div1").remove();
+					//$("#div1").empty();
+					//$("#cls").remove();//클래스는  p태그나 h3테그 등등을 말한다.
+					$("p").remove("#pid, .cls");
+					
+					
+				});
+			});
+		</script> 
+		
+	</body>
+</html>

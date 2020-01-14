@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<h3> Detail view</h3>
+		<textarea row="2" cols="20"> 기본글 .... </textarea>
+		
+		<br><br>
+		
+		<button type="button" id="answer"> 답글입력</button>
+		<div id="answerForm">
+		
+		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				$("#answer").click(function(){
+					
+					var txt="<br>답글:<input type='text' id='answerText'>";
+					$("#answerForm").append(txt);
+					var btn = "<br><br><button type='button' id='answerBtn'>답글작성 완료 </button>";
+					$("#answerForm").append(btn);
+				});
+				/*
+				//이련식은 동작을 하지 않는다. document 를 다시 처음부터 읽어야 하기때문에. 
+				$("#answerBtn").click(function(){
+					console.log("answerbtn Click");
+				});
+				*/
+				
+				$(document).on("click", "#answerBtn", function(){
+					console.log("answerBtn click");
+					console.log($("#answerText").val);
+				});
+			});
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<style type="text/css">
+			.q5{
+				color:#aabbcc;
+				border:2px solid;
+			}
+			
+			.q8{
+				padding:10px;
+				border:#000000 2px solid;
+				background-color:gray;
+			}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		<button type="button" name="button"> 실행 </button>
+		<p id="q01"> Hello JQuery1</p>
+		<p id="q02"> Hello JQuery2</p>
+		<p id="q03"> Hello JQuery3</p>
+		<p id="q04"> Hello JQuery4</p>
+		
+		<ul id="q05">
+			<li>사과</li>
+			<li>배</li>
+			<li>바나나</li>
+		</ul>
+		<p id="q06"> Hello JQuery6</p>
+		
+		
+		<ul id="q07">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		
+		<p id="q08">
+			나는 최선을다할것
+		</p>
+		
+		<div class="q8">
+			<p id="q09">
+				나는 최선을다할것
+			</p>
+		</div>
+		
+		<p id="q10" class="q10">나는 문제없다. </p>
+		
+		<p id="q11">
+			<a href="http://www.naver.com"> ㅇ네 이 버 </a>
+		</p>
+		
+		<script type="text/javascript">
+			$("button").click(function(){
+				
+				//font color  변경
+				$("#q01").css("color", "#ff0000");
+				
+				//font color, background-color 변경
+				$("#q02").css({
+								"color":"#0000ff",
+								"background-color":"#ffff00"
+				});
+				
+				//setter
+				$("#q03").text("헬로우 제이쿼리");
+				$("#q04").html("<b>헬로우</b> 제이쿼리");
+				
+				$("#q04").html("<a href='https://www.naver.com'>네이버 홈피 </a>");
+				
+				$("#q05").addClass("q5");
+				
+				var app = $("<li>").text("복숭아");
+				$("#q05").append(app);
+				
+				//$("#q05 li").remove();
+				
+				$("#q06").prepend("<p>끝까지</p>");
+				$("#q06").append("<p>나는 성공할 것이다. </p>");
+				
+				
+				
+				//$("#q07 li").before("<li>홍차</li>");
+				//$("#q07 li").after("<li>우유</li>");
+				
+				$("#q07").before("<li>홍차</li>");
+				$("#q07").after("<li>우유</li>");
+				
+				$("#q08").wrap("<div class='q8'></div>");
+				
+				$("#q09").unwrap("div.q8");
+				
+				
+				//class명 변경 
+				$("#q10").attr("class", "q11");
+				console.log($("#q10").attr("class", "q11"));
+				
+				$("#q11 a").removeAttr("href");//링크지만 링크속성을 제거할수 있다. 
+				
+				
+			});
+		</script>
+		
+	</body>
+</html>

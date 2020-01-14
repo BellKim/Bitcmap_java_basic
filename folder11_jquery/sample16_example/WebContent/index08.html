@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<style type="text/css">
+
+		</style>
+		
+	</head>
+	<body>
+		<pre>
+			p 요소의 끝에 자싞의 명을 추가하라
+		</pre>
+		<p id="q10">반드시</p>
+		<p id="q10_1">나는 성공한다. 내 이름은</p>
+		
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var value=$("#q10").html();
+			
+			$("#q10").text(value + " 나는 성공한다");
+			
+			$("#q10_1").text(value + " 김 철 수 ");
+		});
+	</script>
+		
+	
+	
+		
+	</body>
+</html>

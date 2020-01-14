@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+	<pre>
+	id명 q05의 “하이”의 내용을 <a hraf="#"> 태그를 포함한 “안녕하세요”로 대체하라
+	</pre>
+	
+	<p id="q05">하이</p>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//$("#q05").html()
+			$("#q05").after("<a hraf='#'> 안녕하세요 </a>"); 
+			
+			
+
+		});
+	</script>
+		
+	</body>
+</html>
