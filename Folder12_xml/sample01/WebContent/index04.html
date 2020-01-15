@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>		
+	
+	
+		<p id="demo"> hello </p>
+		
+		<script type="text/javascript">
+			var xhttp=new XMLHttpRequest();
+			
+			xhttp.onreadystatechange = function(){
+				console.log(this.status);
+				if(this.readyState == 4 && this.status == 200){
+					//4 준비끝 200 처리끝.
+					//nodeValFunc(this);
+					//nodeNameFunc(this);
+					callVecomm(this);
+				}
+			};
+			
+			xhttp.open("GET", "daumblog.xml", true);
+			xhttp.send();
+			
+				function callVecomm(xml){
+					var xmlDoc, txt;
+					txt="";
+					xmlDoc=xml.responseXML;
+					console.log("xmlDOC = "+xmlDoc);
+					console.log(xmlDoc);
+					
+					var test1 = xmlDoc.getElementsByTagName("channel");
+					console.log("test1" + test1);
+					console.log(test1);
+					var input = test1[0].children[7].children[0].innerHTML;
+					console.log(input);
+					
+					var input1 = test1
+					console.log("input1 다시");
+					console.log(input1[0].childNodes);
+					
+					
+					document.getElementById("demo").innerHTML = input;
+				}
+			
+				
+			
+		</script>
+		
+		
+	</body>
+</html>

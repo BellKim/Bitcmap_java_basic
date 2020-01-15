@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+		<p id="demo"> hello </p>
+		
+		<script type="text/javascript">
+			var xhttp=new XMLHttpRequest();
+			
+			xhttp.onreadystatechange = function(){
+				console.log(this.status);
+				if(this.readyState == 4 && this.status == 200){
+					//4 준비끝 200 처리끝.
+					//nodeValFunc(this);
+					//nodeNameFunc(this);
+					childNodeFunc(this);
+				}
+			};
+			
+			xhttp.open("GET", "client.xml", true);
+			xhttp.send();
+			
+			function nodeValFunc(xml){
+				var num, name; 
+				var txt, ntxt, xmlDoc;
+				
+				txt = ntxt = "";
+				xmlDoc = xml.responseXML;
+				console.log(xmlDoc);	//object
+				
+				num = xmlDoc.getElementsByTagName("번호");
+				name = xmlDoc.getElementsByTagName("이름");
+				console.log(num.length);
+				
+				for(i=0;i<num.length;i++){
+					txt += num[i].childNodes[0].nodeValue+"<br>";
+					ntxt +=name[i].childNodes[0].nodeValue+"<br>";
+					
+				}
+				
+				document.getElementById("demo").innerHTML = txt + ntxt;
+			}
+			
+			function nodeNameFunc(xml){
+				var arr, xmlDoc, txt;
+				txt = "";
+				
+				xmlDoc = xml.responseXML;
+				
+				arr=xmlDoc.documentElement.childNodes;
+				for(i=0; i<arr.length; i++){
+					if(arr[i].nodeType==1){
+						txt+=arr[i].nodeName + "<br>";
+					}
+				}
+				document.getElementById("demo").innerHTML =txt;
+			}
+			
+			function childNodeFunc(xml){
+				var arr, xmlDoc, txt;
+				txt = "";
+				
+				xmlDoc = xml.responseXML;
+				arr=xmlDoc.getElementsByTagName("고객")[0];
+				var len = arr.childNodes.length;
+				console.log("len = "+len);
+				
+				var fchild = arr.firstChild;
+				for(i=0;i<len;i++){
+					if(fchild.nodeType == 1){
+						txt +=1+" "+fchild.nodeName+"<br>";
+					}
+					fchild = fchild.nextSibling;
+				}
+				document.getElementById("demo").innerHTML = txt;
+				
+			}
+		</script>
+		
+	</body>
+</html>

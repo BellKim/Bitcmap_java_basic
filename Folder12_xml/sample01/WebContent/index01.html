@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+		<button type="button" onclick="loadXMLDoc()"> 내용변경</button>
+		
+		<p id="demo"> p tag </p>
+		
+		<script type="text/javascript">
+		
+			 var xhttp = new XMLHttpRequest();
+			 
+			 function loadXMLDoc(){
+				 xhttp.onreadystatechange = function(){
+					 //console.log(this.responseText);
+					 //console.log(this.readyState);
+					 //console.log(this.status);
+					 if(this.readyState == 4 && this.status == 200){
+						 	//3. 파일을 받아서 보내라 
+						 document.getElementById("demo").innerHTML = this.responseText;
+					 }
+				 }
+				 xhttp.open("GET", "test.txt", true); //1. 파일오픈
+				 console.log("xhttp.open");				
+				 xhttp.send();							//2. 오픈된파일 보내라
+				 console.log("xhttp.send");
+			 }
+/*
+ 		readyState 
+ 		0	-> open Method 메소드 실행하기 전에 맨 첫번쨰 실행.
+ 		1	-> loading중
+ 		2	-> loading완료
+ 		3	-> server처리
+ 		4	-> server처리 완료
+ 		 까지 진행됨. 
+ 		
+ 		status는 다음과 같은 오류를 가지고나올 수 있다.
+ 		200 -> 성공
+ 		403 -> 접근 금지 
+ 		404 -> 페이지 없음. (페이지 찾을수 없다)
+ 		500 -> 구문 에러
+ 		
+ 		
+ 		
+ */
+			 
+			 
+		</script>
+			
+		
+		
+		
+	</body>
+</html>
