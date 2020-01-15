@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- 
+			JSON -> Java Script Object Notation
+			
+			Array -> JSON
+			
+			한쌍(pair) key:value==HashMap
+			
+			Web(client)		JAVA(SERVER)
+			JSON			HashMap, list
+			
+					
+		 -->
+	</head>
+	<body>
+		<p id="demo"> </p>
+		
+		
+		<script type="text/javascript">
+			var ar1 = [1, 2, 3];
+			var ar2 = [ [1, 2], [3, 4] ];
+			
+			//arr은 완전한 JSON데이터라고 할수있다(형태가 유사하다는뜻.)
+			var arr = [
+				{
+					"name":"HongGillDong",
+					"age":24
+				},
+				{
+					"name":"KimBongGill",
+					"age":26
+				},
+				{
+					"name":"SungChunHyang",
+					"age":29
+				}
+				];
+			
+			document.getElementById("demo").innerHTML = arr[0].name+ " " + arr[0].age ;
+			
+			//String(Json이 아니다.)
+			var arrText = '{"name":"홍길동","age":25,"주소":"서울시"}';
+			
+			document.getElementById("demo").innerHTML = arrText[0].name;//undefined
+			
+			
+			var jsonObj = JSON.parse(arrText);	//String-> JSON  문자열을 JSON 으로 바꿔주는 작업을 거칠수 있다.
+			var str = JSON.stringify(jsonObj);	//json-=> String	그반대											
+			
+			document.getElementById("demo").innerHTML
+				= jsonObj.name + " " + jsonObj.age + " " + jsonObj.주소;
+			
+		</script>
+	
+		
+		
+	</body>
+</html>

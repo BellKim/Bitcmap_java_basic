@@ -1,0 +1,22 @@
+<readBook>
+	<booklist>
+		<title>노인과바다</title>
+		<author>김철수</author>
+		<price>16666</price>
+	</booklist>
+	<booklist>
+		<title>정의란 무엇인가</title>
+		<author>김영희</author>
+		<price>19999</price>
+	</booklist>
+	<booklist>
+		<title>숨바꼭질</title>
+		<author>김올래</author>
+		<price>14444</price>
+	</booklist>
+	<booklist>
+		<title>노인과사람</title>
+		<author>김철학</author>
+		<price>18888</price>
+	</booklist>
+</readBook>

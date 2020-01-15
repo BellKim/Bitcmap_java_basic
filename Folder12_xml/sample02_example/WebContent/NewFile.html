@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			tr td{
+				border:1px solid black;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+	
+		<p id="demo"> JSON </p>
+		
+		<p id="demo1"> XML </p>
+		
+		
+		<script type="text/javascript">
+			var jsonhttp = new XMLHttpRequest();
+			jsonhttp.onreadystatechange = function(){
+				if(jsonhttp.readyState == 4 && jsonhttp.status == 200){
+					//console.warn(jsonhttp.responseText);
+					jsonFunc(jsonhttp.responseText);
+				}
+			}
+			
+			jsonhttp.open("GET", "readBook.json", true);
+			jsonhttp.send();
+
+			
+			function jsonFunc(resp){
+				var arr = JSON.parse(resp);
+				
+				var txt = "";
+				txt+="<table><th>책제목</th><th>저자</th><th>가격</th>";
+				for(i=0; i<arr.length; i++){ 
+					txt+= "<tr>"+
+						"<td>"+arr[i].title+"</td>" + 
+						"<td>"+arr[i].author+"</td>"  + 
+						"<td>"+arr[i].price+"</td></tr>"; 
+				}
+				txt+="<table>";
+				
+				document.getElementById("demo").innerHTML = txt;
+			}//end function 
+			
+//=======================================//=======================================
+			var xmlhttp = new XMLHttpRequest();
+			
+			xmlhttp.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200){
+					//console.warn(this);
+					xmlFunc(this);
+				}
+			}
+			
+			xmlhttp.open("get", "xmlreadbook.xml", true);
+			xmlhttp.send();
+			
+			
+			
+			function xmlFunc(xml){
+				var xmlDoc, txt;
+				 xmlDoc=xml.responseXML;
+			//node root 취득(xml 에는 무조건 하나의 root node명이 있다.)
+				var rootTagName=xmlDoc.documentElement.nodeName;
+				//alert(rootTagName);
+				
+			//node명을 취득
+			var nodeName;
+			nodeArr = xmlDoc.documentElement.childNodes;
+			console.log(nodeArr);
+			nodeArr = xmlDoc.documentsByTagName(title);
+			console.log(nodeArr);
+			for(i = 0;i < nodeArr.length; i++){
+				if(nodeArr[i].nodeType == 1){
+					nodeName = nodeArr[i].nodeName;
+				//	alert(nodeName);		
+				}
+			}
+			
+			// table 준비
+			var out = "<table border='1'>";
+			out += "<col width=100><col width=140><col width=100>";
+			out += "<tr>";	
+			
+			// cloumn 명을 취득
+			nodeArr = xmlDoc.getElementsByTagName( nodeName )[0];
+			
+			var child = nodeArr.firstChild;
+			for(i = 0;i < nodeArr.childNodes.length; i++){
+				if(child.nodeType == 1){
+					out += "<th>" + child.nodeName + "</th>";
+				}
+				child = child.nextSibling;
+			}
+			out += "</tr>";	
+			
+			// data 출력
+			var len = xmlDoc.getElementsByTagName( nodeName ).length;
+			// alert(len);
+			for(i = 0;i < len; i++){
+				out += "<tr>";	
+				
+				dataArr = xmlDoc.getElementsByTagName( nodeName )[i];
+				
+				child = dataArr.firstChild;
+				for(j = 0;j < dataArr.childNodes.length; j++){
+					if(child.nodeType == 1){
+						out += "<td>" + child.childNodes[0].nodeValue + "</td>";				
+					}	
+					child = child.nextSibling;
+				}	
+				out += "</tr>";
+			}	
+			
+			out += "</table>";	
+			
+			
+			document.getElementById("books").innerHTML = out;
+				
+			}//end function
+			
+		</script>
+		
+	</body>
+</html>

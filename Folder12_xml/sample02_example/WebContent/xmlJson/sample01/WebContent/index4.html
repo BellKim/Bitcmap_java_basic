@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+var xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status == 200){
+		childNodeFunc( this );
+	}
+};
+
+xhttp.open("GET" ,"vecomm.xml", true);
+xhttp.send();
+
+
+function childNodeFunc( xml ) {
+	var arr, xmlDoc, txt;
+	txt = "";
+	
+	xmlDoc = xml.responseXML;
+	
+	arr = xmlDoc.getElementsByTagName("item")[0];
+	var len = arr.childNodes.length;
+//	alert(len);
+
+	var fchild = arr.firstChild;
+
+	for(i = 0;i < len; i++){
+		if(fchild.nodeType == 1){
+			txt += i + " " + fchild.nodeName + "<br>";			
+		}		
+		fchild = fchild.nextSibling;
+	}
+	document.getElementById("demo").innerHTML = txt;	
+}
+
+</script>
+
+
+
+</body>
+</html>
