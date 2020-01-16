@@ -1,1 +1,4 @@
 jquert prj_02 index01.html mouseout 에 관한 오류 수정추가하기. 
+
+resultservlet 
+req.setCharacterEncoding("UTF-8");

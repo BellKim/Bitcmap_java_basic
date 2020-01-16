@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	
+		<a href="hello?age=24">hello Servlet</a>
+		
+		<p> redirect 설정 </p>
+		<form action="hello" method="post">
+		<select name="url">
+			<option value="naver.com" selected="selected">NAVER</option>
+			<option value="google.com" selected="selected">GOOGLE</option>
+			<option value="zum.com" selected="selected">ZUM</option>
+		</select>
+		<input type="submit" value="hello송신">
+		</form>
+		
+		
+		<br><br><br><br>
+		
+		
+		
+		<form action="HelloServlet" method="post">
+			<select name="url">
+				<option value="naver.com" selected="selected">NAVER</option>
+				<option value="google.com" selected="selected">GOOGLE</option>
+				<option value="zum.com" selected="selected">ZUM</option>
+			</select>
+			<input type="submit" value="world송신">
+		</form>
+		
+		
+		
+	</body>
+</html>

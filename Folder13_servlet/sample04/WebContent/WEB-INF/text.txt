@@ -1,0 +1,14 @@
+<!--
+	html
+	<a href="hello"
+	<form action="hello"
+	
+	Java Script
+	location.href = "hello?name=" + name;
+	
+	JQuery
+	$("#frm").attr("action", "hello").submit();
+	
+	Java 
+
+-->
