@@ -50,9 +50,4 @@ public class InfoDto implements Serializable{ //시리얼라이즈어블 직렬�
 	
 	
 	
-	
-	
-	
-	
-	
 }//end class

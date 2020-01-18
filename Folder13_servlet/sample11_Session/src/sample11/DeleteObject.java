@@ -33,7 +33,7 @@ public class DeleteObject extends HttpServlet{
 		
 		pw.println("<p>현재 등록되어 있는 세션 표시 </p>");
 		
-Enumeration<String> enum_session = session.getAttributeNames();
+		Enumeration<String> enum_session = session.getAttributeNames();
 		
 		while(enum_session.hasMoreElements()) {
 			String key = enum_session.nextElement();
