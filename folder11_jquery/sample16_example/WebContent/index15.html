@@ -5,22 +5,23 @@
 		<title>Insert title here</title>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<style type="text/css">
-
+			.q24_a{
+				text-decoration:underline;
+				color:#00F;
+			}
 		</style>
 		
 	</head>
 	<body>
-	
-		<ul id="q13">
-			<li>커피</li>
-		</ul>
+		
+		<p class="q24">Q24</p>
+
+
 
 	<script type="text/javascript">
 		$(document).ready(function(){
 			
-			var addlist = $("<li>").text("홍차");
-			$("#q13 li").after("<li>홍차</li>");
-			$("#q13 li").before("<li>홍차</li>");
+			$(".q24").attr("class","q24_a");
 			
 		});
 	</script>

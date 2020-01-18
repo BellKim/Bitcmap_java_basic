@@ -5,22 +5,26 @@
 		<title>Insert title here</title>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<style type="text/css">
-
+			#q29 {
+				background:#FFF;
+				width:100px;
+				height:100px;
+			}
 		</style>
 		
 	</head>
 	<body>
-	
-		<ul id="q13">
-			<li>커피</li>
-		</ul>
+		
+		<pre>
+			id 명 "q29"의 요소를 브라우저 150px 300px 값으로 표시하라
+		</pre>
+		
+		<p id="q29">Q29</p>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
-			var addlist = $("<li>").text("홍차");
-			$("#q13 li").after("<li>홍차</li>");
-			$("#q13 li").before("<li>홍차</li>");
+			$("#q29").css({
+			    "width":"150px","height":"300px"});
 			
 		});
 	</script>

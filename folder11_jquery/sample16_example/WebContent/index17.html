@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<style type="text/css">
+			.q24_a{
+				text-decoration:underline;
+				color:#00F;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<pre>
+		class 명 "q25"를 가진 요소의 a 태그의 href 속성을 제거하라
+		</pre>
+		<p class="q25"><a href="#">aaa</a></p>
+		<p><a href="#">bbb</a></p>
+		<p class="q25"><a href="#">ccc</a></p>
+		<p><a href="#">ddd</a></p>
+		<p class="q25"><a href="#">eee</a></p>
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			//$(".q25 a").removeAttr("href");
+			$(".q25 a").attr("target", "_blank");
+			
+		});
+	</script>
+
+		
+	</body>
+</html>

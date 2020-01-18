@@ -5,22 +5,23 @@
 		<title>Insert title here</title>
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<style type="text/css">
-
+			.ccc{
+				padding:10px;
+				border:#000 2px solid;
+				background-color:red;
+			}
 		</style>
 		
 	</head>
 	<body>
-	
-		<ul id="q13">
-			<li>커피</li>
-		</ul>
+		
+		<p id="q20"> 최선을 다해서 </p>
+
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+			$("#q20").addClass("ccc");
 			
-			var addlist = $("<li>").text("홍차");
-			$("#q13 li").after("<li>홍차</li>");
-			$("#q13 li").before("<li>홍차</li>");
 			
 		});
 	</script>

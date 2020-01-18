@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<style type="text/css">
+			.q24_a{
+				text-decoration:underline;
+				color:#00F;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<pre>
+			양식에 입력 값을 "입력해 주십시오“로 변경하십시오
+		</pre>
+		<form>
+			<input type="text" value="입력하지 마십시오">
+		</form>
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("input").attr("value", "입력해 주십시오");
+			//$(".q25 a").removeAttr("href");
+			//$(".q25 a").attr("target", "_blank");
+			
+		});
+	</script>
+
+		
+	</body>
+</html>
