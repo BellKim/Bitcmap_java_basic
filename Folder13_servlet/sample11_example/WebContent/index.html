@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>	</head>
+	<body>
+	
+	
+		<form id="frm" method="post">
+			<table>
+				<tr>
+					<td>
+						<select name="age" id="selected_age">
+						    <option value="">연령대선택</option>
+						    <option value="10대">10대</option>
+						    <option value="20대">20대</option>
+						    <option value="30대">30대</option>
+						    <option value="40대">40대</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="radio" name="chk_gend" value="man">남자
+						<input type="radio" name="chk_gend" value="womon" checked="checked">여자
+					</td>
+					
+				</tr>
+				<tr>
+					<td>취미</td>
+					<td><input type="text" id="_hobby" name="hobby" size="20" placeholder="취미입력 "></td>
+					  
+					<td>이름</td>
+					<td><input type="text" id="_name" name="name" size="5" placeholder="이름입력"></td>
+					
+				</tr>
+				<button type="button" id="btn"> 전 송 </button>
+			</table>
+		</form>
+		
+		<script type="text/javascript">
+			$("#btn").click(function(){
+				if($("#_hobby").val == ""){
+					alert("취미를 입력해주세요");
+					$("#_hobby").focus();
+				
+				}
+				
+				else if($("#selected_age").val() == ""){
+					alert("나이를 선택해 주세요 ");
+					$("#selected_age").focus();
+				}
+				else {
+					$("#frm").attr({"action":"hello", "target":"_self"}).submit();
+														//현재창에 할것이냐 또는 새창에서 할것인가
+														//_self, _blank
+					
+				}
+			});
+		</script>
+		
+		
+	</body>
+</html>

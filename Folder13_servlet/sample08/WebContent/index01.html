@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body>
+		
+		<form id="frm" method="post">
+			<table>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" id="_name" name="name" size="20" placeholder="이름"></td>
+				</tr>
+				<tr>
+					<td>나이</td>
+					<td><input type="text" id="_age" name="age" size="5" placeholder="나이"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<button type="button" id="btn"> 전 송 </button>
+			</table>
+		</form>
+		
+		<script type="text/javascript">
+			$("#btn").click(function(){
+				if($("#_name").val == ""){
+					alert("이름을 입력해주세요");
+					$("#_name").focus();
+				
+				} else if($("#_age").val() == ""){
+					alert("나이를 입력해 주십시오");
+					$("#_age").focus();
+					
+				}else {
+					$("#frm").attr({"action":"hello", "target":"_self"}).submit();
+														//현재창에 할것이냐 또는 새창에서 할것인가
+														//_self, _blank
+					
+				}
+			});
+		</script>
+		
+	</body>
+</html>
