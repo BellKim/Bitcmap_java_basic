@@ -1,0 +1,3 @@
+select * FROM EMPLOYEES;
+
+SELECT * FROM TAB;

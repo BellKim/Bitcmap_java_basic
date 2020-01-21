@@ -26,7 +26,10 @@
 	기타 하고싶은말<br>
 	<textarea rows=10 cols="50" placeholder="입력"></textarea>
 	
+	<script type="text/javascript">
+		
 	
+	</script>
 	
 	
 
