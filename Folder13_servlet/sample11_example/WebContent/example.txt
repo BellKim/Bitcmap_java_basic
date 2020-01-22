@@ -16,7 +16,7 @@ response.sendRedirect 를 이용ㅇ해서 이동.
 일반적이라면 DTO를 못가지고 가지만 session 을 이용해서 전송이 되는지 확인한다.
 Dto <- name age 취미 -> session.setAttribute
 response.sendRedirect
- 
+
 
 --여성사이트로 이동 
 성별이 여성이면 DTO를 가지고 이동. -> request.setAttriute
