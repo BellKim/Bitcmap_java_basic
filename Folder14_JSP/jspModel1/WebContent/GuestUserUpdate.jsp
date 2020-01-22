@@ -34,11 +34,11 @@ CustuserDetailDao dao = CustuserDetailDao.getInstance();
 				</tr>
 				<tr>
 					<td height="6">ID</td>
-					<td> <input type="text" name="id" value="<%=dto.getId()%>"> </td>
+					<td> <input type="text" name="id" value=""> </td>
 				</tr>
 				<tr>
 					<td height="6">주소</td>
-					<td> <input type="text" name="address" value="<%=dto.getAddress() %>"> </td>
+					<td> <input type="text" name="address" value=""> </td>
 				</tr>
 				<tr>	<%--파랑라인 그리는영역 --%>
 					<td height="2" bgcolor="#0000ff" colspan="3"> </td>
