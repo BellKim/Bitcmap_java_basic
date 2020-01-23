@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.CustUserDao;
 import dto.CustUserDto;
+import util.CustUtil;
 
 public class CustUserList extends HttpServlet {
 	
@@ -32,13 +33,10 @@ public class CustUserList extends HttpServlet {
 		
 		req.setAttribute("custlist", list);	// 짐싸!
 		
-		forward("custuserlist.jsp", req, resp);	// 잘가(전진)	
+		CustUtil.forward("custuserlist.jsp", req, resp);	// 잘가(전진)	
 	}
 	
-	public void forward(String link, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
-		RequestDispatcher dispatch = req.getRequestDispatcher(link);
-		dispatch.forward(req, resp);		
-	}
+	
 
 	
 }

@@ -4,12 +4,13 @@
     pageEncoding="UTF-8"%>
 
 <%
-String id = request.getParameter("id");
-System.out.println("id:" + id);
+//String id = request.getParameter("id");
+//System.out.println("id:" + id);
 
-//CustUserDao dao = CustUserDao.getInstance();
-//CustUserDto cust = dao.getCustuser(id);
-CustUserDto dto = (CustUserDto)request.getAttribute("custuserdetail");
+// CustUserDao dao = CustUserDao.getInstance();
+// CustUserDto cust = dao.getCustuser(id);
+
+CustUserDto cust = (CustUserDto)request.getAttribute("cust");
 %>    
     
 <!DOCTYPE html>
@@ -33,10 +34,7 @@ CustUserDto dto = (CustUserDto)request.getAttribute("custuserdetail");
 
 <tr bgcolor="#f6f6f6">
 	<td align="center">아이디</td>
-	<td>
-		<%=dto.getId() %>
-		 <%--<%=cust.getId()%> --%>
-	</td>
+	<td><%=cust.getId() %></td>
 </tr>
 
 <tr>
@@ -45,11 +43,7 @@ CustUserDto dto = (CustUserDto)request.getAttribute("custuserdetail");
 
 <tr bgcolor="#f6f6f6">
 	<td align="center">이름</td>
-	<td>
-		
-		<%=dto.getName() %>
-		<%--<%=cust.getName() %>--%>
-	</td>
+	<td><%=cust.getName() %></td>
 </tr>
 
 <tr>
@@ -58,10 +52,7 @@ CustUserDto dto = (CustUserDto)request.getAttribute("custuserdetail");
 
 <tr bgcolor="#f6f6f6">
 	<td align="center">주소</td>
-	<td>
-		<%=dto.getAddress() %>
-		<%-- <%=cust.getAddress() %> --%>
-	</td>
+	<td><%=cust.getAddress() %></td>
 </tr>
 
 <tr>
@@ -72,17 +63,18 @@ CustUserDto dto = (CustUserDto)request.getAttribute("custuserdetail");
 <tr bgcolor="#f6f6f6">
 	<td>고객정보 변경</td>
 	<td>
-		<form action="custuserupdate.jsp" method="get">
-			<input type="hidden" name="id" value="<%--=cust.getId() --%>">
+		<form action="custuserupdate" method="get">
+			<input type="hidden" name="command" value="update">
+			<input type="hidden" name="id" value="<%=cust.getId() %>">
 			<input type="submit" value="수정">	<!-- 주소만 수정가능 -->
 		</form>
 		
-		<form action="custuserdelete.jsp" method="get">
-			<input type="hidden" name="id" value="<%--=cust.getId() --%>">
+		<form action="custuserdelete" method="get">
+			<input type="hidden" name="id" value="<%=cust.getId() %>">
 			<input type="submit" value="삭제">	
 		</form>
 		
-		<form action="custuserlist.jsp" method="get">
+		<form action="custuserlist" method="get">
 			<input type="submit" value="고객목록">
 		</form>
 	</td>

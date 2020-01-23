@@ -8,43 +8,39 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-
 <p id="demo"></p>
 <br>
 <button type="button">click</button>
 
 <script type="text/javascript">
-$(function () {
-	
-	$("button").click(function () {
-		// Jar 파일을 추가할 것!!	
+//$(function () {});
+$(document).ready(function(){
+	$("button").click(function(){
 		$.ajax({
-			url:"custuser",		// servlet
-			type:"get",
+			url:"./hello",
+			type:"post",
 			datatype:"json",
-			data:"id=abc&pwd=123",
-			success:function( json ){
-				alert("success");				// int, string, 다수의 데이터
-			//	alert(json.str);
-			//	alert(json.map.title);
-			//	alert(json.map.list);
-				var list = json.map.list;
-				alert(list[0].number);
+			data:"num=1",
+			success:function(data){
+				//alert("success");
+				console.log("data");
+				console.log(data[0].number);
+				console.log(data[0].name);
+				
+				$.each(data, function(i, val){
+					$("#demo").append("i:" + "number : " + val.number + " name : " + val.name + "<br>");
+					
+				});
 			},
 			error:function(){
 				alert("error");
 			}
-		});		
-		
-	});	
+			
+			
+		});
+	});
 });
 </script>
 
-
-
-
-
 </body>
 </html>
-
-

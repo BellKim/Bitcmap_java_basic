@@ -4,6 +4,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+request.setCharacterEncoding("utf-8");
+
 List<CustUserDto> list = (List<CustUserDto>)request.getAttribute("custlist");
 %>    
     
@@ -19,7 +21,8 @@ List<CustUserDto> list = (List<CustUserDto>)request.getAttribute("custlist");
 
 <div align="center">
 
-<form action="muldel.jsp" method="post">
+<form action="custuserdelete" method="post">
+<input type="hidden" name="command" value="mudel">
 
 <table style="width: 700">
 <col width="100"><col width="300"><col width="300">
@@ -62,7 +65,7 @@ if(list.size() == 0){
 				<%=cust.getId() %>
 			</td>
 			<td>
-				<a href="custuserdetail.jsp?command=detail&id=<%=cust.getId() %>">
+				<a href="custuserdetail?id=<%=cust.getId() %>">
 					<%=cust.getName() %>
 				</a>
 			</td>		

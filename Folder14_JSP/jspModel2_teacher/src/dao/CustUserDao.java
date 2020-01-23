@@ -85,15 +85,12 @@ public class CustUserDao {
 		
 		return count>0?true:false;
 	}
-	
-	
-	
-	
-	
-	public CustUserDto showMemInfo(String id) {
+
+	public CustUserDto getCustuser(String id) {
 		
-		String sql = " SELECT ID, NAME, ADDRESS "
-				+ "		FROM CUSTUSER	";
+		String sql = " SELECT * "
+				+ " FROM CUSTUSER "
+				+ " WHERE ID=? ";
 		
 		Connection conn = null;
 		PreparedStatement psmt = null;
@@ -102,31 +99,140 @@ public class CustUserDao {
 		CustUserDto dto = null;
 		
 		try {
-			conn = getConnection();
-			psmt = conn.prepareStatement(sql);
+			conn = this.getConnection();
+			
+			psmt = conn.prepareStatement(sql);			
+			psmt.setString(1, id.trim()); 
+			
 			rs = psmt.executeQuery();
 			
-			while(rs.next()) {
-				String _id = rs.getString("ID");
-				String _name = rs.getString("NAME");
-				String _address = rs.getString("ADDRESS");
-				
-				dto=new CustUserDto(_id, _name, _address);				
-			}			
+			if(rs.next()) {
+				dto = new CustUserDto();
+				dto.setId( rs.getString("ID") );
+				dto.setName( rs.getString("NAME") );
+				dto.setAddress( rs.getString("ADDRESS") );				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			this.close(conn, psmt, rs);			
+		}
+		return dto;		
+	}
+	
+	public int updateCustUser(String id, String name, String address) {
+		
+		String sql = " UPDATE CUSTUSER "
+				+ " SET NAME=?, ADDRESS=?"
+				+ " WHERE ID=? ";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		int count = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, name.trim());
+			psmt.setString(2, address.trim());
+			
+			psmt.setString(3, id.trim());
+			
+			count = psmt.executeUpdate();
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally{
+			close(conn, psmt, null);			
+		}
+		
+		return count;
+	}
+	
+	public boolean deleteCustUser(String id) {
+		String sql = " DELETE FROM CUSTUSER "
+				+ " WHERE ID=? ";
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		int count = 0;
+		
+		try {
+			conn = getConnection();
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id.trim());
+			
+			count = psmt.executeUpdate();
 			
 		} catch (SQLException e) {			
 			e.printStackTrace();
 		} finally {
-			close(conn, psmt, rs);			
+			close(conn, psmt, null);			
 		}
 		
-		return dto;
+		return count>0?true:false;
 	}
 	
-
+	public boolean deleteCustUsers(String ids[]) {
+		
+		String sql = " DELETE FROM CUSTUSER "
+					+ " WHERE ID=? ";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		
+		int count[] = new int[ids.length];
+		
+		try {
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			
+			psmt = conn.prepareStatement(sql);
+			
+			for (int i = 0; i < ids.length; i++) {
+				psmt.setString(1, ids[i]);
+				psmt.addBatch();
+			}
+			
+			count = psmt.executeBatch();
+			
+			conn.commit();
+			
+		} catch (SQLException e) {			
+			e.printStackTrace();
+			
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {				
+				e1.printStackTrace();
+			}			
+		} finally {
+			try {
+				conn.setAutoCommit(true);
+			} catch (SQLException e) {				
+				e.printStackTrace();
+			}
+			close(conn, psmt, null);			
+		}
+		
+		boolean isS = true;		
+		for (int i = 0; i < count.length; i++) {
+			if(count[i] != -2) {	// -2 -> 정상종료 
+				isS = false;
+				break;
+			}
+		}
+		
+		return isS;
+	}
 
 	public Connection getConnection() throws SQLException{
-		String url = "jdbc:oracle:thin:@192.168.2.26:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.2.40:1521:xe";
 		String user = "hr";
 		String password = "hr";
 	
@@ -151,11 +257,7 @@ public class CustUserDao {
 		}
 		
 	}
-
-	
-	
-	
-}//end class
+}
 
 
 

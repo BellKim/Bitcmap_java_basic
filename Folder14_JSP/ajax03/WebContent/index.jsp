@@ -9,51 +9,50 @@
 </head>
 <body>
 
-<button type="button"> click</button>
-	
-	<p id="demo"> hello </p>
-	
-	<script type="text/javascript">
-		var target = [];
-		var link = [];
-		var aname = [];
-		$(function (){
-			//model1, model2
-			$("button").click(function(){
-				$.ajax({
-					url:"data.jsp",
-					type:"get",			//jsp
-					datatype:"json", success:function(obj ){
-						console.log("success!");
-						
-						console.log(obj);
-						console.log(obj.num);
-						
-						//string -> json
-						var data = JSON.parse(obj);
-						console.log("data = "+data.num);
-						
-						//json -> string
-						var str = JSON.stringify(data);
-						console.log("str.num = "+str.num);
-						
-						
-					},
-					error:function(){
-						console.log("error");
-					}
-					
-					
-					
-				});
-				
-			});
-		});
-	</script>
+<p id="demo"></p>
+<br>
+<button type="button">click</button>
 
-		
-		
+<script type="text/javascript">
+$(function () {
 	
+	// model1
+	$("button").click(function () {
+		
+		$.ajax({
+			url:"data.jsp",
+			type:"get",		// jsp 
+			datatype:"json",
+			success:function( obj ){
+			//	alert("success");
+			//	alert(obj);
+			//	alert( obj.num );
+				
+				// String -> json
+				var data = JSON.parse(obj);
+				alert( data.num );
+				alert( data.name );
+				
+				// json -> String
+				var str = JSON.stringify(data);
+				alert( str.num );
+			},
+			error:function(){
+				alert("error");
+			}
+		});
+		
+	});	
+	
+});
+</script>
 
 </body>
 </html>
+
+
+
+
+
+
+
