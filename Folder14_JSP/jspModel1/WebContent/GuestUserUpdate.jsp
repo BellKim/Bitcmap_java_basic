@@ -12,8 +12,6 @@ String getaddress = request.getParameter("address");
 
 CustuserDetailDao dao = CustuserDetailDao.getInstance();
 //CustUserDto dto = dao.setUpdate(getid);
-
-
 %>
     
     
