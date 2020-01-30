@@ -13,7 +13,7 @@ int seq = Integer.parseInt(sseq);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>BBS UPDATE</title>
 </head>
 <body>
 
@@ -68,7 +68,7 @@ int seq = Integer.parseInt(sseq);
 		 		<tr>
 		 			<th>내용</th>
 		 			<td>
-		 				<textarea rows="10" cols="90" readonly="readonly"><%=bbs.getContent() %></textarea>
+		 				<textarea rows="10" cols="90" ><%=bbs.getContent() %></textarea>
 		 			</td>
 		 		</tr>
 		 		
@@ -79,23 +79,24 @@ int seq = Integer.parseInt(sseq);
 		<%
 		 	if(bbs.getId().equals(mem.getId())){
 		%>
-		 	<button type="button" onclick="updateBbs(<%=bbs.getSeq() %>)">수정</button>
+		 	<button type="button" onclick="updateBbs(<%=bbs.getSeq() %>)">수정 완료</button>
 		 	<%-- http://localhost:8090/jspSamples/bbsupdate.jsp?seq=25 --%>
 		 	
-		 	<button type="button" onclick="deleteBbs(<%=bbs.getSeq() %>)">삭제</button>
+		 	<button type="button" onclick="deleteBbs(<%=bbs.getSeq() %>)">취소</button>
 		 	<%-- http://localhost:8090/jspSamples/bbsdelete.jsp?seq=25 --%>
 		 <%
 		 	}
 		 %>
 		 
 		 <%-- 댓글 부분이 중요하다  --%>
+		 <%--
 		 <form action="answer.jsp" method="get">
 		 	<input type="hidden" name="seq" value="<%=bbs.getSeq() %>">
 		 	<input type="submit" value="댓글">
 		 </form>
 		 
 		 <button type="button" onclick="location.href='bbslist.jsp'">목 록</button>
-		 
+		  --%>
 	</div>
 		 
 		 
@@ -104,10 +105,10 @@ int seq = Integer.parseInt(sseq);
  	<script type="text/javascript">
  	
  		function updateBbs(seq){
- 			location.href="bbsupdate.jsp?seq="+seq;
+ 			location.href="bbsupdateAf.jsp?seq="+seq;
  		}
  		function deleteBbs(seq){
- 			location.href="bbsdelete.jsp?seq="+seq;
+ 			location.href="bbslist.jsp?";
  		}
 
  	</script>

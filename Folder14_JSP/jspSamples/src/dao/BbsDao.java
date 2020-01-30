@@ -271,7 +271,7 @@ public class BbsDao {
 			//insert 
 			psmt=conn.prepareStatement(sql2);
 			
-			psmt.setString(1, seq);
+			psmt.setInt(1, seq);
 			psmt.setInt(2, seq);
 			psmt.setInt(3, seq);
 			psmt.setInt(4, seq);
@@ -286,14 +286,24 @@ public class BbsDao {
 		} catch (SQLException e) {
 			System.out.println("answer fail!!");
 			
-			conn.rollback();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			
 			e.printStackTrace();
 		}finally {
 			
 			
-			conn.setAutoCommit(true);
+			try {
+				conn.setAutoCommit(true);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			System.out.println("6/6 answer success");
 		}
@@ -303,6 +313,42 @@ public class BbsDao {
 		return count>0?true:false;
 	}//end answer()
 	
+	
+	
+	public boolean deleteBbs(String seq) {
+		String sql = " UPDATE BBS SET DEL=? "
+				+ " WHERE SEQ=? ";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		int count = 0;
+		
+		
+		try {
+			conn = DBConnection.getConnection();
+			System.out.println("1/6 deleteBbs success");
+			
+			psmt = conn.prepareStatement(sql);
+			System.out.println("2/6 deleteBbs success");
+			
+			psmt.setInt(1, 1);
+			psmt.setString(2, seq);
+			
+			count = psmt.executeUpdate();
+			System.out.println("3/6 deleteBbs success");
+			
+			
+			
+			
+		} catch (SQLException e) {
+			System.out.println("deleteBbs fail. ");
+			e.printStackTrace();
+		}finally {
+			DBClose.close(psmt, conn, null);
+			
+		}
+		return count>0?true:false;
+	}//end writeBbs()
 	
 
 }//end class

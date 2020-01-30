@@ -66,25 +66,42 @@ public String arrow(int depth){
 				작성자
 			</th>
 		</tr>
-		<%
-		if(list == null || list.size() == 0){
-		%>
-		<tr>
-			<td colspan="3"> 작성된 글이 없습니다. </td>
-		</tr>
-		<%
-		}else{
-			for(int i=0; i<list.size(); i++){
-				BbsDto bbs = list.get(i);
-		%>
+				<%
+				if(list == null || list.size() == 0){
+				%>
+				<tr>
+					<td colspan="3"> 작성된 글이 없습니다. </td>
+				</tr>
+				<%
+				}else{
+					for(int i=0; i<list.size(); i++){
+						BbsDto bbs = list.get(i);
+				%>
 		<tr>
 			<th><%=i+1 %></th>
+			
 			<td>
 				<%=arrow(bbs.getDepth()) %>
+			    <%if(bbs.getDel()==1){%>
+			        <a>
+			          << 해당글이 삭제되었습니다. >>
+			        </a>
+			    <%
+			    }else{
+			    %>
+			        <a href="bbsdetail.jsp?seq=<%=bbs.getSeq() %>">
+			            <%=bbs.getTitle() %>
+			        </a>
+			    <%    
+			    }
+			    %>
+				<%--
 				<a href="bbsdetail.jsp?seq=<%=bbs.getSeq() %>">
-					<%=bbs.getTitle() %>
+				    <%=bbs.getTitle() %>
 				</a>
+				--%>
 			</td>
+			
 			<td align="center">
 				<%=bbs.getId() %>
 			</td>
@@ -96,6 +113,11 @@ public String arrow(int depth){
 		%>
 		
 	</table>
+</div>
+
+	<%--  검색기능 추가함.  --%>
+<div align="center">
+
 </div>
 
 <a href="bbsWrite.jsp"> 글 쓰 기 </a>
