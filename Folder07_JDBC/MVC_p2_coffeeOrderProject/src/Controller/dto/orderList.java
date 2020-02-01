@@ -10,6 +10,7 @@ public class orderList {
 	private boolean addShot;
 	private boolean whiping;
 	private int amount;
+	private int price;
 	
 	public orderList() {
 	
@@ -92,12 +93,22 @@ public class orderList {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
 	@Override
 	public String toString() {
 		return "orderList [Name=" + Name + ", nameNumber=" + nameNumber + ", size=" + size + ", syrup=" + syrup
-				+ ", addShot=" + addShot + ", whiping=" + whiping + ", amount=" + amount + "]\n";
+				+ ", addShot=" + addShot + ", whiping=" + whiping + ", amount=" + amount + ", price=" + price + "]" + "\n";
 	}
+	
+
 
 	
 

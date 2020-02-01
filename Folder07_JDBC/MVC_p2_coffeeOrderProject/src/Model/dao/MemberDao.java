@@ -9,4 +9,6 @@ public interface MemberDao {
 	
 	public int addmemberIns(coffeeMemberDto dto );
 	
+	
+	
 }//end class

@@ -1,13 +1,19 @@
 package Model.dao;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
+import Controller.dto.coffeeOrderDto;
 import Controller.dto.orderList;
 
 public interface orderDao {
-	public int getPrice(String coffeeName, int coffeeSize);
-	public List<orderList> callMenuNumber(List<orderList> list);
-	public void insertOrderList(List<orderList> list, String userInfo);
 	
-}
+	public orderList getCoffeeNoANDPrice(orderList orderList);
+	public int insertOrderList(List<orderList> orderlist);
+	
+	public int getmemberID(String memberid);
+	
+	public List<coffeeOrderDto> getReceiveAll();
+	
+
+}//end orderDao interface 

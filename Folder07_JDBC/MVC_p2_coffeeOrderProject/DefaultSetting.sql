@@ -59,10 +59,10 @@ CREATE TABLE COFFEEORDER(
 	coffee_index NUMBER(4),		--FK
 	order_date	DATE,
 	coffee_size	VARCHAR2(3),
-	SYRUP		VARCHAR2(1),
-	ADDSHOT		VARCHAR2(1),
-	ADDWHIPING	VARCHAR2(1),
-	AMOUNT		VARCHAR2(2),
+	SYRUP		VARCHAR2(20),
+	ADDSHOT		VARCHAR2(10),
+	ADDWHIPING	VARCHAR2(10),
+	AMOUNT		VARCHAR2(10),
 	CONSTRAINT PR_OrderList_01 PRIMARY KEY(ORDER_INDEX),
 	CONSTRAINT FK_COFFEEMEMBERS_01 FOREIGN KEY(MEMBERINDEX) REFERENCES COFFEEMEMBERS(MEMBERINDEX),
 	CONSTRAINT FK_COFFEELIST_01 FOREIGN KEY(coffee_index) REFERENCES COFFEELIST(coffee_index)
@@ -157,10 +157,17 @@ WHERE coffeeName = '아메리카노' AND coffeeSize  = 1
 OR coffeeName = '아메리카노' AND coffeeSize  = 2
 OR coffeeName = '아메리카노' AND coffeeSize  = 3; 
 
+ SELECT b.coffeeName, a.order_date, b.sizePrice 
+ from coffeeorder a, coffeelist b 
+ WHERE a.coffee_index = b.coffee_index
+				
+
 
 SELECT coffee_index FROM COFFEELIST 
 WHERE  coffeeName = '카라멜 라떼' AND coffeeSize  = 2  
 or  coffeeName = '카라멜 라떼' AND coffeeSize  = 3;
 
 
+SELECT coffee_index, sizePrice  FROM COFFEELIST WHERE coffeeName = '카라멜 라떼' AND coffeeSize = 2;
+				
 

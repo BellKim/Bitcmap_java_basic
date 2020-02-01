@@ -1,40 +1,54 @@
 package Model.dao.impl;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import Controller.dto.coffeeOrderDto;
 import Controller.dto.orderList;
 import Model.dao.orderDao;
 import Template.DB.DBClose;
 import Template.DB.DBConnection;
+import main.singleton.Singleton;
 
 public class orderDaoImpl implements orderDao {
 
 	@Override
-	public int getPrice(String coffeeName, int coffeeSize) {
-		String sql = " SELECT sizePrice "
+	public orderList getCoffeeNoANDPrice(orderList orderList) {
+		orderList ol = orderList;
+		
+		String sql = " SELECT coffee_index, sizePrice "
 				+ " FROM COFFEELIST "
-				+ " WHERE coffeeName = ? "
-				+ " AND coffeeSize = ? ";
-		
-		System.out.println( "idcheck.sql = " + sql);
-		
+				+ " WHERE coffeeName=? AND coffeeSize=? ";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-		int res = 0;
+		System.out.println("sql = " + sql );
+		
+		int settingSize=1;
+		if((orderList.getSize()).equals("Short")) {
+			settingSize=1;
+		}else if((orderList.getSize()).equals("Tall")) {
+			settingSize=2;
+		}else if(orderList.getSize().equals("Grande")) {
+			settingSize=3;
+		}
 		
 		try {
 			conn = DBConnection.getConnection();
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, coffeeName);
-			psmt.setInt(2, coffeeSize);
-			rs = psmt.executeQuery();
+			psmt.setString(1 , orderList.getName());
+			psmt.setInt(2, settingSize);
+			
+			rs=psmt.executeQuery();
+			
 			if(rs.next()) {
-				res = rs.getInt(1);
+				ol.setNameNumber(rs.getInt(1));
+				ol.setPrice( (rs.getInt(2)) );
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -42,91 +56,108 @@ public class orderDaoImpl implements orderDao {
 		} finally {
 			DBClose.close(psmt, conn, rs);
 		}
+		System.out.println(" getCoffeeNoANDPrice " + ol.toString());
+		return ol;
+	}
+
+	@Override
+	public int insertOrderList(List<orderList> orderlist) {
+		int res=0;
+		int setMemberNo = 1;
+		int settingSize=1;
+		Singleton si = Singleton.getInstance();
+		
+		/*
+CREATE TABLE COFFEEORDER(
+				ORDER_INDEX	NUMBER(4),		--PK
+				MEMBERINDEX	NUMBER(4),		--FK
+				coffee_index NUMBER(4),		--FK
+				order_date	DATE,
+				coffee_size	VARCHAR2(3),
+				SYRUP		VARCHAR2(1),
+				ADDSHOT		VARCHAR2(1),
+				ADDWHIPING	VARCHAR2(1),
+				AMOUNT		VARCHAR2(2),
+				CONSTRAINT PR_OrderList_01 PRIMARY KEY(ORDER_INDEX),
+				CONSTRAINT FK_COFFEEMEMBERS_01 FOREIGN KEY(MEMBERINDEX) REFERENCES COFFEEMEMBERS(MEMBERINDEX),
+				CONSTRAINT FK_COFFEELIST_01 FOREIGN KEY(coffee_index) REFERENCES COFFEELIST(coffee_index)
+			);		  
+		 
+		 */
+		setMemberNo = getmemberID(si.getLoginId());
+		for(int i = 0; i<orderlist.size(); i++) {
+		String sql = " INSERT INTO coffeeorder " + 
+				" VALUES(ORDER_INDEX.nextval,?,?,sysdate,?,?,?,?,3) ";
+		
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		System.out.println("sql = " + sql );
+		
+			try {	
+				if(orderlist.get(i).getSize().equals("Short")) {
+					settingSize=1;
+				}else if(orderlist.get(i).getSize().equals("Tall")) {
+					settingSize=2;
+				}else if(orderlist.get(i).getSize().equals("Grande")) {
+					settingSize=3;
+				}
+
+				conn = DBConnection.getConnection();
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1, setMemberNo);//
+				psmt.setInt(2, orderlist.get(1).getNameNumber());
+//				coffee_size	VARCHAR2(3),
+				psmt.setInt(3, settingSize);
+//				SYRUP		VARCHAR2(1),
+				psmt.setString(4, orderlist.get(i).getSyrup());
+//				ADDSHOT		VARCHAR2(1),
+				psmt.setString(5, String.valueOf(orderlist.get(i).isAddShot()));
+//				ADDWHIPING	VARCHAR2(1),
+				psmt.setString(6, String.valueOf(orderlist.get(i).isWhiping()));
+				
+				
+				
+				rs=psmt.executeQuery();
+				
+				if(rs.next()) {
+					res +=1 ;
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				DBClose.close(psmt, conn, rs);
+			}
+		}
+		System.out.println("res = " +  res);
 		return res;
 	}
-	
-	
-	
-	@Override
-	public List<orderList> callMenuNumber(List<orderList> list) {
-		List<orderList> ol = list;
-		String sql = " SELECT coffee_index FROM COFFEELIST WHERE ";
-				for (int i = 0; i < ol.size(); i++) {
-					if(i != 0){
-						sql += " or ";
-					}
-					sql += " coffeeName = ? AND coffeeSize  = ? ";
-				}
-		System.out.println( "callMenuNumber.sql = " + sql);
-		Connection conn = null;
-		PreparedStatement psmt = null;
-		ResultSet rs = null;
-		int res = 0;
-		try {
-			conn = DBConnection.getConnection();
-			psmt = conn.prepareStatement(sql);		
-			int sizeToInt = 1;
-			for (int i = 1; i < ol.size()+1; i++) {
-				if((ol.get(i).getSize()).equals("Short")) {
-					sizeToInt = 1;
-				}else if((ol.get(i).getSize()).equals("Tall")) {
-					sizeToInt = 2;
-				}else if((ol.get(i).getSize()).equals("Grande")) {
-					sizeToInt = 3;
-				}
-				System.out.println(" input 측정 ");
-				int first = i+(i-1);
-				int second = first + 1;
-				psmt.setString(first, ol.get(i).getName());
-				psmt.setInt(second, sizeToInt);
-				System.out.println(" ol.size = "+ol.size()+" \n"+ol.get(i).getName()+" / "+ sizeToInt);
-			}
-			
-			rs = psmt.executeQuery();
-			if(rs.next()) {
-				for (int i = 1; i < ol.size()+1; i++) {
-					res = rs.getInt(i);
-					ol.get(i).setNameNumber(res);
-				}
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			DBClose.close(psmt, conn, rs);
-		}
 
-		return ol;
-	
-	}
-	
-	
-	
 	@Override
-	public void insertOrderList(List<orderList> list, String userInfo) {
+	public int getmemberID(String memberid) {
+		int res= 0;
 		
-		String sql = " INSERT COFFEEORDER INTO () "
-				+ " VALUES(?, ?, ?, ?, ?, ?, ?)";
-				
-				
-		System.out.println( "insertOrderList.sql = " + sql);
-		
+		String sql = " SELECT MEMBERINDEX "
+				+ " FROM COFFEEMEMBERS "
+				+ " WHERE id=? ";
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
-		int res = 0;
+		System.out.println("sql = " + sql );
+		
+
 		try {
-			
 			conn = DBConnection.getConnection();
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1 , memberid);
 			
-//			psmt.setString(1, coffeeName);
-//			psmt.setInt(2, coffeeSize);
-			
-			rs = psmt.executeQuery();
+			rs=psmt.executeQuery();
 			
 			if(rs.next()) {
-				res = rs.getInt(1);
+				res=rs.getInt(rs.getInt(1));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -134,11 +165,47 @@ public class orderDaoImpl implements orderDao {
 		} finally {
 			DBClose.close(psmt, conn, rs);
 		}
-		
-		
+	
+		return res;
 	}
 
-
+	@Override
+	public List<coffeeOrderDto> getReceiveAll() {
+		String sql = " SELECT b.coffeeName, a.order_date, b.sizePrice " + 
+				"from coffeeorder a, coffeelist b" + 
+				"WHERE a.coffee_index = b.coffee_index  ";
+		List<coffeeOrderDto> coffeeorder= null;
+		Connection conn = null;
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		coffeeorder = new ArrayList<coffeeOrderDto>();
+		System.out.println("getReceiveAll().sql = " + sql );
+		
+		try {
+			conn = DBConnection.getConnection();
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				String cofName = rs.getString(1);
+				Date cofDate = rs.getDate(2);
+				int cofPrice = rs.getInt(3);
+				orderList ol = new orderList();
+				
+				
+			}
+			
+			
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
 	
-
+	
 }//end class

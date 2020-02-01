@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.dto.coffeeOrderDto;
 import Controller.dto.orderList;
 import main.singleton.Singleton;
 
@@ -27,11 +28,11 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 	private JButton payment;//결제하기버튼
 	
 	
-	String columnNames[] = {"주문한 커피", "사이즈", "시럽", "샷추가", "휘핑추가", "수량", "가격"};
+	String columnNames[] = {"주문한 커피", "날짜", "사이즈", "수량","가격"};
 	
 	Object rowData[][] = null;	
 	DefaultTableModel model;	// table의 넓이를 설정
-	List<orderList> list = null;
+	List<coffeeOrderDto> list = null;
 	Singleton si = Singleton.getInstance();
 	
 	public OrderList_03_ShowAll() {
@@ -39,13 +40,14 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		setLayout(null);
 		
 		//게시판에 들어오자마자 리스트를 받아오기 위해서 기본 데잍 ㅓ셋팅. 
-		list = si.orderCtrl.getFromCart();
+//		list = si.orderCtrl.getFromOrderList();
 		JLabel label = new JLabel(""+si.getLoginId()+"님이 현재까지 주문한 내역입니다.\n 확인후 결제를 눌려주세요.");
 		label.setBounds(10, 10, 400, 15);
 		add(label);
 		this.list = list;//리스트에 들어갈 데이터를 이 클래스 안에 대입시킨다.		
 		rowData = new Object[list.size()][columnNames.length];
-
+		
+		list = si.orderCtrl.getOrderList();
 		
 		
 		System.out.println("받아온 내역  ");
@@ -53,20 +55,18 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		System.out.println("받아온 내역  ");
 		// list에서 테이블로 데이터를 삽입하기 위한 처리
 		for (int i = 0; i <list.size(); i++) {
-			String coffeeName = list.get(i).getName();
-			String coffeeSize = list.get(i).getSize();
-			int coffeePrice = si.orderCtrl.getPrice(coffeeName, coffeeSize);
+			//커피 번호 + 커피사이즈 => 커피명, 커피가격 받아오기. 
 			
-//			System.out.println("커피가격 받아왔나 " + coffeePrice);
-//			System.out.println("쇼핑카트리스트 = "+list.get(i).getName());
 			
-			rowData[i][0] = list.get(i).getName();
-			rowData[i][1] = list.get(i).getSize();
-			rowData[i][2] = list.get(i).getSyrup();
-			rowData[i][3] = list.get(i).isAddShot();
-			rowData[i][4] = list.get(i).isWhiping();
-			rowData[i][5] = list.get(i).getAmount();
-			rowData[i][6] = (list.get(i).getAmount()*coffeePrice);
+			
+
+			//커피명,  날자, 사이즈, 수량, 가격
+//			rowData[i][0] = list.get(i).getCoffee_index();//조인으로 이름불러오기
+			rowData[i][1] = list.get(i).getOrder_date();
+			rowData[i][2] = list.get(i).getCoffee_size();
+//			rowData[i][3] = list.get(i).getAmount;
+//			rowData[i][4] = list.get(i).(price가격 받아오기.)
+
 		}
 		
 		// 테이블 관련
@@ -77,13 +77,11 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		// 테이블 생성
 		jtable = new JTable(model);
 		jtable.addMouseListener(this);
-			
+
 		// column의 폭을 설정
 		jtable.getColumnModel().getColumn(0).setMaxWidth(200);	// "주문한 커피"
+		jtable.getColumnModel().getColumn(2).setMaxWidth(70);	// "날짜"
 		jtable.getColumnModel().getColumn(1).setMaxWidth(80);	// "사이즈"
-		jtable.getColumnModel().getColumn(2).setMaxWidth(70);	// "시럽추가"
-		jtable.getColumnModel().getColumn(3).setMaxWidth(50);	// "샷추가"
-		jtable.getColumnModel().getColumn(4).setMaxWidth(60);	// "휘핑추가"
 		jtable.getColumnModel().getColumn(5).setMaxWidth(50);	// "수량"
 		jtable.getColumnModel().getColumn(6).setMaxWidth(100);	// "갯수당 가격 " (개당가격*수량) 
 		

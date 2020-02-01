@@ -10,6 +10,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -55,7 +56,16 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 		for (int i = 0; i <list.size(); i++) {
 			String coffeeName = list.get(i).getName();
 			String coffeeSize = list.get(i).getSize();
-			int coffeePrice = si.orderCtrl.getPrice(coffeeName, coffeeSize);
+			//싱글톤으로 저장된 요소에 가격을 추가한다.
+//			list =  si.orderCtrl.getPrice(list);
+			
+			if(list.get(i).getName().equals(null)) {
+				System.out.println("메뉴를 입력해주세요.");
+				JOptionPane.showMessageDialog(null, "메뉴를 다시 선택해 주세요.");
+			}else {
+//				int coffeePrice = list.get(i).getPrice();
+			}
+			
 			
 //			System.out.println("커피가격 받아왔나 " + coffeePrice);
 //			System.out.println("쇼핑카트리스트 = "+list.get(i).getName());
@@ -66,7 +76,7 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 			rowData[i][3] = list.get(i).isAddShot();
 			rowData[i][4] = list.get(i).isWhiping();
 			rowData[i][5] = list.get(i).getAmount();
-			rowData[i][6] = (list.get(i).getAmount()*coffeePrice);
+			rowData[i][6] = (list.get(i).getPrice()) * (list.get(i).getAmount());
 		}
 		
 		// 테이블 관련
@@ -144,18 +154,12 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 		}else if(btn == payment) {
 			System.out.println("결제하기 버튼 =  " + payment.getText());
 			//주문내역 최종 결제. ordercontroller 에서 사용자 아이디까지 포함해서 insert 한다. 
+			System.out.println("list  = " + list.toString());
+			//order테이블에 insert 한다. 
+			si.orderCtrl.insertOrderList();
 			
-			String userInfo = si.getLoginId();
-			si.orderCtrl.paymentNow(list, userInfo);
-		} 
-		
-		
-		
-		
-		
-	
-		
-	}
+		}
+	}//end actionPerformed
 
 //마우스리스너 마우스리스너
 	@Override
