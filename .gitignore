@@ -142,7 +142,6 @@ hs_err_pid*
 
 # End of https://www.gitignore.io/api/java,eclipse,visualstudiocode
 
+## tomcatServer
 
-##Tomcat Server
-
-./Tomcat v8.5 Server at localhost-config
+./ Tomcat v8.5 Server at localhost-config

@@ -84,6 +84,8 @@ public class loginView extends JFrame implements ActionListener {
 				dao.setLoginID(mem.getId());
 				this.dispose();
 				
+				// login한 id를 저장	-> Session(Web)
+				dao.setLoginID(mem.getId());
 				new bbsListView();
 			}			
 		}
