@@ -36,7 +36,7 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 	Singleton si = Singleton.getInstance();
 	
 	public OrderList_02_ShopingCart() {
-		super("메뉴판");
+		super("주문내역");
 		setLayout(null);
 		
 		//게시판에 들어오자마자 리스트를 받아오기 위해서 기본 데잍 ㅓ셋팅. 
@@ -148,8 +148,8 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 		JButton btn = (JButton)e.getSource();
 		if(btn == addOrder) {
 			System.out.println("주문추가하기 버튼 =  " + addOrder.getText());
-			si.orderCtrl.showOrderList();
 			this.dispose();
+			si.orderCtrl.showOrderList();
 			
 		}else if(btn == payment) {
 			System.out.println("결제하기 버튼 =  " + payment.getText());
@@ -157,6 +157,7 @@ public class OrderList_02_ShopingCart extends JFrame implements MouseListener, A
 			System.out.println("list  = " + list.toString());
 			//order테이블에 insert 한다. 
 			si.orderCtrl.insertOrderList();
+			this.dispose();
 			
 		}
 	}//end actionPerformed

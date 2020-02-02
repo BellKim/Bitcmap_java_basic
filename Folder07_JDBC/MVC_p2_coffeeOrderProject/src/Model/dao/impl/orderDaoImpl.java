@@ -88,7 +88,8 @@ CREATE TABLE COFFEEORDER(
 		for(int i = 0; i<orderlist.size(); i++) {
 		String sql = " INSERT INTO coffeeorder " + 
 				" VALUES(ORDER_INDEX.nextval,?,?,sysdate,?,?,?,?,3) ";
-		
+		System.out.println("orderlist!!! = ");
+		System.out.println(orderlist.toString());
 		Connection conn = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
@@ -193,11 +194,7 @@ CREATE TABLE COFFEEORDER(
 				
 				
 			}
-			
-			
-			
-			
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

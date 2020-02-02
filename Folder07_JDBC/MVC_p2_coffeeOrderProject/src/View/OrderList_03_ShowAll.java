@@ -32,6 +32,7 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 	
 	Object rowData[][] = null;	
 	DefaultTableModel model;	// table의 넓이를 설정
+	
 	List<coffeeOrderDto> list = null;
 	Singleton si = Singleton.getInstance();
 	
@@ -40,11 +41,13 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 		setLayout(null);
 		
 		//게시판에 들어오자마자 리스트를 받아오기 위해서 기본 데잍 ㅓ셋팅. 
-//		list = si.orderCtrl.getFromOrderList();
-		JLabel label = new JLabel(""+si.getLoginId()+"님이 현재까지 주문한 내역입니다.\n 확인후 결제를 눌려주세요.");
+		list = si.orderCtrl.getFromOrderList();
+		JLabel label = new JLabel(""+si.getLoginId()+"총 주문내역 입니다.\n");
 		label.setBounds(10, 10, 400, 15);
 		add(label);
-		this.list = list;//리스트에 들어갈 데이터를 이 클래스 안에 대입시킨다.		
+		this.list = list;//리스트에 들어갈 데이터를 이 클래스 안에 대입시킨다.
+		
+		
 		rowData = new Object[list.size()][columnNames.length];
 		
 		list = si.orderCtrl.getOrderList();
@@ -61,10 +64,10 @@ public class OrderList_03_ShowAll  extends JFrame implements MouseListener, Acti
 			
 
 			//커피명,  날자, 사이즈, 수량, 가격
-//			rowData[i][0] = list.get(i).getCoffee_index();//조인으로 이름불러오기
+			rowData[i][0] = list.get(i).get
 			rowData[i][1] = list.get(i).getOrder_date();
 			rowData[i][2] = list.get(i).getCoffee_size();
-//			rowData[i][3] = list.get(i).getAmount;
+			rowData[i][3] = list.get(i).getAmount();
 //			rowData[i][4] = list.get(i).(price가격 받아오기.)
 
 		}

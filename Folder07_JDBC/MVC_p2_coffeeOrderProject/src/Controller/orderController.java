@@ -9,6 +9,7 @@ import Model.service.orderService;
 import Model.service.impl.orderServiceImpl;
 import View.OrderList_01Main;
 import View.OrderList_02_ShopingCart;
+import View.OrderList_03_ShowAll;
 import main.singleton.Singleton;
 
 public class orderController {
@@ -71,7 +72,7 @@ public class orderController {
 //		Singleton si = Singleton.getInstance();
 		int res = orderServ.insertOrderList(shopingCartList);
 		System.out.println("insertOrderList 의 결과 " + res);
-		
+		new OrderList_03_ShowAll();
 		
 	}
 	
