@@ -336,9 +336,7 @@ public class BbsDao {
 			
 			count = psmt.executeUpdate();
 			System.out.println("3/6 deleteBbs success");
-			
-			
-			
+	
 			
 		} catch (SQLException e) {
 			System.out.println("deleteBbs fail. ");

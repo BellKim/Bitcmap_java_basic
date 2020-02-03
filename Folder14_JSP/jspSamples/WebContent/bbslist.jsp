@@ -52,6 +52,8 @@ public String arrow(int depth){
 </h4>
 <h1> 게 시 판 </h1>
 
+<a href="./calEx/calendar.jsp">일정관리</a>
+
 <div align="center">
 	<table border="1">
 		<col width="70"><col width="600"><col width="150">
@@ -116,9 +118,9 @@ public String arrow(int depth){
 </div>
 
 	<%--  검색기능 추가함.  --%>
-<div align="center">
-
-</div>
+	<div align="center">
+		
+	</div>
 
 <a href="bbsWrite.jsp"> 글 쓰 기 </a>
 
