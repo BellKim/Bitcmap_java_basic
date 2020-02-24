@@ -232,7 +232,7 @@ public class CustUserDao {
 	}
 
 	public Connection getConnection() throws SQLException{
-		String url = "jdbc:oracle:thin:@192.168.2.40:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "hr";
 		String password = "hr";
 	

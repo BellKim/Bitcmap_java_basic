@@ -38,7 +38,6 @@
 						$("#demo").append(item.age + " ");
 						$("#demo").append(item.address + " ");
 						$("#demo").append(item.phone + " <br> ");
-						
 					})
 				},
 				error:function(){
