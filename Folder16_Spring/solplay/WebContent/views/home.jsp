@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>home now </title>
 </head>
 <body>
-	<a href="hello"> hello </a><br>
-	<a href="home"> home </a>
+	<h1> home </h1>
 	
+	<p> the time on the server is ${serverTime }
+
 </body>
 </html>

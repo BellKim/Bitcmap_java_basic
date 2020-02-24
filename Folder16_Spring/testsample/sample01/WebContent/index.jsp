@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="hello"> hello </a><br>
-	<a href="home"> home </a>
-	
+
+<a href="hello">hello</a>
+<br>
+
+<a href="home">home</a>
+
 </body>
 </html>
