@@ -23,7 +23,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public int logincheck(String receiveId) {
-		return return memberDao.logincheck(receiveId);
+		return memberDao.logincheck(receiveId);
 	}
 	
 	
