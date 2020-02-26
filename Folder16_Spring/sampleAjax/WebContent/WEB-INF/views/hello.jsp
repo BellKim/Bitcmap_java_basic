@@ -52,10 +52,7 @@ name:${mycls.name }<br>
 				 error:function(){
 					 alert("error");
 					 }
-
-
 			 });
-		
 	}//end idcheck() function
 </script>
 
@@ -68,7 +65,6 @@ name:${mycls.name }<br>
 		이메일:<input type="text" id="_email" value="hello@world.com"> <br>
 		생년월일:<input type="text" id="_birth" value="2001/01/12"> <br>
 		<button type="button" id="account" >account</button>
-		
 	</form>
 
 	<script type="text/javascript">
@@ -91,16 +87,11 @@ name:${mycls.name }<br>
 					alert("success");
 					console.log(resp.msg);
 					console.log(resp.name);
-					
-					
 					},
 				error:function(){
 					alert("error");
 					}
-				
 				});
-
-
 		});
 
 		
