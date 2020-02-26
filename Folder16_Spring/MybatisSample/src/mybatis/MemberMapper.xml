@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="mybatis.MemberMapper">	<!--  틀 만 작성하고 mainclass 에가서 초안작성하기. -->
+  	
+  	<insert id="add" parameterType="dto.memberDto">	<!-- 객체  -->  <!-- ID에 값을 넣는방법은 #{id} 의 형식으로 작성되며,  세미콜른(;) 은 찍으면안된다.  -->
+  		INSERT INTO MEMBERDTO(ID, PWD, EMAIL)
+  		VALUES(#{id}, #{pwd}, #{email})
+  	</insert>
+
+	<delete id="remove" parameterType="java.lang.String">	<!-- 하나의 변수 데이터만 입력될때는 java.lang.string 으로 들어간다.  -->
+		DELETE FROM MEMBERDTO
+		WHERE ID=#{id}
+	</delete><!-- #을 붙히면  #{''} 형식사용 ////   $는 숫자입력시 사용     -->
+	
+	<delete id="removeObj" parameterType="dto.memberDto">
+		DELETE FROM MEMBERDTO
+		WHERE ID=#{id}
+	</delete>
+	
+	
+	<select id="find" parameterType="java.lang.String" resultType="dto.memberDto">
+		SELECT * FROM memberdto
+		WHERE id=#{id}
+	</select>
+	
+	<select id="alllist" resultType="dto.memberDto">
+		SELECT * FROM memberdto
+		
+	
+	</select>
+	
+	
+  	
+  
+  
+  </mapper>

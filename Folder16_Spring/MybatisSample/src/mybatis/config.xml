@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <configuration>
+  	<environments default="development">
+  		<environment id="development">
+  			<transactionManager type="JDBC"/>
+  			<dataSource type="POOLED">		<!-- xml 초기화 설정 -->
+  				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+  				<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+  				<property name="username" value="hr"/>
+  				<property name="password" value="hr"/>
+  			</dataSource>
+  		</environment>
+  	</environments>
+  	<!-- 패키지를 대문자로 하면 대문자로 작성해야한다.  -->
+  	<mappers>
+  		<mapper resource="mybatis/MemberMapper.xml"/>		<!-- 여기서만 데이터를 넣고 출력할수 있다 -->
+  	</mappers>
+  	
+  	
+  </configuration>
+  
+  
+  
