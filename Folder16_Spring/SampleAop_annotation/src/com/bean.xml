@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		
+	<!-- 
+		XML : <bean
+		jsp : <jsp:useBean
+		java:newObject
+	 -->
+	 
+	 
+	 
+	 <!-- AOP OBJECT를 설정 -->
+	 <bean id="logApp" class="com.aop.LogAop"/>
+	 <!-- 인스턴스:lgoAop 위치 : class내용 -->
+	 <!-- LogAop logApp = new LogAop(); -->
+	 
+	 <!-- AOP 설정(자동호출) -->
+	<aop:aspectj-autoproxy/>
+	 
+	 <!-- Cat Object  -->
+	 <bean id="myCat" class="com.dto.Cat">
+	 	<property name="name" value="야옹이"></property>
+	 	<property name="age" value="3"></property>
+	 	<property name="color" value="노랑"></property>
+	 	
+	 </bean>
+
+
+
+
+
+</beans>
