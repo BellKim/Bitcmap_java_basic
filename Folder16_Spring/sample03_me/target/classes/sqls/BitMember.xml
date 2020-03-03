@@ -15,6 +15,13 @@
    	</select>
    	
    	
+   	<insert id="addmember" parameterType="bit.com.a.model.MemberDto">
+   		INSERT INTO MEMBER(ID, PW, NAME, EMAIL, AUTH)
+   		VALUES(#{id}, #{pwd}, #{name}, #{email}, 3)
+   	</insert>
+   	
+   	
+   	
    	
    	
    	

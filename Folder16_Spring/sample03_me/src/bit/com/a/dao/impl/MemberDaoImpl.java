@@ -33,10 +33,22 @@ public class MemberDaoImpl implements MemberDao{
 		int res = sqlsession.selectOne(namespace+"duplicate_check", receiveId);
 		return res;
 	}//end logincheck();
-	
+
+	@Override
+	public boolean addmember(MemberDto memberdto) {
+		int res = sqlsession.insert(namespace+"addmember", memberdto);
+		return res>0?true:false;
+		
+	}//end addmember
+
+	@Override
+	public MemberDto login(MemberDto memberdto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
 	
 
-}
+}//end of memberdtoImpl()

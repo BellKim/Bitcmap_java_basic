@@ -27,8 +27,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "allmember.do", method=RequestMethod.GET)
 	public String allmember(Model model) {
-		logger.info("MemberController allmember " + new Date());
 		
+		logger.info("MemberController allmember " + new Date());
 		List<MemberDto> list = memberService.allMember();	
 		
 		model.addAttribute("memlist", list);		

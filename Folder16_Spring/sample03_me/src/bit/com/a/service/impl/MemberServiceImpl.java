@@ -13,17 +13,30 @@ import bit.com.a.service.MemberService;
 public class MemberServiceImpl implements MemberService{
 
 	@Autowired
-	MemberDao memberDao;	//memberdao를 스프링프레임워크에서 넣어준다. 의존성 주입을 해준다. 
+	MemberDao memberdao;	//memberdao를 스프링프레임워크에서 넣어준다. 의존성 주입을 해준다. 
 
 	@Override
 	public List<MemberDto> allMember() {
 		
-		return memberDao.allMember();
+		return memberdao.allMember();
 	}//end of allMember
 
 	@Override
 	public int logincheck(String receiveId) {
-		return memberDao.logincheck(receiveId);
+		return memberdao.logincheck(receiveId);
+	}
+
+	@Override
+	public boolean addmember(MemberDto memberdto) {
+		
+		
+		return memberdao.addmember(memberdto);
+	}
+
+	@Override
+	public MemberDto login(MemberDto memberdto) {
+		
+		return memberdao.login(memberdto);
 	}
 	
 	

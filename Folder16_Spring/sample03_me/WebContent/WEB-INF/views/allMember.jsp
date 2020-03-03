@@ -24,7 +24,6 @@
 			<p><%=mem.toString() %> </p>
 			System.out.println("hello");
 			<%
-			
 		}
 	%>
 	
@@ -52,13 +51,13 @@
 					url:"./loginCheck.do",
 					data:data,
 					type:'get',
-					dataType:'json',
+					/* dataType:'string', */
 					async:true,
 					success:function(resp){
 						alert("successs"+resp);
 						
 						},
-					error:function(){
+					error:function(resp){
 						alert("fail  !"+resp);
 						}
 					});

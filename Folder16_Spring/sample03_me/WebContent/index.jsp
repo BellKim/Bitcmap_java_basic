@@ -8,10 +8,11 @@
 </head>
 <body>
 
-<a href="./allmember.do"> allmember.do 로 이동 합니다  </a>
-<script type="text/javascript">
-	location.href="./allmember.do";
-</script>
+	<a href="./allmember.do"> allmember.do 로 이동 합니다  </a>
+	<script type="text/javascript">
+	/* location.href="./allmember.do"; */
+	location.href="./login.do";
+	</script>
 
 </body>
 </html>

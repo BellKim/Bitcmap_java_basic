@@ -79,6 +79,8 @@ public class MemberDto implements Serializable {
 	public String toString() {
 		return "MemberDto [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", auth=" + auth + "]";
 	}
+
+
 	
 }
 
