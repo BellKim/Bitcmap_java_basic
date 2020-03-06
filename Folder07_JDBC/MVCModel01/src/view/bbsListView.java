@@ -128,8 +128,6 @@ public class bbsListView extends JFrame implements MouseListener, ActionListener
 		}	
 	}
 	
-
-	
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {

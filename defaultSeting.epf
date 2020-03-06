@@ -194,11 +194,7 @@
 /instance/org.eclipse.jst.jsp.ui/tagAttributeValue=\#17c694 | null | false | true | false | false
 /instance/org.eclipse.jst.jsp.ui/tagBorder=\#808080 | null | false | false | false | false
 /instance/org.eclipse.jst.jsp.ui/tagName=\#03a8d8 | null | true | false | false | false
-/instance/org.eclipse.jst.server.tomcat.core/locationorg.eclipse.jst.server.tomcat.runtime.85=D\:/Dev_envir/apache-tomcat-8.5.50
 /instance/org.eclipse.m2e.discovery/org.eclipse.m2e.discovery.pref.projects=
-/instance/org.eclipse.mylyn.context.core/mylyn.attention.migrated=true
-/instance/org.eclipse.mylyn.java.ui/org.eclipse.mylyn.java.ui.run.count.3_10_0=1
-/instance/org.eclipse.mylyn.java.ui/org.eclipse.mylyn.java.ui.run.count.3_1_0=1
 /instance/org.eclipse.mylyn.monitor.ui/org.eclipse.mylyn.monitor.activity.tracking.enabled.checked=true
 /instance/org.eclipse.mylyn.tasks.ui/migrated.task.repositories.secure.store=true
 /instance/org.eclipse.mylyn.tasks.ui/org.eclipse.mylyn.tasks.ui.filters.nonmatching=true
@@ -403,7 +399,6 @@
 /instance/org.eclipse.wst.jsdt.ui/content_assist_proposals_background=52,57,61
 /instance/org.eclipse.wst.jsdt.ui/content_assist_proposals_foreground=238,238,238
 /instance/org.eclipse.wst.jsdt.ui/fontPropagated=true
-/instance/org.eclipse.wst.jsdt.ui/javaScriptOccurrenceIndicationColor=18,79,120
 /instance/org.eclipse.wst.jsdt.ui/java_bracket=249,250,244
 /instance/org.eclipse.wst.jsdt.ui/java_comment_task_tag=154,140,124
 /instance/org.eclipse.wst.jsdt.ui/java_default=217,232,247

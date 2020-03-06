@@ -16,7 +16,6 @@ public class orderController {
 	orderService orderServ = new orderServiceImpl();
 	
 	private List<orderList> shopingCartList = null;
-
 	
 	
 	

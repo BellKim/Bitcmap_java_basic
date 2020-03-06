@@ -27,6 +27,12 @@ public class Singleton {
 	
 
 	
+	
+	
+	
+	
+	
+	
 	//getter//setter
 	//login information.
 	public String getLoginId() {
