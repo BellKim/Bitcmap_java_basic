@@ -46,6 +46,9 @@ local.properties
 MANIFEST.MF
 #*.properties
 pom.properties
+Message*.properties
+*.lst
+default*.properties
 */.idea
 
 
