@@ -45,6 +45,7 @@ local.properties
 *.MF
 MANIFEST.MF
 #*.properties
+pom.properties
 */.idea
 
 
