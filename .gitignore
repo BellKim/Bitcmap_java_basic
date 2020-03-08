@@ -44,7 +44,7 @@ local.properties
 .recommenders
 *.MF
 MANIFEST.MF
-*.properties
+#*.properties
 */.idea
 
 
