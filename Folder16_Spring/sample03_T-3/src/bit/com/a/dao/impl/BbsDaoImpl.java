@@ -19,7 +19,7 @@ public class BbsDaoImpl implements BbsDao {
 	
 	@Override
 	public List<BbsDto> getBbsList(BbsParam param) {
-		List<BbsDto> list = sqlSession.selectList(ns + "getBbsSearchList", param);
+		List<BbsDto> list = sqlSession.selectList(ns + "getBbsList", param);
 		return list;
 	}
 

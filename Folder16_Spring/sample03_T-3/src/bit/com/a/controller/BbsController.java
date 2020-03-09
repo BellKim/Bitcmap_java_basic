@@ -39,7 +39,7 @@ public class BbsController {
 		List<BbsDto> list = bbsService.getBbsList(param);
 		model.addAttribute("bbslist", list);
 		
-		return "bbslist";
+		return "bbslist.tiles";
 	}
 	
 	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET,	RequestMethod.POST})
