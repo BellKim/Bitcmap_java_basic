@@ -49,12 +49,14 @@ public class BbsController {
 		return "bbslist.tiles";
 	}
 	
-//	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET,	RequestMethod.POST})
-//	public String bbswrite(Model model) {
-//		logger.info("BbsController bbswrite "+ new Date());		
-//		return "bbswrite";
-//	}
-//	
+	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET,	RequestMethod.POST})
+	public String bbswrite(Model model, BbsDto bbsdto) {
+		logger.info("BbsController bbswrite "+ new Date());
+		System.out.println("bbs write in now!!!!!");
+		
+		return "bbswrite.tiles";
+	}
+	
 //	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
 //	public String bbswriteAf(BbsDto bbs, Model model) {
 //		logger.info("BbsController bbswriteAf! "+ new Date());

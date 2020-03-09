@@ -7,7 +7,7 @@
 <h1 style="display:none;">left_bbslist.jsp</h1>
 
 
-	<div class="menu_table">
+<div class="menu_table">
 	<ul style="width: 100%">
 		<li class="title">답변형 게시판</li>
 		<li class="subtitle">게시판</li>
@@ -18,4 +18,4 @@
 			<a href="bbswrite.do" title="글쓰기">글쓰기</a>
 		</li>
 	</ul>
-	</div>
+</div>

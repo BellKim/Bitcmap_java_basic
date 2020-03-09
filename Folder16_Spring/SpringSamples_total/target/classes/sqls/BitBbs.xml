@@ -10,7 +10,16 @@
 			WDATE, DEL, READCOUNT
 	FROM BBS
 	ORDER BY REF DESC, STEP ASC
-</select>	
+</select>
+
+<insert id="writeBbs" parameterType="bit.com.a.model.BbsDto">
+	INSERT INTO BBS
+	(SEQ,ID,REF,STEP,DEPTH,TITLE,CONTENT,WDATE,DEL,READCOUNT) 
+	VALUES(	SEQ_BBS.nextval,#{id},
+			(SELECT NVL(MAX(REF),0)+1 FROM BBS),
+			0,0,#{title},#{content},SYSDATE,0,0)
+</insert>
+	
 
 
 </mapper>

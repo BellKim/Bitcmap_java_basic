@@ -18,15 +18,25 @@
 </definition>
 
  <definition name="bbslist.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
- 
  	<put-attribute name="header" value="/WEB-INF/views/commons/header.jsp"/>
  	<put-attribute name="top_inc" value="/WEB-INF/views/commons/top_inc.jsp"/>
  	<put-attribute name="top_menu" value="/WEB-INF/views/commons/top_menu.jsp"/>
  	<put-attribute name="left_menu" value="/WEB-INF/views/bbs/left_bbslist.jsp"/>
  	<put-attribute name="main" value="/WEB-INF/views/bbs/bbslist.jsp"/>
  	<put-attribute name="bottom_inc" value="/WEB-INF/views/commons/bottom_inc.jsp"/>
-
 </definition>
+
+ <definition name="bbswrite.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
+ 	<put-attribute name="header" value="/WEB-INF/views/commons/header.jsp"/>
+ 	<put-attribute name="top_inc" value="/WEB-INF/views/commons/top_inc.jsp"/>
+ 	<put-attribute name="top_menu" value="/WEB-INF/views/commons/top_menu.jsp"/>
+ 	<put-attribute name="left_menu" value="/WEB-INF/views/bbs/left_bbslist.jsp"/>
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbswrite.jsp"/>
+ 	<put-attribute name="bottom_inc" value="/WEB-INF/views/commons/bottom_inc.jsp"/>
+</definition>
+
+
+
 
 
 
