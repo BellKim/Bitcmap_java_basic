@@ -4,9 +4,6 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.catalina.Session;
-import org.apache.catalina.connector.Request;
-import org.apache.catalina.connector.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +40,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "logout.do", method=RequestMethod.GET)
-	public String logout(Model model, Request req ) {
+	public String logout(Model model, HttpServletRequest req ) {
 		logger.info("MemberController logout " + new Date());	
 		
+		// session out
 		req.getSession().removeAttribute("login");
 		
 		

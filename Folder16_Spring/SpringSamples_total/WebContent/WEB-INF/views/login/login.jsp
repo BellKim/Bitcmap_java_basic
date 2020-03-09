@@ -134,7 +134,7 @@
 
 <script type="text/javascript">
 	$("#_btnLogin").click(function(){
-		alert("login 클릭 ");
+		//alert("login 클릭 ");
 
 		if($("#_userid").val().trim() == ""){
 			alert("id를 입력해 주십시오");
