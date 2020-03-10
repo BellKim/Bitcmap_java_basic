@@ -48,28 +48,44 @@ public class BbsController {
 		
 		return "bbslist.tiles";
 	}
+
+	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET,	RequestMethod.POST})
+	public String bbswrite(Model model, BbsDto bbsdto) {
+		logger.info("BbsController bbswrite "+ new Date());
+		System.out.println("bbs write in now!!!!!");
+		
+		return "bbswrite.tiles";
+	}
+
+	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
+//	@RequestMapping(value = "bbswriteAf.do", method = {RequestMethod.GET,	RequestMethod.POST})
+	public String bbswriteAf(BbsDto bbs, Model model) {
+		logger.info("BbsController bbswriteAf! "+ new Date());
+		
+		System.out.println( "들어온 bbs 데이터  :  " + bbs);
+		
+		boolean res = bbsService.writeBbs(bbs);
+		
+		System.out.println("결과 출력 : " + res );
+		
+		if(res==true) {
+			return "redirect:bbslist.do";
+		}else {
+			return "bbslist.tiles";
+		}
+		
+	}
 	
-//	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET,	RequestMethod.POST})
-//	public String bbswrite(Model model) {
-//		logger.info("BbsController bbswrite "+ new Date());		
-//		return "bbswrite";
-//	}
-//	
-//	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
-//	public String bbswriteAf(BbsDto bbs, Model model) {
-//		logger.info("BbsController bbswriteAf! "+ new Date());
-//		bbsService.writeBbs(bbs);
-//		return "redirect:/bbslist.do";
-//	}
-//	
-//	@RequestMapping(value = "bbsdetail.do", method = {RequestMethod.GET, RequestMethod.POST})
-//	public String bbsdetail(int seq, Model model) {
-//		logger.info("BbsController bbsdetail! "+ new Date());
-//		BbsDto bbs=bbsService.getBbs(seq);
-//		model.addAttribute("bbs", bbs);
-//		return "bbsdetail";
-//	}
-//	
+	@RequestMapping(value = "bbsdetail.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String bbsdetail(int seq, Model model) {
+		logger.info("BbsController bbsdetail! "+ new Date());
+		BbsDto bbs=bbsService.getBbs(seq);
+		System.out.println("bbsdetail 의 seq 값 = " + seq);
+		model.addAttribute("bbs", bbs);
+		
+		return "bbsdetail.tiles";
+	}
+	
 //	@RequestMapping(value = "answer.do", method = {RequestMethod.GET, RequestMethod.POST})
 //	public String answer(int seq, Model model) throws Exception {
 //		logger.info("BbsController answer! "+ new Date());

@@ -8,4 +8,6 @@ public interface BbsDao {
 	
 	public List<BbsDto> getBbsList();
 	
+	public boolean writeBbs(BbsDto bbsdto);
+	
 }

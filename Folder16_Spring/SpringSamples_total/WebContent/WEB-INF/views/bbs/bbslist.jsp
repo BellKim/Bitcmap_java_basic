@@ -6,7 +6,11 @@
 
 <%-- 
 <% request.getAttribute("utf-8"); %> --%>
-<h1 style="display:none;"> bbslist.js p </h1>
+
+
+<!--  arrow class 생성 하는곳 -->
+<jsp:useBean id="ubbs" class="bit.com.a.util.BbsArrow"/>
+
 
 
 
@@ -31,19 +35,20 @@
 			</tr>
 		</c:if>
 		<c:forEach items="${bbslist }" var="bbs" varStatus="vs">
+		
+		<!--  arrow를 setting -->
+		<jsp:setProperty property="depth" name="ubbs" value="${bbs.depth }"/><!-- name은 위에서 생성한 arrow class 객체명 -->
+		
+		
 			<tr class="_hover_tr">
 				<td>${vs.count }</td>
 				<td style="text-align: left;">
+					<jsp:getProperty property="arrow" name="ubbs"/>
 					<a href="bbsdetail.do?seq=${bbs.seq }">${bbs.title }</a>
+					
 				</td>
-				<td>${bbs.id }</td>		
+				<td>${bbs.id }</td>
 			</tr>	
 		</c:forEach>
 	</tbody>
-	
-
-
-
-
-
 </table>

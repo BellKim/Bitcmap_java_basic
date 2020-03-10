@@ -9,6 +9,9 @@ import bit.com.a.dao.BbsDao;
 import bit.com.a.model.BbsDto;
 import bit.com.a.service.BbsService;
 
+
+
+
 @Service
 public class bbsServiceImpl implements BbsService {
 
@@ -19,6 +22,26 @@ public class bbsServiceImpl implements BbsService {
 	public List<BbsDto> getBbsList() {		
 		return bbsDao.getBbsList();
 	}
+	
+	@Override
+	public boolean writeBbs(BbsDto bbs) {
+		
+		return bbsDao.writeBbs(bbs);
+	}
+
+	@Override
+	public BbsDto getBbs(int seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void reply(BbsDto bbs) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 	
 }

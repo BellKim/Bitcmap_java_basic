@@ -8,7 +8,11 @@ public interface BbsService {
 	
 
 	public List<BbsDto> getBbsList();
+
+	boolean writeBbs(BbsDto bbs);
 	
+	public BbsDto getBbs(int seq);
 	
+	public void reply(BbsDto bbs) throws Exception;
 
 }

@@ -24,4 +24,14 @@ public class BbsDaoImpl implements BbsDao {
 		return list;
 	}
 
-}
+
+	@Override
+	public boolean writeBbs(BbsDto bbsdto) {
+		int res = sqlSession.insert(ns+"writeBbs", bbsdto);
+		return res>0?true:false;
+	}
+	
+	
+	
+
+}//end of class BbsDaoImpl
