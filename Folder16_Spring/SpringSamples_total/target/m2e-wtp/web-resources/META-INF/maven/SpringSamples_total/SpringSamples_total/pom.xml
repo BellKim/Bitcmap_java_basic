@@ -25,8 +25,6 @@
     </plugins>
   </build>
   
-  
-  
   <dependencies>
   	<dependency>
 	    <groupId>org.springframework</groupId>
@@ -347,12 +345,11 @@
   
   </dependencies>
 
-	<repositories>
-	  	<repository>
-			<id>codelds</id>		<!-- ojdbc6 와 함께 추가 -->
-			<url>https://code.lds.org/nexus/content/groups/main-repo</url>
-		</repository>
-	</repositories> 
-
-
+<repositories>
+  	<repository>
+		<id>codelds</id>		<!-- ojdbc6 와 함께 추가 -->
+		<url>https://code.lds.org/nexus/content/groups/main-repo</url>
+	</repository>
+</repositories> 
+  
 </project>

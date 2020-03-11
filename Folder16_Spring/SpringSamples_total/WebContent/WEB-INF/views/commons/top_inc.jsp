@@ -11,7 +11,7 @@
 	
 	
 	<jsp:useBean id="nows" class="java.util.Date"/>
-	<%-- <% Date nowss = new Date(); %>  --%>
+	<%-- <% Date nows = new Date(); %>  --%>
 	<!-- 바로 위와 동일한 구문이다. 하지만 사용한 이유는 값을 넘겨줄때 setAttrubute 에 넣어주지 않아도 되기 때문이다. -->
 	
 	<div style="width:100%; height: 53px; border-bottom:1px solid #5e5e5e;">

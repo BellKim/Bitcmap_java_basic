@@ -3,5 +3,5 @@
 
 
 <div>
-	<img src="./image/bbsbottom1.jpg">
-</div>
+	<img alt="" src="./image/bbsbottom1.jpg" border="0">
+</div>   

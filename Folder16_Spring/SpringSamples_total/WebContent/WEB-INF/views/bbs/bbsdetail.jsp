@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:requestEncoding value="utf-8"/>
     
 <%-- 
 <%
@@ -25,7 +27,9 @@ BbsDto bbs = (BbsDto)request.getAttribute("bbs");
 <tr>
 	<th>작성자</th>
 	<td>
-	<%-- 	<%=bbs.getId() %> --%>
+		<%-- 	<%=bbs.getId() %> --%>
+		${bbs.id }
+	
 	</td>
 </tr>
 
@@ -33,6 +37,7 @@ BbsDto bbs = (BbsDto)request.getAttribute("bbs");
 	<th>제목</th>
 	<td>
 		<%-- <%=bbs.getTitle() %> --%>
+		${bbs.title }
 	</td>
 </tr>
 
@@ -40,6 +45,7 @@ BbsDto bbs = (BbsDto)request.getAttribute("bbs");
 	<th>작성일</th>
 	<td>
 		<%-- <%=bbs.getWdate() %> --%>
+		${bbs.wdate }
 	</td>
 </tr>
 
@@ -47,6 +53,7 @@ BbsDto bbs = (BbsDto)request.getAttribute("bbs");
 	<th>조회수</th>
 	<td>
 		<%-- <%=bbs.getReadcount() %> --%>
+		${bbs.readcount }
 	</td>
 </tr>
 
@@ -54,6 +61,7 @@ BbsDto bbs = (BbsDto)request.getAttribute("bbs");
 	<th>정보</th>
 	<td>
 		<%-- <%=bbs.getRef() %>-<%=bbs.getStep() %>-<%=bbs.getDepth() %> --%>
+		${bbs.ref }
 	</td>
 </tr>
 
@@ -62,6 +70,7 @@ BbsDto bbs = (BbsDto)request.getAttribute("bbs");
 	<td align="center">
 		<textarea rows="10" cols="90" readonly="readonly">
 			<%-- <%=bbs.getContent() %> --%>
+			${bbs.content }
 		</textarea>
 	</td>
 </tr>
@@ -76,7 +85,7 @@ if(bbs.getId().equals(mem.getId())){
 %> --%>
 
 <form action="answer.do" method="get">
-	<input type="hidden" name="seq" value="<%-- <%=bbs.getSeq() %> --%>">
+	<input type="hidden" name="seq" value="<%-- <%=bbs.getSeq() %> --%>${bbs.seq }">
 	<input type="submit" value="댓글">
 </form>
 
