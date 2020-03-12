@@ -19,6 +19,9 @@
 			(SELECT NVL(MAX(REF),0)+1 FROM BBS),
 			0,0,#{title},#{content},SYSDATE,0,0)
 </insert>
+<!--NVL : 지정된 값이 NULL일 경우 지정값을 출력한다. 
+ NVL("값", "지정값")		"값" 이 NULL이면 0으로 출력하기.  
+ -->
 
 <select id="getBbs" parameterType="java.lang.Integer" resultType="bit.com.a.model.BbsDto">
 	SELECT SEQ, ID, REF, STEP, DEPTH, TITLE, 

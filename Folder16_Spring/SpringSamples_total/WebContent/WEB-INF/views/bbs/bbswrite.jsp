@@ -4,54 +4,48 @@
     	
 
 <div class="menu_table">
-	<ul style="width: 90%">
-		<li class="title">
-			글쓰기
-		</li>
-		<li class="subtitle">
-			게시판
-		</li>
-		<li class="subtitle">
-			<a href="bbslist.do" title="글목록">글목록</a>
-		</li>
-		<li class="subtitle">
-			<a href="bbswrite.do" title="글쓰기">글쓰기</a>
-		</li>
-	</ul>
+	<form action="bbswriteAf.do" id="submit_form" method="post">
+		<ul style="width: 90%">
+			<li class="title">
+				글쓰기
+			</li>
+			<li class="subtitle">
+				<p style="width:20%" style="float:left;">아이디</p>
+				<input type="text" id="_id" name="id" value="${login.id }" readonly>
+			</li>
+			<li class="subtitle">
+				<p style="width:20%" style="float:left;">제목</p>
+				<input type="text" id="_title" name="title">
+			</li>
+			<li class="subtitle">
+				<p style="width:20%" style="float:left;">내용</p>
+				<input type="text" id="_content" name="content">
+			</li>
+			<li>
+				<input type="button" id="_regiTolist" value="등록">
+				<input type="button" id="_goToList" value="글 목록으로 이동">
+			</li>
+		</ul>
+	</form>
+	
 </div>
 
-<%-- <table class="list_table" style="width: 85%">
-	<colgroup>
-		<col style="width: 70px">
-		<col style="width: auto">
-		<col style="width: 100px">
-	</colgroup>
-	
-	<thead>
-		<tr>
-			<th>번호</th><th>제목</th><th>작성자</th>
-		</tr>
-	</thead>
-	
-	<tbody>
-		<c:if test="${empty bbslist }">
-			<tr>
-				<td colspan="3"> 작성된 글이 없습니다. </td>
-			</tr>
-		</c:if>
-		<c:forEach items="${bbslist }" var="bbs" varStatus="vs">
-			<tr class="_hover_tr">
-				<td>${vs.count }</td>
-				<td style="text-align: left;">
-					<a href="bbsdetail.do?seq=${bbs.seq }">${bbs.title }</a>
-				</td>
-				<td>${bbs.id }</td>		
-			</tr>	
-		</c:forEach>
-	</tbody>
-</table> --%>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#_regiTolist").click(function(){
+			//alert("클릭됨");
+			var res = "${login.id}";
+			console.log("${login.id}");
+			$("#submit_form").submit();
+		});
 
+		$("#_goToList").click(function(){
+			location.href="bbslist.do";
+		});
+		
+	});
 	
-	
-	
-	
+
+
+</script>
