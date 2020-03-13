@@ -82,8 +82,8 @@
 				<form action="loginAf.do" name="frmForm" id="_frmForm" method="post">
 					<table class="content_table" style="width:75%">
 						<colgroup>
-							<col style="width:30%">  <col>
-							<col style="width:70%">  <col>
+						<col style="width:30%">
+						<col style="width:70%">
 						</colgroup>
 						<tbody>
 							<tr>
@@ -102,7 +102,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" style="height=50px; text-align:center;">
+								<td colspan="2" style="height:50px; text-align:center;">
 									<span>
 										<a href="#none" id="_btnLogin" title="로그인">
 											<img alt="" src="./image/login_btn.jpg">
@@ -152,7 +152,7 @@
 	var user_id=$.cookie("user_id");
 
 	if(user_id != null){
-		alert(" 쿠키 있음. ");
+		//alert(" 쿠키 있음. ");
 		$("#_userid").val(user_id);
 		$("#chk_save_id").attr("checked", "checked");
 	}

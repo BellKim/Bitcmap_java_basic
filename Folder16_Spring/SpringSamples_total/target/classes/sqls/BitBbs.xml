@@ -16,6 +16,7 @@
 			WHERE 1=1
 			<if test="s_category != null and s_category != ''
 				and s_keyword != null and s_keyword != ''">
+				 AND DEL=0
 				<if test="s_category == 'title'">
 					AND TITLE LIKE '%'||#{s_keyword}||'%'
 				</if>
@@ -42,17 +43,18 @@
 <!-- 글의 총수 -->
 <select id="getBbsCount" parameterType="bit.com.a.model.BbsParam"
 	resultType="java.lang.Integer">
-		SELECT NVL(COUNT(*), 0) AS CNT 
-		FROM BBS
-		WHERE 1=1
-		  <if test="s_category != null and s_category !=''
-		  			and s_keyword != null and s_keyword !=''">
-		  		<if test="s_category == 'title'">
-		  			AND TITLE LIKE '%'||#{s_keyword}||'%'
-		  		</if>
-		  		<if test="s_category == 'contents'">
-		  			AND CONTENT LIKE '%'||#{s_keyword}||'%'
-		  		</if>
+	SELECT NVL(COUNT(*), 0) AS CNT
+	FROM BBS
+	WHERE 1=1
+	<if test="s_category != null and s_category != ''
+		and s_keyword != null and s_keyword != ''">
+		 AND DEL=0
+		<if test="s_category == 'title'">
+			AND TITLE LIKE '%'||#{s_keyword}||'%'
+		</if>
+		<if test="s_category == 'contents'">
+			AND CONTENT LIKE '%'||#{s_keyword}||'%'
+		</if>
 		<if test="s_category == 'writer'">
 			AND ID=#{s_keyword}
 		  		</if>
@@ -80,9 +82,20 @@
 		FROM BBS
 		WHERE SEQ=#{seq}
 	</select>
-
-
-
+<!--
+<update id="updateBbs"
+	parameterType="bit.com.a.model.BbsDto">
+		UPDATE BBS SET
+		TITLE=#{title}, CONTENT=#{content}, WDATE=SYSDATE
+		WHERE SEQ=#{seq}
+</update> -->
+<!--
+<update id="deleteBbs" parameterType="java.lang.Integer">
+	UPDATE BBS
+	SET DEL=1
+	WHERE SEQ=#{seq}
+</update>
+-->
 </mapper>
 
 
