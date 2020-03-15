@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="MemberList">
+<mapper namespace="Member">
 
-<!-- <select id="allMember" resultType="bit.com.a.model.MemberDto">
+<select id="allMember" resultType="bit.com.a.model.MemberDto">
 	SELECT * FROM MEMBER
 </select>
 
@@ -26,16 +26,7 @@
 	FROM MEMBER
 	WHERE ID=#{id} AND PWD=#{pwd}
 </select>
- -->
- <select id="loginCheck" parameterType="bit.com.a.model.MemberDto" resultType="bit.com.a.model.MemberDto">
- 	<!-- id, pwd, name, email, auth -->
-	
- 	SELECT ID, PWD, NAME, EMAIL, AUTH 
- 	FROM MEMBER
- 	WHERE ID=#{id} AND PWD=#{pwd}
- </select>
- 
- 
+
 </mapper>
 
 

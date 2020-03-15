@@ -101,26 +101,7 @@ public class BbsController {
 		
 	}
 	
-<<<<<<< HEAD
-	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET,	RequestMethod.POST})
-	public String bbswrite(Model model, BbsDto bbsdto) {
-		logger.info("BbsController bbswrite "+ new Date());
-		System.out.println("bbs write in now!!!!!");
-		
-		return "bbswrite.tiles";
-	}
-	
-//	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
-//	public String bbswriteAf(BbsDto bbs, Model model) {
-//		logger.info("BbsController bbswriteAf! "+ new Date());
-//		bbsService.writeBbs(bbs);
-//		return "redirect:/bbslist.do";
-//	}
-//	
-//	@RequestMapping(value = "bbsdetail.do", method = {RequestMethod.GET, RequestMethod.POST})
-//	public String bbsdetail(int seq, Model model) {
-//		logger.info("BbsController bbsdetail! "+ new Date());
-=======
+
 	@RequestMapping(value = "bbsdetail.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bbsdetail(int seq, Model model) {
 		logger.info("BbsController bbsdetail! "+ new Date());
@@ -136,7 +117,6 @@ public class BbsController {
 	@RequestMapping(value = "bbsupdate.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bbsupdate(int seq, Model model) {
 		logger.info("BbsController bbsupdate! "+ new Date());
->>>>>>> origin/class01
 //		BbsDto bbs=bbsService.getBbs(seq);
 		System.out.println("bbsdetail 의 seq 값 = " + seq);
 //		model.addAttribute("bbs", bbs);
