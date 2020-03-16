@@ -2,7 +2,6 @@ package bit.com.a.aop;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
