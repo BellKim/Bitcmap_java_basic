@@ -108,7 +108,6 @@ public class BitPdsController {
 		
 		//download 경로
 		//tomcat
-//		String fupload = req.getServletContext().getRealPath("/upload");
 		String fupload = req.getServletContext().getRealPath("/upload");
 		
 		//폴더
