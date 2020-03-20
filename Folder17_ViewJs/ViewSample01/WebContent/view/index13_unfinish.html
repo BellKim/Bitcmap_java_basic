@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+		<!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+	</head>
+	<body>
+		
+		<div id="app">
+			<table border="1">
+				<tr>
+					<th>번호</th><th>제목</th><th>작성자</th>
+				</tr>
+				<tr v-for=" item in items">
+					<td>{{item.num}}</td>
+					<td>
+						<a v-bind:href="link">{{item.title}}</a>
+					</td>
+					<td>
+						<a v-bind:href="link">{{item.writer}}</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<script type="text/javascript">
+			var datas=[
+				{num:1, title:"첫번째 제목", wrtier:'abc'},
+				{num:2, title:"두번째 제목", wrtier:'bbb'},
+				{num:3, title:"3번째 제목", wrtier:'ccc'}
+
+			];
+			
+			new Vue({
+				el:'#app',
+				data{
+					link:"NewFile.html",
+					items:datas
+				}
+			});
+			
+		</script>
+	</body>
+</html>

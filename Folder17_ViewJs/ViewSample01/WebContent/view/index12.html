@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<span v-for=' n in 100 '>
+					{{n}}
+				</span>
+			</ul>
+		</div>
+		
+		<div id="app1">
+			<ul v-for=' i in 9 ' style="display:inline-block;">
+				<li v-for='j in 9'>
+					{{i}} * {{j}} = {{i*j}}
+				</li>
+			</ul>
+		</div>
+		
+		<div id="app2">
+			<ul>
+				<li v-for="item in items">
+					{{item.msg}}
+				</li>
+			</ul>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+		
+			new Vue({
+				el:"#app"
+			})
+			
+			new Vue({
+				el:"#app1"	
+			})
+			
+			new Vue({
+				el:"#app2",
+				data:{
+					items:[
+						{msg:'사과'},
+						{msg:'배'},
+						{msg:'복숭아'}
+					]
+				}
+				
+				
+			})
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

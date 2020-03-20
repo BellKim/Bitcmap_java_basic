@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+				<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+		
+	</head>
+	<body>
+		<div id="app">
+			<h1> {{value}}</h1>
+			
+			<button v-on:click='setValue("왼쪽")'> 클릭 </button>
+			<button @click='setValue("오른쪽")'> 클릭 </button>
+			
+			
+		
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:"#app",
+				data:{
+					value:"클릭하세요?!"
+				},
+				methods:{
+					setValue(str){
+					this.value = str + "click!";
+					//this 를 넣느냐 넣지 않았느냐에 따라서 동작이 되고 안되고가 갈린다.
+					}
+					
+				}
+			})
+		
+		</script>
+		
+		
+	</body>
+</html>
