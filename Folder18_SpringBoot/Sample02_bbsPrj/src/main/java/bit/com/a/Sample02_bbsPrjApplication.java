@@ -1,16 +1,13 @@
 package bit.com.a;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "")
-public class Sample01Application {
+public class Sample02_bbsPrjApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Sample01Application.class, args);
+		SpringApplication.run(Sample02_bbsPrjApplication.class, args);
 	}
-	
 
 }
