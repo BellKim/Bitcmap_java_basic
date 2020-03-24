@@ -58,7 +58,44 @@ var v = new Vue({       // new 키워드 Vue 인스턴스 생성
     },
     methods:{ 
     	login:function(){
-    		
+    		//alert("login button on ");
+    		if(this.id==""){
+				alert("아이디를입력해주세여");
+				return;
+			}
+    		//보낼 데잍터
+    		var params = new URLSearchParams();
+    		params.append("id", this.id);
+    		params.append("pwd", this.pwd);
+
+			axios.post('http://localhost:3000/login', params)
+				.then(res => {
+					//alert("http://localhost:3000/login, 통신성공 ");
+					alert(JSON.stringify(res.data));
+					
+					
+					//session -> vuex
+					//html -> sessionStorage, localStorage -> cookie(string)
+					
+					
+					//저장
+					sessionStorage.setItem("login", JSON.stringify(res.data));
+					
+					var loginData = sessionStorage.getItem("login");
+					
+					console.log("로그인데이터 출력 : "+loginData);
+					
+					var login = JSON.parse(loginData);
+					console.log("JSON 로그인데이터 출력 : "+login);
+					//alert(login.id);
+					//alert(login.name);
+					
+					//이동
+					location.href="bbslist.html";
+					
+				});
+
+
     	},
     	account:function(event){
     		alert("account");
