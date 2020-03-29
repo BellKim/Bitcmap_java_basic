@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>    
+			
+		<script src="./jquery/jquery.twbsPagination.js"></script>
+		<script src="./jquery/jquery.twbsPagination.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://unpkg.com/vue-router"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
+		
+	</head>
+	<body>
+	
+	
+		<div id="app" class="container">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<td>번호</td>
+						<td>제목</td>
+						<td>작성자</td>
+					</tr>
+				</thead>
+				<tbody v-for="(data, index) in dataList">
+					<tr>
+						<!-- <td>{{index + 1}}</td>
+						<td>{{data.title}}</td>
+						<td>{{data.name}}</td> -->
+						<td>{{index + 1}}</td>
+						<td @click="detail(data.seq)">{{data.title}}</td>
+						<td>{{data.id}}</td>
+						
+					</tr>
+				</tbody>
+			</table>
+
+			
+			<!-- paging -->
+			<div class="row d-flex justify-content-center">
+				<nav aria-label="Page navigation example" style="text-align: center;">
+					<ul class="pagination-sm" id="pagination"></ul>
+				</nav>	
+			</div>
+				
+			<div align="center">
+				<!--  검색 -->
+				<select v-model="s_category">
+					<option v-for="option in options" v-bind:value="option.value">
+						{{option.text}} 
+					</option>
+				</select>
+				
+				<!-- 검색창 -->
+				<input v-model="s_keyword" placeholder="검색어입력" size="20">
+				
+				<!-- 검색버튼 -->
+				<button v-on:click="searchBbs()"> 검색 </button>
+				
+				
+				<br><br>
+				<button v-on:click="writeBbs()"> 글쓰기 </button>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var vu = new Vue({
+				el:'#app',
+				data:{
+					//데이터 초기화
+					dataList:[],
+					s_category:'sel',
+					s_keyword:'',
+					options:[
+						{text:'선택', value:'sel'},
+						{text:'제목', value:'title'},
+						{text:'내용', value:'content'},
+						{text:'작성자', value:'writer'}
+					]
+				},
+				
+				mounted:function(){
+					//alert('mounted');
+					this.getList();
+				},
+				
+				methods:{
+					getList:function(){//mounted:자동적으로 호출해주는 함수
+					
+					//글의 총수
+					axios.get('http://localhost:3000/getBbsCount',
+						{
+							params:{
+								s_category:'',
+								s_keyword:'',
+								recordCountPerPage:10,
+								pageNumber:1
+							}
+						}		
+					).then(res=>{
+						//alert("getBbsCount 통신성공");
+						//alert("res = " + res.data);
+						loadPage(res.data);
+					})
+				//글목록
+				axios.get('http://localhost:3000/getBbsPageList',
+						{
+						params:{
+							s_category:'',
+							s_keyword:'',
+							recordCountPerPage:10,
+							pageNumber: 1							
+							}
+						}
+				).then(res => {
+					//	alert('getBbsPageList 통신성공!');
+					//	alert(JSON.stringify(res.data));
+						this.dataList = res.data;
+					})				
+				},
+				
+				
+				//글 검색
+				searchBbs:function(){
+					axios.get('http://localhost:3000/getBbsPageList',
+							{
+							params:{
+								s_category:this.s_category,
+								s_keyword:this.s_keyword,
+								recordCountPerPage:10,
+								pageNumber: 1							
+								}
+							}
+					).then(res => {
+						//	alert('getBbsPageList 통신성공!');
+						//	alert(JSON.stringify(res.data));
+							this.dataList = res.data;
+						})
+					
+				},
+				writeBbs:function(){
+					// 이동
+				},
+				detail:function(seq){
+					// 이동
+				}
+				
+			}
+
+			});
+			
+			
+			function loadPage(totalCount){
+				var pageSize = 10;
+				var nowPage = 1;
+				var recordCountPerPage = 10;
+
+				totalPages = totalCount / pageSize;
+				if (totalCount%pageSize > 0) {
+					totalPages++;
+					
+				}
+				
+				$('#pagination').twbsPagination({
+					
+					   //startPage: 1,	//시작 페이지
+					   totalPages: totalPages,  // 전체 page블럭 수
+					   visiblePages: 10,  // 출력될 page 블럭수 상수로 지정해 줘도 되고, 변수로 지정해줘도 된다.
+					   first: '<span aria-hidden="true">«</span>',
+					   prev: "이전",
+					   next: "다음",   
+					   last: '<span aria-hidden="true">»</span>',
+					   onPageClick: function (event, page) {
+						   alert("page : " + page);
+							//$('#page-content').text('Page ' + page);
+							
+							axios.get('http://localhost:3000/getBbsPageList',{
+								params:{
+									s_category:vu.s_category,
+									s_keyword:vu.s_keyword,
+									recordCountPerPage:10,
+									pageNumber:page
+									
+								}
+							}).then(res=> {
+								console.log(JSON.stringify(res.data));
+								vu.dataList = res.data;
+								
+							})
+					   }
+					});
+			}
+
+		</script>
+	
+	
+	</body>
+</html>
+
+
+
+

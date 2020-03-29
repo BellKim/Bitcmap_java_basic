@@ -8,7 +8,7 @@ public interface MemberDao {
 
 	public List<MemberDto> allMember();
 	
-	public int getId(MemberDto mem);	
+	public int getId(MemberDto mem);
 	public boolean addmember(MemberDto mem);
 	
 	public MemberDto login(MemberDto dto);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- mycss.style %> <!--소스코드를 가져온다. -->
+    
+
+
+</head>
+<body>
+    <h1> hello ejs(<%=title %>) </h1>
+
+    <% for(i=0; i<3; i++){%>
+
+        <h3> hello world node.js </h3>
+
+    <%}%>
+
+
+
+    
+</body>
+</html>
+
+
+<!--
+    ejs=Enbedded Javascript
+    Javascript가 내장되어있는 html 파일
+
+    <%  %>      javascript code
+    <%=  %>     javascript value
+    <%- %>     read용
+
+        html -> link로 데이터를 넘길 수 있다 ? -> ok 
+        java(data)-> html 데이터를 넣을 수 있다. -> no
+                    -> ajax(Jquery) -> OK
+
+-->
+
+
+
+

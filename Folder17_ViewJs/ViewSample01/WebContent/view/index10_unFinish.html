@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{value}}</h1>
+			<input type="text" id="input" :value="'value'" @keypress='setValue()'>
+			
+		</div>
+		
+		<script type="text/javascript">
+		 new Vue({
+			el:"#app",
+			data: {
+				value:'기본값'
+			},
+			methods{
+				setValue:function(){
+					app.value=document.getElementById("input").value;
+				},
+				setDecfault:function(){}
+				this.value="기본값";
+			}
+			
+		 });
+		
+		</script>
+		
+	</body>
+</html>

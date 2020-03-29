@@ -1,0 +1,23 @@
+package bit.com.a.dao;
+
+
+
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+import bit.com.a.model.MemberDto;
+
+@Mapper
+@Repository
+public interface MemberDao  {
+	
+	public List<MemberDto> allMember();
+	
+	
+	
+	
+
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+	<div id="app">
+	
+	</div>
+	
+	
+	<script type="text/javascript">
+		new Vue({
+			el:"#app"
+			
+		});
+		
+		
+		//post의 경우 : 
+		var params=new URLSearchParams();
+		params.append('title','vue로부터 post title 전송');
+		params.append('content','vue로부터 post content 전송');
+		
+		axios.post('http://localhost:3000/conn_post_param', params)
+			.then(res=>{
+				alert("통신성공");
+				alert(res.data);
+			})
+	
+	</script>
+</body>
+</html>

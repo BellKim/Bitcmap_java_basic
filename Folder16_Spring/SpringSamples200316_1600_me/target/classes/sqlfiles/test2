@@ -1,0 +1,7 @@
+select * from member
+
+insert into MEMBER
+values('admin', 'admin','admin' , 'admin@admin.com', 1);
+
+delete from member
+WHERE id='admin'

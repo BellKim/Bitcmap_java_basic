@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta charset="UTF-8">
+		<title>Insert title here</title>
+				<title>Insert title here</title>
+				<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+	</head>
+	<body>
+		<ul id="app">
+			<li>
+				<a v-vind:href='url'>{{url}}</a>
+			</li>
+			<li>
+				<a :href='getUrl("naver")'>Naver</a>
+			</li>
+		</ul>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					url:"http://www.google.com"
+				},
+				methods:{
+					getUrl:function(name){
+						return "http://" + name + ".com"
+					}
+				}
+				
+				
+			})
+		
+		</script>
+		
+		
+	</body>
+</html>

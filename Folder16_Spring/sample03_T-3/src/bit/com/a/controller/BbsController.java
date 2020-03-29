@@ -39,18 +39,23 @@ public class BbsController {
 		List<BbsDto> list = bbsService.getBbsList(param);
 		model.addAttribute("bbslist", list);
 		
-		return "bbslist";
+		return "bbslist.tiles";
 	}
 	
-	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET,	RequestMethod.POST})
-	public String bbswrite(Model model) {
-		logger.info("BbsController bbswrite "+ new Date());		
-		return "bbswrite";
+	@RequestMapping(value = "bbsd", method = {RequestMethod.GET,	RequestMethod.POST})
+	public String bbswrite(Model model, BbsDto bbsdto) {
+		logger.info("BbsController bbswrite "+ new Date());
+		System.out.println("bbs write in now!!!!!");
+		
+		return "bbswrite.tiles";
 	}
 	
 	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
 	public String bbswriteAf(BbsDto bbs, Model model) {
 		logger.info("BbsController bbswriteAf! "+ new Date());
+		System.out.println("들어온 데이터 ");
+		logger.info("bbs내용" + bbs);
+		
 		bbsService.writeBbs(bbs);
 		return "redirect:/bbslist.do";
 	}
